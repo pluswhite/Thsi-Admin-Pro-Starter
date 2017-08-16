@@ -31,7 +31,7 @@ const config = {
       inProject(project.srcDir),
       'node_modules',
     ],
-    extensions: ['*', '.js', '.jsx', '.json'],
+    extensions: ['*', '.web.jsx', '.web.js', '.js', '.jsx', '.json'],
   },
   externals: project.externals,
   module: {
@@ -73,6 +73,19 @@ config.module.rules.push({
             useBuiltIns: true // we polyfill Object.assign in src/normalize.js
           },
         ],
+        [
+          'import', [
+            {
+              'libraryName': 'antd',
+              'style': true
+            },
+            {
+              'libraryName': 'antd-mobile',
+              'libraryDirectory': 'lib',
+              'style': true
+            }
+          ]
+        ]
       ],
       presets: [
         'babel-preset-react',
@@ -134,16 +147,89 @@ config.module.rules.push({
     ],
   })
 })
+config.module.rules.push({
+  test: /\.less$/,
+  loader: extractStyles.extract({
+    fallback: 'style-loader',
+    use: [
+      {
+        loader: 'css-loader',
+        options: {
+          sourceMap: project.sourcemaps,
+          minimize: {
+            autoprefixer: {
+              add: true,
+              remove: true,
+              browsers: ['last 2 versions'],
+            },
+            discardComments: {
+              removeAll : true,
+            },
+            discardUnused: false,
+            mergeIdents: false,
+            reduceIdents: false,
+            safe: true,
+            sourcemap: project.sourcemaps,
+          },
+        },
+      },
+      // {
+      //   loader: 'postcss-loader',
+      //   options: {
+      //     sourceMap: project.sourcemaps,
+      //     includePaths: [
+      //       inProjectSrc('styles'),
+      //     ],
+      //     plugins: (loader) => [
+      //       require('postcss-pxtorem')({ rootValue: PX2REM_ROOT, propWhiteList: [] }),
+      //     ]
+      //   },
+      // },
+      {
+        loader: 'less-loader',
+        options: {
+          sourceMap: project.sourcemaps,
+          includePaths: [
+            inProjectSrc('styles'),
+          ],
+        },
+      }
+    ],
+  })
+})
 config.plugins.push(extractStyles)
 
 // Images
 // ------------------------------------
 config.module.rules.push({
   test    : /\.(png|jpg|gif)$/,
-  loader  : 'url-loader',
-  options : {
-    limit : 8192,
-  },
+  exclude: /node_modules/,
+  use: [
+    {
+      loader  : 'url-loader',
+      options : {
+        limit : 8192,
+      },
+    },
+    {
+      loader: 'image-webpack-loader',
+      query: {
+        mozjpeg: {
+          progressive: true,
+        },
+        gifsicle: {
+          interlaced: false,
+        },
+        optipng: {
+          optimizationLevel: 7,
+        },
+        pngquant: {
+          quality: '65-90',
+          speed: 4
+        }
+      }
+    }
+  ]
 })
 
 // Fonts

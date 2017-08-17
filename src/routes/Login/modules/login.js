@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch'
+import axios from 'axios'
 
 /**
  * Constants
@@ -30,15 +30,29 @@ export const requestLoginFailure = () => {
   }
 }
 
-export const handleLogin = (loginData) => {
+export const handleLogin = (loginData, callback) => {
   return (dispatch) => {
-    console.log(loginData)
     dispatch(requestLoginPosts())
 
-    return fetch('/mocks/login.json')
-      .then(res => res.json())
-      .then(res => dispatch(requestLoginSuccess(res)))
-      .catch(() => dispatch(requestLoginFailure()))
+    return axios.get('mocks/login.json', {
+      params: {
+        ...loginData,
+        'rnd': (new Date()).getTime()
+      }
+    })
+      .then(res => {
+        console.log(res)
+        if (res.data.success === 'success') {
+          dispatch(requestLoginSuccess(res))
+          callback && callback()
+        } else {
+          dispatch(requestLoginFailure())
+        }
+      })
+      .catch(err => {
+        dispatch(requestLoginFailure())
+        console.log(err)
+      })
   }
 }
 

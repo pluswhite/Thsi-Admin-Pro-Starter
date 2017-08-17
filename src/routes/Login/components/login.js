@@ -23,8 +23,8 @@ class Login extends Component {
     }
   }
 
-  handleLoginSubmit = (e) => {
-    e.preventDefault()
+  handleLoginSubmit = (evt) => {
+    evt.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)

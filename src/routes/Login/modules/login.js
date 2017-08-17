@@ -18,9 +18,12 @@ export const requestLoginPosts = () => {
   }
 }
 
-export const requestLoginSuccess = () => {
+export const requestLoginSuccess = (data) => {
   return {
-    type: REQUEST_LOGIN_SUCCESS
+    type: REQUEST_LOGIN_SUCCESS,
+    payload: {
+      data
+    }
   }
 }
 
@@ -42,8 +45,12 @@ export const handleLogin = (loginData, callback) => {
     })
       .then(res => {
         console.log(res)
-        if (res.data.success === 'success') {
-          dispatch(requestLoginSuccess(res))
+        if (res.data.status === 'success') {
+          const { userid, accesstoken } = res.data.data
+          dispatch(requestLoginSuccess(res.data.data))
+          console.log(accesstoken)
+          localStorage.setItem('access_token', accesstoken)
+          localStorage.setItem('user_id', userid)
           callback && callback()
         } else {
           dispatch(requestLoginFailure())
@@ -73,7 +80,10 @@ const AUTH_ACTION_HANDLERS = {
   [REQUEST_LOGIN_SUCCESS]: (state, action) => {
     return ({
       ...state,
-      isLoading: false
+      isLoading: false,
+      isAuthenticated: true,
+      userId: action.payload.data.userid,
+      accessToken: action.payload.data.accesstoken
     })
   },
   [REQUEST_LOGIN_FAILURE]: (state) => {
@@ -88,7 +98,10 @@ const AUTH_ACTION_HANDLERS = {
  * Reducers
  */
 const initialState = {
-  isLoading: false
+  isLoading: false,
+  isAuthenticated: false,
+  userId: null,
+  accessToken: null
 }
 
 export default function loginReducer (state = initialState, action) {

@@ -11,12 +11,12 @@ export default (store, authRouteCheck) => ({
       // './modules/login'
     ], (require) => {
       const Login = require('./containers/LoginContainer').default
-      // const loginReducer = require('./modules/login').default
+      const loginReducer = require('./modules/login').default
 
-      // injectReducer(store, {
-      //   key: 'login',
-      //   reducer: loginReducer
-      // })
+      injectReducer(store, {
+        key: 'auth',
+        reducer: loginReducer
+      })
 
       next(null, Login)
     })

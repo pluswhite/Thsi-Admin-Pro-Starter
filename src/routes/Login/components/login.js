@@ -12,7 +12,7 @@ const FormItem = Form.Item
 
 class Login extends Component {
   static propTypes = {
-    onLoginFormSubmit: PropTypes.func.isRequired
+    handleLogin: PropTypes.func.isRequired
   }
 
   constructor (props) {
@@ -21,31 +21,21 @@ class Login extends Component {
       focused: false,
       focused1: false,
     }
-
-    this.onLoginSubmit = this.props.onLoginFormSubmit
   }
 
-  handleSubmit = (e) => {
+  handleLoginSubmit = (e) => {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        // console.log('Received values of form: ', values)
-        this.onLoginSubmit(values)
+        console.log('Received values of form: ', values)
+        this.props.handleLogin(values)
       }
-    })
-  }
-
-  handleLoginSubmit = () => {
-    // console.log(this.state)
-    this.props.form.validateFields((error, value) => {
-      console.log(error)
-      console.log(value)
     })
   }
 
   render () {
     const {
-      getFieldDecorator,
+      getFieldDecorator
     } = this.props.form
 
     return (
@@ -56,7 +46,7 @@ class Login extends Component {
         <Header />
         <div className='page-layout__viewport'>
           <div id='login-form-wrapper'>
-            <Form onSubmit={this.handleSubmit} className='login-form'>
+            <Form onSubmit={this.handleLoginSubmit} className='login-form'>
               <FormItem>
                 {getFieldDecorator('email', {
                   rules: [

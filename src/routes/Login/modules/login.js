@@ -3,70 +3,66 @@ import fetch from 'isomorphic-fetch'
 /**
  * Constants
  */
-export const REQUEST_AUTH_POSTS = 'REQUEST_AUTH_POSTS'
-export const REQUEST_AUTH_SUCCESS = 'REQUEST_AUTH_SUCCESS'
-export const REQUEST_AUTH_FAILURE = 'REQUEST_AUTH_FAILURE'
-export const REQUEST_AUTH_CLEAR = 'REQUEST_AUTH_CLEAR'
-export const FETCH_AUTH_DATA_REQUEST = 'FETCH_AUTH_DATA_REQUEST'
-export const RECEIVE_AUTH_DATA = 'RECEIVE_AUTH_DATA'
-export const FETCH_AUTH_DATA_FAILURE = 'FETCH_AUTH_DATA_FAILURE'
 export const VALIDATE_TOKEN = 'VALIDATE_TOKEN'
+
+export const REQUEST_LOGIN_POSTS = 'REQUEST_LOGIN_POSTS'
+export const REQUEST_LOGIN_SUCCESS = 'REQUEST_LOGIN_SUCCESS'
+export const REQUEST_LOGIN_FAILURE = 'REQUEST_LOGIN_FAILURE'
 
 /**
  * Actions
  */
-export const requestAuthPosts = () => {
+export const requestLoginPosts = () => {
   return {
-    type: REQUEST_AUTH_POSTS
+    type: REQUEST_LOGIN_POSTS
   }
 }
 
-export const requestAuthSuccess = () => {
+export const requestLoginSuccess = () => {
   return {
-    type: REQUEST_AUTH_SUCCESS
+    type: REQUEST_LOGIN_SUCCESS
   }
 }
 
-export const requestAuthFailure = () => {
+export const requestLoginFailure = () => {
   return {
-    type: REQUEST_AUTH_FAILURE
+    type: REQUEST_LOGIN_FAILURE
   }
 }
 
-export const fetchAuth = () => {
+export const handleLogin = (loginData) => {
   return (dispatch) => {
-    dispatch(requestAuthPosts())
+    console.log(loginData)
+    dispatch(requestLoginPosts())
 
-    return fetch('/user/login')
+    return fetch('/mocks/login.json')
       .then(res => res.json())
-      .then(res => dispatch(requestAuthSuccess(res)))
+      .then(res => dispatch(requestLoginSuccess(res)))
+      .catch(() => dispatch(requestLoginFailure()))
   }
 }
 
 export const actions = {
-  requestAuthPosts,
-  requestAuthSuccess,
-  requestAuthFailure,
-  fetchAuth
+  handleLogin
 }
 
 /**
  * Action Handlers
  */
 const AUTH_ACTION_HANDLERS = {
-  [REQUEST_AUTH_POSTS]: (state) => {
+  [REQUEST_LOGIN_POSTS]: (state) => {
     return ({
       ...state,
       isLoading: true
     })
   },
-  [REQUEST_AUTH_SUCCESS]: (state, action) => {
+  [REQUEST_LOGIN_SUCCESS]: (state, action) => {
     return ({
       ...state,
       isLoading: false
     })
   },
-  [REQUEST_AUTH_FAILURE]: (state) => {
+  [REQUEST_LOGIN_FAILURE]: (state) => {
     return ({
       ...state,
       isLoading: false
@@ -81,7 +77,7 @@ const initialState = {
   isLoading: false
 }
 
-export default function loginReducer(state = initialState, action) {
+export default function loginReducer (state = initialState, action) {
   const handler = AUTH_ACTION_HANDLERS[action.type]
   // console.log(handler)
 

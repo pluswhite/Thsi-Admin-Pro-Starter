@@ -32,7 +32,8 @@ const config = {
       'node_modules',
     ],
     alias: {
-      vcms: path.resolve(__dirname, '../src/components/')
+      vcms: path.resolve(__dirname, '../src/components/'),
+      vassets: path.resolve(__dirname, '../src/assets/')
     },
     extensions: ['*', '.web.jsx', '.web.js', '.js', '.jsx', '.json'],
   },

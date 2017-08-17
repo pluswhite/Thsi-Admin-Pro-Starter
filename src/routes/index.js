@@ -27,7 +27,6 @@ export const createRoutes = (store) => ({
         require('./Register').default(store),
         require('./Login').default(store),
         require('./Logout').default(store, authRouteCheck),
-        require('./Counter').default(store),
         require('./NoContent').default(store),
       ])
     })

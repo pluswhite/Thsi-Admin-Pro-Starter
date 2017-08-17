@@ -24,6 +24,7 @@ export const createRoutes = (store) => ({
     require.ensure([], (require) => {
       cb(null, [
         // Remove imports!
+        require('./Admin').default(store),
         require('./Register').default(store),
         require('./Login').default(store),
         require('./Logout').default(store, authRouteCheck),

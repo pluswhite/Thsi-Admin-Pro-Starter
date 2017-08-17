@@ -1,5 +1,5 @@
 @import 'base';
-@import '~bootstrap/scss/bootstrap.scss';
+// @import '~bootstrap/scss/bootstrap.scss';
 
 // Some best-practice CSS that's useful for most apps
 // Just remove them if they're not what you want
@@ -18,4 +18,24 @@ body {
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+a, blockquote, body, button, code, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, html, iframe, img, input, label, li, object, ol, p, q, small, span, strong, table, tbody, td, th, tr, ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #131313;
+}
+
+.clearfix:after {
+  display: block;
+  height: 0;
+  content: " ";
+  clear: both;
+  font-size: 0;
+  visibility: hidden;
 }

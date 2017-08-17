@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
+import 'antd/lib/style/index.less'
 import './styles/main.scss'
 
 // Store Initialization

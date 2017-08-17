@@ -1,11 +1,16 @@
 import React from 'react'
-import DuckImage from '../assets/Duck.jpg'
+import Helmet from 'react-helmet'
+import Header from 'vcms/Header'
+
 import './Home.scss'
 
 export const Home = () => (
   <div>
+    <Helmet>
+      <title>首页</title>
+    </Helmet>
+    <Header />
     <h4>Welcome!</h4>
-    <img alt='This is a duck, because Redux!' className='duck' src={DuckImage} />
   </div>
 )
 

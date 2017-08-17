@@ -1,0 +1,28 @@
+.header {
+  background: #fff;
+  border-bottom: 1px solid #dadada;
+
+  .header-logo {
+    display: block;
+    height: 60px;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  &.ant-layout-header {
+    height: 60px;
+  }
+
+  .ant-menu {
+    height: 60px;
+    line-height: 60px;
+    border-bottom-color: #dadada;
+  }
+
+  a.nav-logout {
+    color: #f46e65;
+  }
+}

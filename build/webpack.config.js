@@ -31,6 +31,9 @@ const config = {
       inProject(project.srcDir),
       'node_modules',
     ],
+    alias: {
+      vcms: path.resolve(__dirname, '../src/components/')
+    },
     extensions: ['*', '.web.jsx', '.web.js', '.js', '.jsx', '.json'],
   },
   externals: project.externals,

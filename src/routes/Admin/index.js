@@ -1,4 +1,5 @@
 import { injectReducer } from '../../store/reducers'
+import userIsAuthenticated from 'vcms/RouterAuth'
 
 export default (store) => ({
   path: 'admin',
@@ -14,7 +15,7 @@ export default (store) => ({
         reducer: adminReducer
       })
 
-      next(null, Admin)
+      next(null, userIsAuthenticated(Admin))
     })
   }
 })

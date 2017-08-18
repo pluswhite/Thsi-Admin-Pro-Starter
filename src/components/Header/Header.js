@@ -13,8 +13,9 @@ class HeaderView extends Component {
   }
 
   render () {
-    // const { authenticated } = this.props
-    const authenticated = false
+    const { isAuthenticated } = this.props
+    // console.log(this.props)
+    console.log(isAuthenticated)
     return (
       <Header className='header'>
         <Row>
@@ -31,7 +32,7 @@ class HeaderView extends Component {
                 </IndexLink>
               </Menu.Item>
               <Menu.Item key='admin'>
-                {authenticated &&
+                {isAuthenticated &&
                   <Link className='btn' to='/admin' activeClassName='active'>
                     <Icon type='appstore-o' /> Admin
                   </Link>
@@ -44,14 +45,14 @@ class HeaderView extends Component {
               mode='horizontal'
               style={{ float: 'right' }}
             >
-              {!authenticated &&
+              {!isAuthenticated &&
                 <Menu.Item key='login'>
                   <Link className='btn' to='/login' activeClassName='active'>
                     <Icon type='key' /> Login
                   </Link>
                 </Menu.Item>
               }
-              {authenticated &&
+              {isAuthenticated &&
                 <Menu.Item key='logout'>
                   <Link className='btn nav-logout' to='/logout' activeClassName='active'>
                     <Icon type='poweroff' /> Logout

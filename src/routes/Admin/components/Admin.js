@@ -11,12 +11,15 @@ class Admin extends Component {
   }
 
   render () {
+    const { isAuthenticated } = this.props
+    console.log(this.props)
+
     return (
       <div>
         <Helmet>
           <title>后台管理</title>
         </Helmet>
-        <Header />
+        <Header isAuthenticated={isAuthenticated} />
         <div className='page-layout__viewport'>
           <h2>Admin Dashboard</h2>
         </div>

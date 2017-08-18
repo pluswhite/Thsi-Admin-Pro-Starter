@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import { Helmet } from 'react-helmet'
 
@@ -28,7 +28,9 @@ class Login extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
-        this.props.handleLogin(values)
+        this.props.handleLogin(values, () => {
+          browserHistory.push('/admin')
+        })
       }
     })
   }

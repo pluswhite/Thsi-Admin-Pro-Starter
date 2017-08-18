@@ -44,7 +44,6 @@ export const handleLogin = (loginData, callback) => {
       }
     })
       .then(res => {
-        console.log(res)
         if (res.data.status === 'success') {
           const { userid, accesstoken } = res.data.data
           dispatch(requestLoginSuccess(res.data.data))

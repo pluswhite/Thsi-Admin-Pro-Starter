@@ -4,7 +4,7 @@ import { Link, browserHistory } from 'react-router'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import { Helmet } from 'react-helmet'
 
-import Header from 'vcms/Header'
+import Header from 'vctns/HeaderContainer'
 
 import './login.scss'
 

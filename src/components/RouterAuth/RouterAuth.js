@@ -5,12 +5,17 @@ const userIsAuthenticated = connectedRouterRedirect({
   // The url to redirect user to if they fail
   redirectPath: '/login',
   // Determine if the user is authenticated or not
-  authenticatedSelector: state => (state.auth && state.auth.isAuthenticated),
+  authenticatedSelector: (state) => {
+    // if (localStorage.getItem('access_token') !== null) {
+    //   return true
+    // }
+    return (state.auth && state.auth.isAuthenticated)
+  },
   // A nice display name for this check
   wrapperDisplayName: 'UserIsAuthenticated',
 
   // This should be a redux action creator
-  redirectAction: routerActions.replace,
+  redirectAction: routerActions.replace
 })
 
 export default userIsAuthenticated

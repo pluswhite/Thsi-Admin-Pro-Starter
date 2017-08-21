@@ -1,4 +1,4 @@
-import { injectReducer } from '../../store/reducers'
+// import { injectReducer } from '../../store/reducers'
 
 export default (store, authRouteCheck) => ({
   path: 'login',
@@ -11,12 +11,12 @@ export default (store, authRouteCheck) => ({
       // './modules/login'
     ], (require) => {
       const Login = require('./containers/LoginContainer').default
-      const loginReducer = require('./modules/login').default
+      // const loginReducer = require('./modules/login').default
 
-      injectReducer(store, {
-        key: 'auth',
-        reducer: loginReducer
-      })
+      // injectReducer(store, {
+      //   key: 'login',
+      //   reducer: loginReducer
+      // })
 
       next(null, Login)
     })

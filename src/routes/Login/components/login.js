@@ -12,7 +12,7 @@ const FormItem = Form.Item
 
 class Login extends Component {
   static propTypes = {
-    handleLogin: PropTypes.func.isRequired
+    // handleLogin: PropTypes.func.isRequired
   }
 
   constructor (props) {
@@ -20,16 +20,22 @@ class Login extends Component {
     this.state = {
       focused: false,
       focused1: false,
+      redirectPath: props.redirectPath
     }
   }
 
   handleLoginSubmit = (evt) => {
+    const { redirectPath } = this.state
     evt.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
         this.props.handleLogin(values, () => {
-          browserHistory.push('/admin')
+          if (redirectPath) {
+            browserHistory.push(redirectPath)
+          } else {
+            browserHistory.push('/')
+          }
         })
       }
     })

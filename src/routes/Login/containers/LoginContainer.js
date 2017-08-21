@@ -1,7 +1,5 @@
 import { connect } from 'react-redux'
-// import auth from 'react-jwt-auth-redux'
-import { handleLogin } from '../modules/login'
-
+import { handleLogin } from 'vstore/auth'
 import WrappedLoginForm from '../components/Login'
 
 const mapActionCreators = {
@@ -9,6 +7,7 @@ const mapActionCreators = {
 }
 
 const mapStateToProps = (state) => ({
+  redirectPath: state.location.query.redirect
 })
 
 export default connect(mapStateToProps, mapActionCreators)(WrappedLoginForm)

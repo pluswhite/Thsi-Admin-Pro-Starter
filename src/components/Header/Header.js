@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { IndexLink, Link } from 'react-router'
 import { Layout, Menu, Icon, Row, Col } from 'antd'
 
@@ -7,6 +8,10 @@ import './Header.scss'
 const { Header } = Layout
 
 class HeaderView extends Component {
+  static propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired
+  }
+
   constructor (props) {
     super(props)
     this.state = {}
@@ -14,8 +19,6 @@ class HeaderView extends Component {
 
   render () {
     const { isAuthenticated } = this.props
-    // console.log(this.props)
-    console.log(isAuthenticated)
     return (
       <Header className='header'>
         <Row>

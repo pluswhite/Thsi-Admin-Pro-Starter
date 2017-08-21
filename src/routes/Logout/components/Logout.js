@@ -10,12 +10,12 @@ class Logout extends Component {
 
     this.timer = null
     this.state = {
-      timeout: this.props.timeout
+      timeout: 3,
     }
   }
 
   componentDidMount () {
-    // this.props.logout()
+    this.props.handleLogout()
     this.timer = setInterval(() => {
       let timeout = this.state.timeout - 1
       if (timeout <= 0) {

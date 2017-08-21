@@ -9,6 +9,10 @@ export const REQUEST_LOGIN_POSTS = 'REQUEST_LOGIN_POSTS'
 export const REQUEST_LOGIN_SUCCESS = 'REQUEST_LOGIN_SUCCESS'
 export const REQUEST_LOGIN_FAILURE = 'REQUEST_LOGIN_FAILURE'
 
+export const REQUEST_LOGOUT_POSTS = 'REQUEST_LOGOUT_POSTS'
+export const REQUEST_LOGOUT_SUCCESS = 'REQUEST_LOGOUT_SUCCESS'
+export const REQUEST_LOGOUT_FAILURE = 'REQUEST_LOGOUT_FAILURE'
+
 /**
  * Actions
  */
@@ -30,6 +34,27 @@ export const requestLoginSuccess = (data) => {
 export const requestLoginFailure = () => {
   return {
     type: REQUEST_LOGIN_FAILURE
+  }
+}
+
+export const requestLogoutPosts = () => {
+  return {
+    type: REQUEST_LOGOUT_POSTS
+  }
+}
+
+export const requestLogoutSuccess = (data) => {
+  return {
+    type: REQUEST_LOGOUT_SUCCESS,
+    payload: {
+      data
+    }
+  }
+}
+
+export const requestLogoutFailure = () => {
+  return {
+    type: REQUEST_LOGOUT_FAILURE
   }
 }
 
@@ -62,8 +87,25 @@ export const handleLogin = (loginData, callback) => {
   }
 }
 
+export const handleLogout = (callback) => {
+  return (dispatch) => {
+    dispatch(requestLogoutPosts())
+    try {
+      // Clear local access_token & user_id
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('user_id')
+      dispatch(requestLogoutSuccess())
+      callback && callback()
+    } catch (err) {
+      console.log(err)
+      dispatch(requestLogoutFailure())
+    }
+  }
+}
+
 export const actions = {
-  handleLogin
+  handleLogin,
+  handleLogout
 }
 
 /**
@@ -90,6 +132,27 @@ const AUTH_ACTION_HANDLERS = {
       ...state,
       isLoading: false
     })
+  },
+  [REQUEST_LOGOUT_POSTS]: (state) => {
+    return ({
+      ...state,
+      isLoading: true
+    })
+  },
+  [REQUEST_LOGOUT_SUCCESS]: (state, action) => {
+    return ({
+      ...state,
+      isLoading: false,
+      isAuthenticated: false,
+      userId: null,
+      accessToken: null
+    })
+  },
+  [REQUEST_LOGOUT_FAILURE]: (state) => {
+    return ({
+      ...state,
+      isLoading: false
+    })
   }
 }
 
@@ -98,14 +161,13 @@ const AUTH_ACTION_HANDLERS = {
  */
 const initialState = {
   isLoading: false,
-  isAuthenticated: false,
-  userId: null,
-  accessToken: null
+  isAuthenticated: !!(localStorage.getItem('access_token') && localStorage.getItem('user_id')) || false,
+  userId: localStorage.getItem('user_id') || null,
+  accessToken: localStorage.getItem('access_token') || null
 }
 
-export default function loginReducer (state = initialState, action) {
+export default function authReducer (state = initialState, action) {
   const handler = AUTH_ACTION_HANDLERS[action.type]
-  // console.log(handler)
 
   return handler ? handler(state, action) : state
 }

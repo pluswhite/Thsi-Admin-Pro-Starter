@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import { Helmet } from 'react-helmet'
 
-import Header from 'vcms/Header'
+import Header from 'vctns/HeaderContainer'
 
 import './login.scss'
 
@@ -20,15 +20,23 @@ class Login extends Component {
     this.state = {
       focused: false,
       focused1: false,
+      redirectPath: props.redirectPath
     }
   }
 
   handleLoginSubmit = (evt) => {
+    const { redirectPath } = this.state
     evt.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
-        this.props.handleLogin(values)
+        this.props.handleLogin(values, () => {
+          if (redirectPath) {
+            browserHistory.push(redirectPath)
+          } else {
+            browserHistory.push('/')
+          }
+        })
       }
     })
   }

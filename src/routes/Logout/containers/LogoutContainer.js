@@ -1,17 +1,21 @@
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
-// import auth from 'react-jwt-auth-redux'
+import { handleLogout } from 'vstore/auth'
 
 import Logout from '../components/Logout'
 
 const mapStateToProps = (state, ownPorps) => ({
-  timeout: 3,
   redirect: () => {
     browserHistory.push('/')
   },
   // logout: auth.logout
 })
 
+const mapActionCreators = {
+  handleLogout
+}
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapActionCreators
 )(Logout)

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { IndexLink, Link } from 'react-router'
 import { Layout, Menu, Icon, Row, Col } from 'antd'
 
@@ -7,14 +8,17 @@ import './Header.scss'
 const { Header } = Layout
 
 class HeaderView extends Component {
+  static propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired
+  }
+
   constructor (props) {
     super(props)
     this.state = {}
   }
 
   render () {
-    // const { authenticated } = this.props
-    const authenticated = false
+    const { isAuthenticated } = this.props
     return (
       <Header className='header'>
         <Row>
@@ -31,7 +35,7 @@ class HeaderView extends Component {
                 </IndexLink>
               </Menu.Item>
               <Menu.Item key='admin'>
-                {authenticated &&
+                {isAuthenticated &&
                   <Link className='btn' to='/admin' activeClassName='active'>
                     <Icon type='appstore-o' /> Admin
                   </Link>
@@ -44,14 +48,14 @@ class HeaderView extends Component {
               mode='horizontal'
               style={{ float: 'right' }}
             >
-              {!authenticated &&
+              {!isAuthenticated &&
                 <Menu.Item key='login'>
                   <Link className='btn' to='/login' activeClassName='active'>
                     <Icon type='key' /> Login
                   </Link>
                 </Menu.Item>
               }
-              {authenticated &&
+              {isAuthenticated &&
                 <Menu.Item key='logout'>
                   <Link className='btn nav-logout' to='/logout' activeClassName='active'>
                     <Icon type='poweroff' /> Logout

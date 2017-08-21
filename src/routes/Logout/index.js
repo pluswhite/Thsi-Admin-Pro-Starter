@@ -2,14 +2,18 @@
 
 export default (store, authRouteCheck) => ({
   path: 'logout',
-  // onEnter: (nextState, replace) => {
-  //   authRouteCheck(nextState, replace, true, '/')
-  // },
   getComponent (nextState, next) {
     require.ensure([
-      './containers/LogoutContainer'
+      './containers/LogoutContainer',
+      './modules/logout'
     ], (require) => {
       const Logout = require('./containers/LogoutContainer').default
+      // const logoutReducer = require('./modules/logout').default
+
+      // injectReducer(store, {
+      //   key: 'logout',
+      //   reducer: logoutReducer
+      // })
 
       next(null, Logout)
     })

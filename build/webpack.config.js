@@ -33,7 +33,9 @@ const config = {
     ],
     alias: {
       vcms: path.resolve(__dirname, '../src/components/'),
-      vassets: path.resolve(__dirname, '../src/assets/')
+      vctns: path.resolve(__dirname, '../src/containers/'),
+      vassets: path.resolve(__dirname, '../src/assets/'),
+      vstore: path.resolve(__dirname, '../src/store/'),
     },
     extensions: ['*', '.web.jsx', '.web.js', '.js', '.jsx', '.json'],
   },

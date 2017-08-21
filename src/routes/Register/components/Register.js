@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { browserHistory } from 'react-router'
 import PropTypes from 'prop-types'
 import { Form, Input, Tooltip, Icon, Checkbox, Button } from 'antd'
 
-import Header from 'vcms/Header'
+import Header from 'vctns/HeaderContainer'
 
 import './Register.scss'
 
@@ -10,7 +11,7 @@ const FormItem = Form.Item
 
 class Register extends Component {
   static propTypes = {
-    handleSignup: PropTypes.func.isRequired
+    handleRegister: PropTypes.func.isRequired
   }
 
   constructor (props) {
@@ -18,8 +19,6 @@ class Register extends Component {
     this.state = {
       confirmDirty: false,
     }
-
-    this.onRegisterSubmit = this.props.handleSignup
   }
 
   handleSubmit = (evt) => {
@@ -27,7 +26,9 @@ class Register extends Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         // console.log('Received values of form: ', values)
-        this.onRegisterSubmit(values)
+        this.props.handleRegister(values, () => {
+          browserHistory.push('/')
+        })
       }
     })
   }

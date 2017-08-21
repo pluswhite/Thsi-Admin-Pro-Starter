@@ -12,7 +12,7 @@ const FormItem = Form.Item
 
 class Login extends Component {
   static propTypes = {
-    // handleLogin: PropTypes.func.isRequired
+    handleLogin: PropTypes.func.isRequired
   }
 
   constructor (props) {

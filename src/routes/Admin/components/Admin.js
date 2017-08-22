@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Header from 'vctns/HeaderContainer'
 
 import './Admin.scss'
 
 class Admin extends Component {
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    handleValidateToken: PropTypes.func
+  }
   constructor (props) {
     super(props)
     this.state = {}
-    // this.props.handleValidateToken()
+    this.props.handleValidateToken()
   }
 
   render () {

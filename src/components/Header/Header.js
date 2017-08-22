@@ -9,7 +9,8 @@ const { Header } = Layout
 
 class HeaderView extends Component {
   static propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired
+    isAuthenticated: PropTypes.bool.isRequired,
+    userName: PropTypes.string
   }
 
   constructor (props) {
@@ -18,7 +19,10 @@ class HeaderView extends Component {
   }
 
   render () {
-    const { isAuthenticated } = this.props
+    const {
+      isAuthenticated,
+      userName
+    } = this.props
     return (
       <Header className='header'>
         <Row>
@@ -48,6 +52,13 @@ class HeaderView extends Component {
               mode='horizontal'
               style={{ float: 'right' }}
             >
+              {isAuthenticated && userName &&
+                <Menu.Item key='me'>
+                  <Link className='btn' to='/me' activeClassName='active'>
+                    {userName}
+                  </Link>
+                </Menu.Item>
+              }
               {!isAuthenticated &&
                 <Menu.Item key='login'>
                   <Link className='btn' to='/login' activeClassName='active'>

@@ -7,7 +7,7 @@ export const requestAuthInstance = axios.create({
   baseURL: apiConfig.apiBaseUrl,
   headers: {
     'Authorization': localStorage.getItem('access_token') || null,
-    'User-Id': localStorage.getItem('user_id') || null,
+    'User-Id': localStorage.getItem('user_id') || null
   }
 })
 
@@ -141,11 +141,12 @@ export const handleLogin = (loginData, callback) => {
     })
       .then(res => {
         if (res.data.status === 'success') {
-          const { userid, accesstoken } = res.data.data
+          const { userId, userName, accessToken } = res.data.data
           dispatch(requestLoginSuccess(res.data.data))
-          console.log(accesstoken)
-          localStorage.setItem('access_token', accesstoken)
-          localStorage.setItem('user_id', userid)
+          console.log(accessToken)
+          localStorage.setItem('access_token', accessToken)
+          localStorage.setItem('user_id', userId)
+          localStorage.setItem('user_name', userName)
           callback && callback()
         } else {
           dispatch(requestLoginFailure())
@@ -165,6 +166,7 @@ export const handleLogout = (callback) => {
       // Clear local access_token & user_id
       localStorage.removeItem('access_token')
       localStorage.removeItem('user_id')
+      localStorage.removeItem('user_name')
       dispatch(requestLogoutSuccess())
       callback && callback()
     } catch (err) {
@@ -186,11 +188,12 @@ export const handleRegister = (registerData, callback) => {
     })
       .then(res => {
         if (res.data.status === 'success') {
-          const { userid, accesstoken } = res.data.data
+          const { userId, userName, accessToken } = res.data.data
           dispatch(requestRegisterSuccess(res.data.data))
-          console.log(accesstoken)
-          localStorage.setItem('access_token', accesstoken)
-          localStorage.setItem('user_id', userid)
+          console.log(accessToken)
+          localStorage.setItem('access_token', accessToken)
+          localStorage.setItem('user_id', userId)
+          localStorage.setItem('user_name', userName)
           callback && callback()
         } else {
           dispatch(requestRegisterFailure())
@@ -210,7 +213,7 @@ export const handleValidateToken = () => {
     return requestInstance.get(apiConfig.apiList.auth.validateToken, {
       headers: {
         'Authorization': localStorage.getItem('access_token') || null,
-        'User-Id': localStorage.getItem('user_id') || null,
+        'User-Id': localStorage.getItem('user_id') || null
       },
       params: {
         'rnd': (new Date()).getTime()
@@ -218,14 +221,16 @@ export const handleValidateToken = () => {
     })
       .then(res => {
         if (res.data.status === 'success') {
-          const { userid, accesstoken } = res.data.data
-          // console.log(accesstoken)
-          localStorage.setItem('access_token', accesstoken)
-          localStorage.setItem('user_id', userid)
+          const { userId, userName, accessToken } = res.data.data
+          // console.log(accessToken)
+          localStorage.setItem('access_token', accessToken)
+          localStorage.setItem('user_id', userId)
+          localStorage.setItem('user_name', userName)
           dispatch(validateTokenSuccess(res.data.data))
         } else {
           localStorage.removeItem('access_token')
           localStorage.removeItem('user_id')
+          localStorage.removeItem('user_name')
           dispatch(validateTokenFailure())
           browserHistory.push('/')
         }
@@ -233,6 +238,7 @@ export const handleValidateToken = () => {
       .catch(err => {
         localStorage.removeItem('access_token')
         localStorage.removeItem('user_id')
+        localStorage.removeItem('user_name')
         dispatch(validateTokenFailure())
         browserHistory.push('/')
         console.log(err)
@@ -255,8 +261,9 @@ const AUTH_ACTION_HANDLERS = {
       ...state,
       isLoading: false,
       isAuthenticated: true,
-      userId: action.payload.data.userid,
-      accessToken: action.payload.data.accesstoken
+      userId: action.payload.data.userId,
+      userName: action.payload.data.userName,
+      accessToken: action.payload.data.accessToken
     })
   },
   [AUTH_LOGIN_FAILURE]: (state) => {
@@ -277,6 +284,7 @@ const AUTH_ACTION_HANDLERS = {
       isLoading: false,
       isAuthenticated: false,
       userId: null,
+      userName: '',
       accessToken: null
     })
   },
@@ -297,8 +305,9 @@ const AUTH_ACTION_HANDLERS = {
       ...state,
       isLoading: false,
       isAuthenticated: true,
-      userId: action.payload.data.userid,
-      accessToken: action.payload.data.accesstoken
+      userId: action.payload.data.userId,
+      userName: action.payload.data.userName,
+      accessToken: action.payload.data.accessToken
     })
   },
   [AUTH_REGISTER_FAILURE]: (state) => {
@@ -318,8 +327,9 @@ const AUTH_ACTION_HANDLERS = {
       ...state,
       isLoading: false,
       isAuthenticated: true,
-      userId: action.payload.data.userid,
-      accessToken: action.payload.data.accesstoken
+      userId: action.payload.data.userId,
+      userName: action.payload.data.userName,
+      accessToken: action.payload.data.accessToken
     })
   },
   [VALIDATE_TOKEN_FAILURE]: (state) => {
@@ -328,6 +338,7 @@ const AUTH_ACTION_HANDLERS = {
       isLoading: false,
       isAuthenticated: false,
       userId: null,
+      userName: '',
       accessToken: null
     })
   },
@@ -339,8 +350,9 @@ const AUTH_ACTION_HANDLERS = {
 const initialState = {
   isLoading: false,
   isAuthenticated: !!(localStorage.getItem('access_token') && localStorage.getItem('user_id')) || false,
+  accessToken: localStorage.getItem('access_token') || null,
   userId: localStorage.getItem('user_id') || null,
-  accessToken: localStorage.getItem('access_token') || null
+  userName: localStorage.getItem('user_name') || ''
 }
 
 export default function authReducer (state = initialState, action) {

@@ -1,4 +1,4 @@
-import { injectReducer } from 'vstore/reducers'
+// import { injectReducer } from 'vstore/reducers'
 import userIsAuthenticated from 'vcms/RouterAuth'
 
 export default (store) => ({
@@ -28,6 +28,7 @@ export default (store) => ({
       cb(null, [
         // Remove imports!
         require('./routes/Dashboard').default(store),
+        require('./routes/Users').default(store),
       ])
     })
   }

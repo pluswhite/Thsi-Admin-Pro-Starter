@@ -2,16 +2,17 @@ import {
   requestAuthInstance,
   ApiList
 } from 'vstore/auth'
-// Constants
-//
+
+/**
+ * Constants
+ */
 export const REQUEST_USERS_POSTS = 'REQUEST_USERS_POSTS'
 export const REQUEST_USERS_SUCCESS = 'REQUEST_USERS_SUCCESS'
 export const REQUEST_USERS_FAILURE = 'REQUEST_USERS_FAILURE'
 
-//
-// Actions
-//
-
+/**
+ * Actions
+ */
 export const requestUsersPosts = () => {
   return {
     type: REQUEST_USERS_POSTS
@@ -66,9 +67,9 @@ export const fetchUsers = () => {
 export const actions = {
 }
 
-//
-// Action Handlers
-//
+/**
+ * Action Handlers
+ */
 const ADMIN_USERS_ACTION_HANDLERS = {
   [REQUEST_USERS_POSTS]: (state) => {
     return ({
@@ -91,9 +92,9 @@ const ADMIN_USERS_ACTION_HANDLERS = {
   },
 }
 
-//
-// Reducer
-//
+/**
+ * Reducer
+ */
 const initialState = {
   isLoading: false,
   userList: []

@@ -1,16 +1,62 @@
-//
-// Constants
-//
-export const DASHBOARD_INCREMENT = 'DASHBOARD_INCREMENT'
-export const DASHBOARD_DOUBLE_ASYNC = 'DASHBOARD_DOUBLE_ASYNC'
+import {
+  requestAuthInstance,
+  ApiList
+} from 'vstore/auth'
 
-//
-// Actions
-//
-export function increment (value = 1) {
+/**
+ * Constants
+ */
+export const REQUEST_DASH_POSTS = 'REQUEST_DASH_POSTS'
+export const REQUEST_DASH_SUCCESS = 'REQUEST_DASH_SUCCESS'
+export const REQUEST_DASH_FAILURE = 'REQUEST_DASH_FAILURE'
+
+/**
+ * Actions
+ */
+export const requestDashPosts = () => {
   return {
-    type    : DASHBOARD_INCREMENT,
-    payload : value
+    type: REQUEST_DASH_POSTS
+  }
+}
+
+export const requestDashSuccess = (data) => {
+  return {
+    type: REQUEST_DASH_SUCCESS,
+    payload: {
+      data
+    }
+  }
+}
+
+export const requestDashFailure = () => {
+  return {
+    type: REQUEST_DASH_FAILURE
+  }
+}
+
+/**
+ * Async method
+ */
+export const fetchDash = () => {
+  return (dispatch) => {
+    dispatch(requestDashPosts())
+
+    return requestAuthInstance.get(ApiList.dash.index, {
+      params: {
+        'rnd': (new Date()).getTime()
+      }
+    })
+      .then(res => {
+        if (res.data.status === 'success') {
+          dispatch(requestDashSuccess(res.data.data))
+        } else {
+          dispatch(requestDashFailure())
+        }
+      })
+      .catch(err => {
+        dispatch(requestDashFailure())
+        console.log(err)
+      })
   }
 }
 
@@ -18,33 +64,40 @@ export function increment (value = 1) {
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
 
-export const actions = {
-  increment
-}
+// export const actions = {
+// }
 
-//
-// Action Handlers
-//
+/**
+ * Action Handlers
+ */
 const ADMIN_DASHBOARD_ACTION_HANDLERS = {
-  [DASHBOARD_INCREMENT]: (state, action) => {
+  [REQUEST_DASH_POSTS]: (state) => {
     return ({
       ...state,
-      counter: state.counter + action.payload
+      isLoading: true
     })
   },
-  [DASHBOARD_DOUBLE_ASYNC]: (state, action) => {
+  [REQUEST_DASH_SUCCESS]: (state, action) => {
     return ({
       ...state,
-      counter: state.counter * 2
+      isLoading: false,
+      stats: action.payload.data.stats
     })
-  }
+  },
+  [REQUEST_DASH_FAILURE]: (state) => {
+    return ({
+      ...state,
+      isLoading: false
+    })
+  },
 }
 
-//
-// Reducer
-//
+/**
+ * Reducer
+ */
 const initialState = {
-  counter: 0
+  isLoading: false,
+  stats: []
 }
 
 export default function dashboardReducer (state = initialState, action) {

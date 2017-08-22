@@ -6,6 +6,8 @@ import { Layout, Menu, Icon, Row, Col } from 'antd'
 import './Header.scss'
 
 const { Header } = Layout
+const SubMenu = Menu.SubMenu
+const MenuItemGroup = Menu.ItemGroup
 
 class HeaderView extends Component {
   static propTypes = {
@@ -53,11 +55,18 @@ class HeaderView extends Component {
               style={{ float: 'right' }}
             >
               {isAuthenticated && userName &&
-                <Menu.Item key='me'>
-                  <Link className='btn' to='/me' activeClassName='active'>
-                    {userName}
-                  </Link>
-                </Menu.Item>
+                <SubMenu title={<span><Icon type='user' />{userName}</span>}>
+                  <Menu.Item key='me-profile'>
+                    <Link className='btn' to='/me' activeClassName='active'>
+                      <Icon type='idcard' /> Profiles
+                    </Link>
+                  </Menu.Item>
+                  <Menu.Item key='me-password'>
+                    <Link className='btn' to='/me/password' activeClassName='active'>
+                      <Icon type='key' /> Password
+                    </Link>
+                  </Menu.Item>
+                </SubMenu>
               }
               {!isAuthenticated &&
                 <Menu.Item key='login'>

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { handleValidateToken } from 'vstore/auth'
 
 // import {
 //   fetchadmin
@@ -7,6 +8,7 @@ import { connect } from 'react-redux'
 import admin from '../components/Admin'
 
 const mapActionCreators = {
+  handleValidateToken
   // fetchadmin
 }
 

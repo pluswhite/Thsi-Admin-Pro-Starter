@@ -3,14 +3,13 @@
  */
 
 module.exports = {
-  apiUrl : '/mocks/',
-  authApiUrl: '/mocks/',
+  apiBaseUrl : '/mocks/',
   tokenName: 'vra-token',
-  api_list: {
+  apiList: {
     auth: {
       register: 'auth/register.json',
       login: 'auth/login.json',
-      validate: 'auth/validate'
+      validateToken: 'auth/validate_token.json'
     },
   }
 }

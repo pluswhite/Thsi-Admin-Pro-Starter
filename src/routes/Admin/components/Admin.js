@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import Header from 'vctns/HeaderContainer'
 
+import { Button } from 'antd'
+
 import './Admin.scss'
 
 class Admin extends Component {
@@ -11,13 +13,17 @@ class Admin extends Component {
   }
 
   render () {
+    const { handleValidateToken } = this.props
     return (
       <div>
         <Helmet>
           <title>后台管理</title>
         </Helmet>
         <Header />
-        <h2>Admin Dashboard</h2>
+        <div>
+          <h2>Admin Dashboard</h2>
+          <Button type='primary' onClick={handleValidateToken}>Validate Token</Button>
+        </div>
       </div>
     )
   }

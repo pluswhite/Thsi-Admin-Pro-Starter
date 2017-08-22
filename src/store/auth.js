@@ -1,21 +1,23 @@
 import axios from 'axios'
+import { browserHistory } from 'react-router'
 import apiConfig from 'vcfg/apiConfig'
 // console.log(apiConfig)
 
 export const requestAuthInstance = axios.create({
-  baseURL: apiConfig.authApiUrl,
+  baseURL: apiConfig.apiBaseUrl,
   headers: {
     'Authorization': localStorage.getItem('access_token') || null,
-    'UserID': localStorage.getItem('user_id') || null,
+    'User-Id': localStorage.getItem('user_id') || null,
   }
+})
+
+export const requestInstance = axios.create({
+  baseURL: apiConfig.apiBaseUrl
 })
 
 /**
  * Constants
  */
-// Validate Token.
-export const VALIDATE_TOKEN = 'VALIDATE_TOKEN'
-
 // Login.
 export const AUTH_LOGIN_POSTS = 'AUTH_LOGIN_POSTS'
 export const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS'
@@ -30,6 +32,12 @@ export const AUTH_LOGOUT_FAILURE = 'AUTH_LOGOUT_FAILURE'
 export const AUTH_REGISTER_POSTS = 'AUTH_REGISTER_POSTS'
 export const AUTH_REGISTER_SUCCESS = 'AUTH_REGISTER_SUCCESS'
 export const AUTH_REGISTER_FAILURE = 'AUTH_REGISTER_FAILURE'
+
+// Validate Token.
+export const VALIDATE_TOKEN_POSTS = 'VALIDATE_TOKEN_POSTS'
+export const VALIDATE_TOKEN_SUCCESS = 'VALIDATE_TOKEN_SUCCESS'
+export const VALIDATE_TOKEN_FAILURE = 'VALIDATE_TOKEN_FAILURE'
+
 /**
  * Actions
  */
@@ -96,6 +104,27 @@ export const requestRegisterFailure = () => {
   }
 }
 
+export const validateTokenPosts = () => {
+  return {
+    type: VALIDATE_TOKEN_POSTS
+  }
+}
+
+export const validateTokenSuccess = (data) => {
+  return {
+    type: VALIDATE_TOKEN_SUCCESS,
+    payload: {
+      data
+    }
+  }
+}
+
+export const validateTokenFailure = () => {
+  return {
+    type: VALIDATE_TOKEN_FAILURE
+  }
+}
+
 /**
  * Method.
  */
@@ -104,7 +133,7 @@ export const handleLogin = (loginData, callback) => {
   return (dispatch) => {
     dispatch(requestLoginPosts())
 
-    return requestAuthInstance.get(apiConfig.apiList.auth.login, {
+    return requestInstance.get(apiConfig.apiList.auth.login, {
       params: {
         ...loginData,
         'rnd': (new Date()).getTime()
@@ -149,7 +178,7 @@ export const handleRegister = (registerData, callback) => {
   return (dispatch) => {
     dispatch(requestRegisterPosts())
 
-    return requestAuthInstance.get(apiConfig.apiList.auth.register, {
+    return requestInstance.get(apiConfig.apiList.auth.register, {
       params: {
         ...registerData,
         'rnd': (new Date()).getTime()
@@ -174,9 +203,41 @@ export const handleRegister = (registerData, callback) => {
   }
 }
 
-export const actions = {
-  handleLogin,
-  handleLogout
+export const handleValidateToken = () => {
+  return (dispatch) => {
+    dispatch(validateTokenPosts())
+
+    return requestInstance.get(apiConfig.apiList.auth.validateToken, {
+      headers: {
+        'Authorization': localStorage.getItem('access_token') || null,
+        'User-Id': localStorage.getItem('user_id') || null,
+      },
+      params: {
+        'rnd': (new Date()).getTime()
+      }
+    })
+      .then(res => {
+        if (res.data.status === 'success') {
+          const { userid, accesstoken } = res.data.data
+          // console.log(accesstoken)
+          localStorage.setItem('access_token', accesstoken)
+          localStorage.setItem('user_id', userid)
+          dispatch(validateTokenSuccess(res.data.data))
+        } else {
+          localStorage.removeItem('access_token')
+          localStorage.removeItem('user_id')
+          dispatch(validateTokenFailure())
+          browserHistory.push('/')
+        }
+      })
+      .catch(err => {
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('user_id')
+        dispatch(validateTokenFailure())
+        browserHistory.push('/')
+        console.log(err)
+      })
+  }
 }
 
 /**
@@ -244,6 +305,30 @@ const AUTH_ACTION_HANDLERS = {
     return ({
       ...state,
       isLoading: false
+    })
+  },
+  [VALIDATE_TOKEN_POSTS]: (state) => {
+    return ({
+      ...state,
+      isLoading: true
+    })
+  },
+  [VALIDATE_TOKEN_SUCCESS]: (state, action) => {
+    return ({
+      ...state,
+      isLoading: false,
+      isAuthenticated: true,
+      userId: action.payload.data.userid,
+      accessToken: action.payload.data.accesstoken
+    })
+  },
+  [VALIDATE_TOKEN_FAILURE]: (state) => {
+    return ({
+      ...state,
+      isLoading: false,
+      isAuthenticated: false,
+      userId: null,
+      accessToken: null
     })
   },
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Spin } from 'antd'
 import ReactEchartsCore from 'echarts-for-react/lib/core'
 import echarts from 'echarts/lib/echarts'
@@ -7,6 +8,10 @@ import 'echarts/lib/chart/line'
 import './Dashboard.scss'
 
 class Dashboard extends Component {
+  static propTypes = {
+    fetchDash: PropTypes.func.isRequired
+  }
+
   constructor (props) {
     super(props)
     this.state = {}

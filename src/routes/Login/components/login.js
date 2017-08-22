@@ -12,7 +12,10 @@ const FormItem = Form.Item
 
 class Login extends Component {
   static propTypes = {
-    handleLogin: PropTypes.func.isRequired
+    handleLogin: PropTypes.func.isRequired,
+    form: PropTypes.object,
+    redirectPath: PropTypes.string,
+    isAuthenticated: PropTypes.bool
   }
 
   constructor (props) {
@@ -21,6 +24,12 @@ class Login extends Component {
       focused: false,
       focused1: false,
       redirectPath: props.redirectPath
+    }
+  }
+
+  componentWillMount = () => {
+    if (this.props.isAuthenticated) {
+      browserHistory.push('/')
     }
   }
 

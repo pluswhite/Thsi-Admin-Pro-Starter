@@ -7,6 +7,7 @@ const mapActionCreators = {
 }
 
 const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
   redirectPath: state.location.query.redirect
 })
 

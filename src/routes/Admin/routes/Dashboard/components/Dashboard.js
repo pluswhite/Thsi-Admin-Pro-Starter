@@ -123,7 +123,7 @@ class Dashboard extends Component {
       stats
     } = this.props
 
-    console.log(stats)
+    // console.log(stats)
     return (
       <div className='dash-wrapper'>
         <h2 className='page-title'>Dashboard</h2>

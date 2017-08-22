@@ -58,14 +58,24 @@ class Users extends Component {
     this.state = {}
   }
 
+  componentWillMount = () => {
+    this.props.fetchUsers()
+  }
+
   render () {
+    const {
+      isLoading,
+      userList
+    } = this.props
+
     return (
       <div className='users-wrapper'>
         <h2 className='page-title'>Users</h2>
         <div className='users-list'>
           <Table
             columns={columns}
-            dataSource={data}
+            dataSource={userList}
+            loading={isLoading}
             size='middle'
             bordered />
         </div>

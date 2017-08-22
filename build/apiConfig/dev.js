@@ -11,5 +11,8 @@ module.exports = {
       login: 'auth/login.json',
       validateToken: 'auth/validate_token.json'
     },
+    users: {
+      index: 'users/userList.json'
+    }
   }
 }

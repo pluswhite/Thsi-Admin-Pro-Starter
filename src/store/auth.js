@@ -3,6 +3,8 @@ import { browserHistory } from 'react-router'
 import apiConfig from 'vcfg/apiConfig'
 // console.log(apiConfig)
 
+export const ApiList = apiConfig.apiList
+
 export const requestAuthInstance = axios.create({
   baseURL: apiConfig.apiBaseUrl,
   headers: {

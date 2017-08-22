@@ -1,17 +1,61 @@
-import apiConfig from 'vcfg/apiConfig'
-import { requestAuthInstance } from 'vstore/auth'
+import {
+  requestAuthInstance,
+  ApiList
+} from 'vstore/auth'
 // Constants
 //
-export const USERS_INCREMENT = 'USERS_INCREMENT'
-export const USERS_DOUBLE_ASYNC = 'USERS_DOUBLE_ASYNC'
+export const REQUEST_USERS_POSTS = 'REQUEST_USERS_POSTS'
+export const REQUEST_USERS_SUCCESS = 'REQUEST_USERS_SUCCESS'
+export const REQUEST_USERS_FAILURE = 'REQUEST_USERS_FAILURE'
 
 //
 // Actions
 //
-export function increment (value = 1) {
+
+export const requestUsersPosts = () => {
   return {
-    type    : USERS_INCREMENT,
-    payload : value
+    type: REQUEST_USERS_POSTS
+  }
+}
+
+export const requestUsersSuccess = (data) => {
+  return {
+    type: REQUEST_USERS_SUCCESS,
+    payload: {
+      data
+    }
+  }
+}
+
+export const requestUsersFailure = () => {
+  return {
+    type: REQUEST_USERS_FAILURE
+  }
+}
+
+/**
+ * Async method
+ */
+export const fetchUsers = () => {
+  return (dispatch) => {
+    dispatch(requestUsersPosts())
+
+    return requestAuthInstance.get(ApiList.users.index, {
+      params: {
+        'rnd': (new Date()).getTime()
+      }
+    })
+      .then(res => {
+        if (res.data.status === 'success') {
+          dispatch(requestUsersSuccess(res.data.data))
+        } else {
+          dispatch(requestUsersFailure())
+        }
+      })
+      .catch(err => {
+        dispatch(requestUsersFailure())
+        console.log(err)
+      })
   }
 }
 
@@ -20,32 +64,39 @@ export function increment (value = 1) {
     creating async actions, especially when combined with redux-thunk! */
 
 export const actions = {
-  increment
 }
 
 //
 // Action Handlers
 //
 const ADMIN_USERS_ACTION_HANDLERS = {
-  [USERS_INCREMENT]: (state, action) => {
+  [REQUEST_USERS_POSTS]: (state) => {
     return ({
       ...state,
-      counter: state.counter + action.payload
+      isLoading: true
     })
   },
-  [USERS_DOUBLE_ASYNC]: (state, action) => {
+  [REQUEST_USERS_SUCCESS]: (state, action) => {
     return ({
       ...state,
-      counter: state.counter * 2
+      isLoading: false,
+      userList: action.payload.data.list
     })
-  }
+  },
+  [REQUEST_USERS_FAILURE]: (state) => {
+    return ({
+      ...state,
+      isLoading: false
+    })
+  },
 }
 
 //
 // Reducer
 //
 const initialState = {
-  counter: 0
+  isLoading: false,
+  userList: []
 }
 
 export default function UserReducer (state = initialState, action) {

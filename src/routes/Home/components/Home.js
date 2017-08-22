@@ -12,13 +12,13 @@ class Home extends Component {
 
   render () {
     return (
-      <div>
+      <div className='home-wrapper'>
         <Helmet>
           <title>首页</title>
         </Helmet>
         <Header />
-        <div className='home-wrapper'>
-          <h2>Welcome!</h2>
+        <div>
+          <h2 className='page-title'>Welcome!</h2>
         </div>
       </div>
     )

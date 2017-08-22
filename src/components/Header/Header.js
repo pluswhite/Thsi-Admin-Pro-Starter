@@ -40,13 +40,20 @@ class HeaderView extends Component {
                   <Icon type='home' /> Home
                 </IndexLink>
               </Menu.Item>
-              <Menu.Item key='admin'>
-                {isAuthenticated &&
-                  <Link className='btn' to='/admin' activeClassName='active'>
-                    <Icon type='appstore-o' /> Admin
-                  </Link>
-                }
-              </Menu.Item>
+              {isAuthenticated &&
+                <SubMenu title={<span><Icon type='appstore-o' />Admin</span>}>
+                  <Menu.Item key='admin-dashbaord'>
+                    <Link className='btn' to='/admin' activeClassName='active'>
+                      <Icon type='line-chart' /> Dashboard
+                    </Link>
+                  </Menu.Item>
+                  <Menu.Item key='admin-users'>
+                    <Link className='btn' to='/admin/users' activeClassName='active'>
+                      <Icon type='user' /> Users
+                    </Link>
+                  </Menu.Item>
+                </SubMenu>
+              }
             </Menu>
           </Col>
           <Col span={6}>

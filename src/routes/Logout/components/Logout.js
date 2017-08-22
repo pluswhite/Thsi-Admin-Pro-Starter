@@ -42,7 +42,7 @@ class Logout extends Component {
 
   render () {
     return (
-      <div className='core-layout__viewport'>
+      <div className='logout-wrapper'>
         <div style={{ textAlign: 'center' }}>
           <p>
             <strong>You have been logged out.</strong>

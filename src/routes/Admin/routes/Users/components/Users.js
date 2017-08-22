@@ -61,7 +61,7 @@ class Users extends Component {
   render () {
     return (
       <div className='users-wrapper'>
-        <h2>Users</h2>
+        <h2 className='page-title'>Users</h2>
         <div className='users-list'>
           <Table
             columns={columns}

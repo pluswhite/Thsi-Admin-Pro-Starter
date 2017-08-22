@@ -17,7 +17,9 @@ class Home extends Component {
           <title>首页</title>
         </Helmet>
         <Header />
-        <h4>Welcome!</h4>
+        <div className='home-wrapper'>
+          <h2>Welcome!</h2>
+        </div>
       </div>
     )
   }

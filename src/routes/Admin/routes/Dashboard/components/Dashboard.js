@@ -11,7 +11,7 @@ class Dashboard extends Component {
   render () {
     return (
       <div className='dash-wrapper'>
-        <h2>Dashboard</h2>
+        <h2 className='page-title'>Dashboard</h2>
       </div>
     )
   }

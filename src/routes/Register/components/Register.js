@@ -1,7 +1,16 @@
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import PropTypes from 'prop-types'
-import { Form, Input, Tooltip, Icon, Checkbox, Button } from 'antd'
+import {
+  Spin,
+  Form,
+  Input,
+  Tooltip,
+  Icon,
+  Checkbox,
+  Button
+} from 'antd'
+import { Helmet } from 'react-helmet'
 
 import Header from 'vctns/HeaderContainer'
 
@@ -11,7 +20,9 @@ const FormItem = Form.Item
 
 class Register extends Component {
   static propTypes = {
-    handleRegister: PropTypes.func.isRequired
+    isLoading: PropTypes.bool,
+    handleRegister: PropTypes.func.isRequired,
+    form: PropTypes.object
   }
 
   constructor (props) {
@@ -56,71 +67,82 @@ class Register extends Component {
   }
 
   render () {
-    const { getFieldDecorator } = this.props.form
+    const {
+      isLoading,
+      form
+    } = this.props
+
+    const { getFieldDecorator } = form
 
     return (
       <div>
+        <Helmet>
+          <title>注册</title>
+        </Helmet>
         <Header />
         <div className='page-layout__viewport'>
-          <div id='reigster-form-wrapper'>
-            <Form onSubmit={this.handleSubmit} className='register-form'>
-              <FormItem>
-                {getFieldDecorator('email', {
-                  rules: [{
-                    type: 'email', message: 'The input is not valid E-mail!',
-                  }, {
-                    required: true, message: 'Please input your E-mail!',
-                  }],
-                })(
-                  <Input prefix={<Icon type='mail' />} placeholder='E-mail' />
-                )}
-              </FormItem>
-              <FormItem>
-                {getFieldDecorator('password', {
-                  rules: [{
-                    required: true, message: 'Please input your password!',
-                  }, {
-                    validator: this.checkConfirm,
-                  }],
-                })(
-                  <Input prefix={<Icon type='lock' />} type='password' placeholder='Password' />
-                )}
-              </FormItem>
-              <FormItem>
-                {getFieldDecorator('confirm', {
-                  rules: [{
-                    required: true, message: 'Please confirm your password!',
-                  }, {
-                    validator: this.checkPassword,
-                  }],
-                })(
-                  <Input prefix={<Icon type='lock' />} type='password' placeholder='Confirm Password' onBlur={this.handleConfirmBlur} />
-                )}
-              </FormItem>
-              <FormItem>
-                {getFieldDecorator('nickname', {
-                  rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
-                })(
-                  <Input prefix={<Icon type='user' />} suffix={(
-                    <span>
-                      <Tooltip title='What do you want other to call you?'>
-                        <Icon type='question-circle-o' />
-                      </Tooltip>
-                    </span>
-                  )} placeholder='Nickname' />
-                )}
-              </FormItem>
-              <FormItem style={{ marginBottom: 8 }}>
-                {getFieldDecorator('agreement', {
-                  valuePropName: 'checked',
-                })(
-                  <Checkbox>I have read the <a href='#'>agreement</a></Checkbox>
-                )}
-              </FormItem>
-              <FormItem>
-                <Button type='primary' htmlType='submit' size='large' className='register-form-button'>Register</Button>
-              </FormItem>
-            </Form>
+          <div className='reigster-form-wrapper'>
+            <h2 className='page-title'>注册</h2>
+            <Spin spinning={isLoading}>
+              <Form onSubmit={this.handleSubmit} className='register-form'>
+                <FormItem>
+                  {getFieldDecorator('email', {
+                    rules: [{
+                      type: 'email', message: 'The input is not valid E-mail!',
+                    }, {
+                      required: true, message: 'Please input your E-mail!',
+                    }],
+                  })(
+                    <Input prefix={<Icon type='mail' />} placeholder='E-mail' />
+                  )}
+                </FormItem>
+                <FormItem>
+                  {getFieldDecorator('password', {
+                    rules: [{
+                      required: true, message: 'Please input your password!',
+                    }, {
+                      validator: this.checkConfirm,
+                    }],
+                  })(
+                    <Input prefix={<Icon type='lock' />} type='password' placeholder='Password' />
+                  )}
+                </FormItem>
+                <FormItem>
+                  {getFieldDecorator('confirm', {
+                    rules: [{
+                      required: true, message: 'Please confirm your password!',
+                    }, {
+                      validator: this.checkPassword,
+                    }],
+                  })(
+                    <Input prefix={<Icon type='lock' />} type='password' placeholder='Confirm Password' onBlur={this.handleConfirmBlur} />
+                  )}
+                </FormItem>
+                <FormItem>
+                  {getFieldDecorator('nickname', {
+                    rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
+                  })(
+                    <Input prefix={<Icon type='user' />} suffix={(
+                      <span>
+                        <Tooltip title='What do you want other to call you?'>
+                          <Icon type='question-circle-o' />
+                        </Tooltip>
+                      </span>
+                    )} placeholder='Nickname' />
+                  )}
+                </FormItem>
+                <FormItem style={{ marginBottom: 8 }}>
+                  {getFieldDecorator('agreement', {
+                    valuePropName: 'checked',
+                  })(
+                    <Checkbox>I have read the <a href='#'>agreement</a></Checkbox>
+                  )}
+                </FormItem>
+                <FormItem>
+                  <Button type='primary' htmlType='submit' size='large' className='register-form-button'>Register</Button>
+                </FormItem>
+              </Form>
+            </Spin>
           </div>
         </div>
       </div>

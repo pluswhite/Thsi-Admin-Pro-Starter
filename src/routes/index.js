@@ -2,14 +2,6 @@
 import CoreLayout from '../layouts/PageLayout/PageLayout'
 import Home from './Home'
 
-// Auth route check
-const authRouteCheck = (nextState, replace, authState, redirectPath) => {
-  // console.log(auth.isAuthenticated())
-  // if (auth.isAuthenticated() !== authState) {
-  //   replace(redirectPath)
-  // }
-}
-
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
@@ -28,7 +20,8 @@ export const createRoutes = (store) => ({
         require('./Me').default(store),
         require('./Register').default(store),
         require('./Login').default(store),
-        require('./Logout').default(store, authRouteCheck),
+        require('./Logout').default(store),
+        require('./ResetPassword').default(store),
         require('./NoContent').default(store),
       ])
     })

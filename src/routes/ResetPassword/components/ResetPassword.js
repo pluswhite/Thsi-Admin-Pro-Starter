@@ -13,16 +13,15 @@ import { Helmet } from 'react-helmet'
 
 import Header from 'vctns/HeaderContainer'
 
-import './login.scss'
+import './resetPassword.scss'
 
 const FormItem = Form.Item
 
-class Login extends Component {
+class ResetPassword extends Component {
   static propTypes = {
     isLoading: PropTypes.bool,
-    handleLogin: PropTypes.func.isRequired,
+    // handleResetPassword: PropTypes.func.isRequired,
     form: PropTypes.object,
-    redirectPath: PropTypes.string,
     isAuthenticated: PropTypes.bool
   }
 
@@ -30,8 +29,7 @@ class Login extends Component {
     super(props)
     this.state = {
       focused: false,
-      focused1: false,
-      redirectPath: props.redirectPath
+      focused1: false
     }
   }
 
@@ -41,13 +39,13 @@ class Login extends Component {
     }
   }
 
-  handleLoginSubmit = (evt) => {
+  handleResetPasswordSubmit = (evt) => {
     const { redirectPath } = this.state
     evt.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
-        this.props.handleLogin(values, () => {
+        this.props.handleResetPassword(values, () => {
           if (redirectPath) {
             browserHistory.push(redirectPath)
           } else {
@@ -71,14 +69,14 @@ class Login extends Component {
     return (
       <div>
         <Helmet>
-          <title>登录</title>
+          <title>重置密码</title>
         </Helmet>
         <Header />
         <div className='page-layout__viewport'>
-          <div className='login-form-wrapper'>
-            <h2 className='page-title'>登录</h2>
+          <div className='resetPassword-form-wrapper'>
+            <h2 className='page-title'>重置密码</h2>
             <Spin spinning={isLoading}>
-              <Form onSubmit={this.handleLoginSubmit} className='login-form'>
+              <Form onSubmit={this.handleResetPasswordSubmit} className='resetPassword-form'>
                 <FormItem>
                   {getFieldDecorator('email', {
                     rules: [
@@ -96,27 +94,9 @@ class Login extends Component {
                   )}
                 </FormItem>
                 <FormItem>
-                  {getFieldDecorator('password', {
-                    rules: [{
-                      required: true,
-                      message: 'Please input your Password!'
-                    }],
-                  })(
-                    <Input prefix={<Icon type='lock' style={{ fontSize: 13 }} />} type='password' placeholder='Password' />
-                  )}
-                </FormItem>
-                <FormItem>
-                  {getFieldDecorator('remember', {
-                    valuePropName: 'checked',
-                    initialValue: true,
-                  })(
-                    <Checkbox>Remember me</Checkbox>
-                  )}
-                  <a className='login-form-forgot' href='/reset-psw'>Forgot password</a>
-                  <Button type='primary' htmlType='submit' className='login-form-button'>
-                    Login
+                  <Button type='primary' htmlType='submit' className='resetPassword-form-button'>
+                    ResetPassword
                   </Button>
-                  Or <Link to='/register'>register now!</Link>
                 </FormItem>
               </Form>
             </Spin>
@@ -127,6 +107,6 @@ class Login extends Component {
   }
 }
 
-const WrappedLoginForm = Form.create()(Login)
+const WrappedResetPasswordForm = Form.create()(ResetPassword)
 
-export default WrappedLoginForm
+export default WrappedResetPasswordForm

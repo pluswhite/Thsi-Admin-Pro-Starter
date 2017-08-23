@@ -1,11 +1,11 @@
 // import { injectReducer } from '../../store/reducers'
 
-export default (store, authRouteCheck) => ({
+export default (store) => ({
   path: 'logout',
   getComponent (nextState, next) {
     require.ensure([
       './containers/LogoutContainer',
-      './modules/logout'
+      // './modules/logout'
     ], (require) => {
       const Logout = require('./containers/LogoutContainer').default
       // const logoutReducer = require('./modules/logout').default

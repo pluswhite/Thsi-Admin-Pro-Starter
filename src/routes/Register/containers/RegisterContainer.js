@@ -8,6 +8,7 @@ const mapActionCreators = {
 }
 
 const mapStateToProps = (state) => ({
+  isLoading: state.auth.isLoading,
   redirectPath: state.location.query.redirect
 })
 

@@ -1,10 +1,7 @@
 // import { injectReducer } from '../../store/reducers'
 
-export default (store, authRouteCheck) => ({
+export default (store) => ({
   path: 'login',
-  // onEnter: (nextState, replace) => {
-  //   authRouteCheck(nextState, replace, false, '/')
-  // },
   getComponent (nextState, next) {
     require.ensure([
       './containers/LoginContainer',

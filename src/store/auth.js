@@ -46,9 +46,15 @@ export const MODIFY_PASSWORD_POSTS = 'MODIFY_PASSWORD_POSTS'
 export const MODIFY_PASSWORD_SUCCESS = 'MODIFY_PASSWORD_SUCCESS'
 export const MODIFY_PASSWORD_FAILURE = 'MODIFY_PASSWORD_FAILURE'
 
+// Reset Password
+export const RESET_PASSWORD_POSTS = 'RESET_PASSWORD_POSTS'
+export const RESET_PASSWORD_SUCCESS = 'RESET_PASSWORD_SUCCESS'
+export const RESET_PASSWORD_FAILURE = 'RESET_PASSWORD_FAILURE'
+
 /**
  * Actions
  */
+// Login.
 export const requestLoginPosts = () => {
   return {
     type: AUTH_LOGIN_POSTS
@@ -70,6 +76,7 @@ export const requestLoginFailure = () => {
   }
 }
 
+// Logout.
 export const requestLogoutPosts = () => {
   return {
     type: AUTH_LOGOUT_POSTS
@@ -91,6 +98,7 @@ export const requestLogoutFailure = () => {
   }
 }
 
+// Register.
 export const requestRegisterPosts = () => {
   return {
     type: AUTH_REGISTER_POSTS
@@ -112,6 +120,7 @@ export const requestRegisterFailure = () => {
   }
 }
 
+// Validate Token.
 export const validateTokenPosts = () => {
   return {
     type: VALIDATE_TOKEN_POSTS
@@ -133,6 +142,7 @@ export const validateTokenFailure = () => {
   }
 }
 
+// Modify Password.
 export const modifyPasswordPosts = () => {
   return {
     type: MODIFY_PASSWORD_POSTS
@@ -151,6 +161,28 @@ export const modifyPasswordSuccess = (data) => {
 export const modifyPasswordFailure = () => {
   return {
     type: MODIFY_PASSWORD_FAILURE
+  }
+}
+
+// Reset Password.
+export const resetPasswordPosts = () => {
+  return {
+    type: RESET_PASSWORD_POSTS
+  }
+}
+
+export const resetPasswordSuccess = (data) => {
+  return {
+    type: RESET_PASSWORD_SUCCESS,
+    payload: {
+      data
+    }
+  }
+}
+
+export const resetPasswordFailure = () => {
+  return {
+    type: RESET_PASSWORD_FAILURE
   }
 }
 
@@ -305,6 +337,36 @@ export const handleModifyPassword = (passwordData, callback) => {
   }
 }
 
+export const handleResetPassword = (passwordData, callback) => {
+  return (dispatch) => {
+    dispatch(resetPasswordPosts())
+
+    return requestInstance.get(apiConfig.apiList.auth.resetPsw, {
+      params: {
+        ...passwordData,
+        'rnd': (new Date()).getTime()
+      }
+    })
+      .then(res => {
+        if (res.data.status === 'success') {
+          const { userId, userName, accessToken } = res.data.data
+          dispatch(resetPasswordSuccess(res.data.data))
+          console.log(accessToken)
+          store.set('access_token', accessToken)
+          store.set('user_id', userId)
+          store.set('user_name', userName)
+          callback && callback()
+        } else {
+          dispatch(resetPasswordFailure())
+        }
+      })
+      .catch(err => {
+        dispatch(resetPasswordFailure())
+        console.log(err)
+      })
+  }
+}
+
 /**
  * Action Handlers
  */
@@ -418,6 +480,24 @@ const AUTH_ACTION_HANDLERS = {
     })
   },
   [MODIFY_PASSWORD_FAILURE]: (state) => {
+    return ({
+      ...state,
+      isLoading: false
+    })
+  },
+  [RESET_PASSWORD_POSTS]: (state) => {
+    return ({
+      ...state,
+      isLoading: true
+    })
+  },
+  [RESET_PASSWORD_SUCCESS]: (state, action) => {
+    return ({
+      ...state,
+      isLoading: false
+    })
+  },
+  [RESET_PASSWORD_FAILURE]: (state) => {
     return ({
       ...state,
       isLoading: false

@@ -1,15 +1,17 @@
 import axios from 'axios'
 import { browserHistory } from 'react-router'
+import store from 'store'
 import apiConfig from 'vcfg/apiConfig'
 // console.log(apiConfig)
+console.log(store)
 
 export const ApiList = apiConfig.apiList
 
 export const requestAuthInstance = axios.create({
   baseURL: apiConfig.apiBaseUrl,
   headers: {
-    'Authorization': localStorage.getItem('access_token') || null,
-    'User-Id': localStorage.getItem('user_id') || null
+    'Authorization': store.get('access_token') || null,
+    'User-Id': store.get('user_id') || null
   }
 })
 
@@ -146,9 +148,9 @@ export const handleLogin = (loginData, callback) => {
           const { userId, userName, accessToken } = res.data.data
           dispatch(requestLoginSuccess(res.data.data))
           console.log(accessToken)
-          localStorage.setItem('access_token', accessToken)
-          localStorage.setItem('user_id', userId)
-          localStorage.setItem('user_name', userName)
+          store.set('access_token', accessToken)
+          store.set('user_id', userId)
+          store.set('user_name', userName)
           callback && callback()
         } else {
           dispatch(requestLoginFailure())
@@ -166,9 +168,9 @@ export const handleLogout = (callback) => {
     dispatch(requestLogoutPosts())
     try {
       // Clear local access_token & user_id
-      localStorage.removeItem('access_token')
-      localStorage.removeItem('user_id')
-      localStorage.removeItem('user_name')
+      store.remove('access_token')
+      store.remove('user_id')
+      store.remove('user_name')
       dispatch(requestLogoutSuccess())
       callback && callback()
     } catch (err) {
@@ -193,9 +195,9 @@ export const handleRegister = (registerData, callback) => {
           const { userId, userName, accessToken } = res.data.data
           dispatch(requestRegisterSuccess(res.data.data))
           console.log(accessToken)
-          localStorage.setItem('access_token', accessToken)
-          localStorage.setItem('user_id', userId)
-          localStorage.setItem('user_name', userName)
+          store.set('access_token', accessToken)
+          store.set('user_id', userId)
+          store.set('user_name', userName)
           callback && callback()
         } else {
           dispatch(requestRegisterFailure())
@@ -214,8 +216,8 @@ export const handleValidateToken = () => {
 
     return requestInstance.get(apiConfig.apiList.auth.validateToken, {
       headers: {
-        'Authorization': localStorage.getItem('access_token') || null,
-        'User-Id': localStorage.getItem('user_id') || null
+        'Authorization': store.get('access_token') || null,
+        'User-Id': store.get('user_id') || null
       },
       params: {
         'rnd': (new Date()).getTime()
@@ -225,22 +227,22 @@ export const handleValidateToken = () => {
         if (res.data.status === 'success') {
           const { userId, userName, accessToken } = res.data.data
           // console.log(accessToken)
-          localStorage.setItem('access_token', accessToken)
-          localStorage.setItem('user_id', userId)
-          localStorage.setItem('user_name', userName)
+          store.set('access_token', accessToken)
+          store.set('user_id', userId)
+          store.set('user_name', userName)
           dispatch(validateTokenSuccess(res.data.data))
         } else {
-          localStorage.removeItem('access_token')
-          localStorage.removeItem('user_id')
-          localStorage.removeItem('user_name')
+          store.remove('access_token')
+          store.remove('user_id')
+          store.remove('user_name')
           dispatch(validateTokenFailure())
           browserHistory.push('/')
         }
       })
       .catch(err => {
-        localStorage.removeItem('access_token')
-        localStorage.removeItem('user_id')
-        localStorage.removeItem('user_name')
+        store.remove('access_token')
+        store.remove('user_id')
+        store.remove('user_name')
         dispatch(validateTokenFailure())
         browserHistory.push('/')
         console.log(err)
@@ -351,10 +353,10 @@ const AUTH_ACTION_HANDLERS = {
  */
 const initialState = {
   isLoading: false,
-  isAuthenticated: !!(localStorage.getItem('access_token') && localStorage.getItem('user_id')) || false,
-  accessToken: localStorage.getItem('access_token') || null,
-  userId: localStorage.getItem('user_id') || null,
-  userName: localStorage.getItem('user_name') || ''
+  isAuthenticated: !!(store.get('access_token') && store.get('user_id')) || false,
+  accessToken: store.get('access_token') || null,
+  userId: store.get('user_id') || null,
+  userName: store.get('user_name') || ''
 }
 
 export default function authReducer (state = initialState, action) {

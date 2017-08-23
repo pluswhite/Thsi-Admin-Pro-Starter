@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import {
   Spin,
   Form,
   Icon,
   Input,
-  Button,
-  Checkbox
+  Button
 } from 'antd'
 import { Helmet } from 'react-helmet'
 
@@ -69,12 +68,12 @@ class ResetPassword extends Component {
     return (
       <div>
         <Helmet>
-          <title>重置密码</title>
+          <title>Reset Password</title>
         </Helmet>
         <Header />
         <div className='page-layout__viewport'>
           <div className='resetPassword-form-wrapper'>
-            <h2 className='page-title'>重置密码</h2>
+            <h2 className='page-title'>Reset Password</h2>
             <Spin spinning={isLoading}>
               <Form onSubmit={this.handleResetPasswordSubmit} className='resetPassword-form'>
                 <FormItem>
@@ -95,7 +94,7 @@ class ResetPassword extends Component {
                 </FormItem>
                 <FormItem>
                   <Button type='primary' htmlType='submit' className='resetPassword-form-button'>
-                    ResetPassword
+                    Reset Password
                   </Button>
                 </FormItem>
               </Form>

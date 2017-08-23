@@ -71,12 +71,12 @@ class Login extends Component {
     return (
       <div>
         <Helmet>
-          <title>登录</title>
+          <title>Login</title>
         </Helmet>
         <Header />
         <div className='page-layout__viewport'>
           <div className='login-form-wrapper'>
-            <h2 className='page-title'>登录</h2>
+            <h2 className='page-title'>Login</h2>
             <Spin spinning={isLoading}>
               <Form onSubmit={this.handleLoginSubmit} className='login-form'>
                 <FormItem>
@@ -112,7 +112,7 @@ class Login extends Component {
                   })(
                     <Checkbox>Remember me</Checkbox>
                   )}
-                  <a className='login-form-forgot' href='/reset-psw'>Forgot password</a>
+                  <Link className='login-form-forgot' to='/reset-psw'>Forgot password</Link>
                   <Button type='primary' htmlType='submit' className='login-form-button'>
                     Login
                   </Button>

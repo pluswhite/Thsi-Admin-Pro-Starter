@@ -1,0 +1,9 @@
+{
+  "status": "success",
+  "data": {
+    "name": "Zeus",
+    "phone": "18738939738",
+    "email": "beefjava@gmail.com",
+    "country": "China"
+  }
+}

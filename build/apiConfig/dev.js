@@ -11,6 +11,9 @@ module.exports = {
       login: 'auth/login.json',
       validateToken: 'auth/validate_token.json'
     },
+    me: {
+      profile: 'me/profile.json',
+    },
     dash: {
       index: 'dash/dash.json'
     },

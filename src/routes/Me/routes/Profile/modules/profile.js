@@ -1,16 +1,62 @@
-//
-// Constants
-//
-export const DASHBOARD_INCREMENT = 'DASHBOARD_INCREMENT'
-export const DASHBOARD_DOUBLE_ASYNC = 'DASHBOARD_DOUBLE_ASYNC'
+import {
+  requestAuthInstance,
+  ApiList
+} from 'vstore/auth'
 
-//
-// Actions
-//
-export function increment (value = 1) {
+/**
+ * Constants
+ */
+export const REQUEST_PROFILE_POSTS = 'REQUEST_PROFILE_POSTS'
+export const REQUEST_PROFILE_SUCCESS = 'REQUEST_PROFILE_SUCCESS'
+export const REQUEST_PROFILE_FAILURE = 'REQUEST_PROFILE_FAILURE'
+
+/**
+ * Actions
+ */
+export const requestProfilePosts = () => {
   return {
-    type    : DASHBOARD_INCREMENT,
-    payload : value
+    type: REQUEST_PROFILE_POSTS
+  }
+}
+
+export const requestProfileSuccess = (data) => {
+  return {
+    type: REQUEST_PROFILE_SUCCESS,
+    payload: {
+      data
+    }
+  }
+}
+
+export const requestProfileFailure = () => {
+  return {
+    type: REQUEST_PROFILE_FAILURE
+  }
+}
+
+/**
+ * Async method
+ */
+export const fetchProfile = () => {
+  return (dispatch) => {
+    dispatch(requestProfilePosts())
+
+    return requestAuthInstance.get(ApiList.me.profile, {
+      params: {
+        'rnd': (new Date()).getTime()
+      }
+    })
+      .then(res => {
+        if (res.data.status === 'success') {
+          dispatch(requestProfileSuccess(res.data.data))
+        } else {
+          dispatch(requestProfileFailure())
+        }
+      })
+      .catch(err => {
+        dispatch(requestProfileFailure())
+        console.log(err)
+      })
   }
 }
 
@@ -18,37 +64,48 @@ export function increment (value = 1) {
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
 
-export const actions = {
-  increment
-}
+// export const actions = {}
 
-//
-// Action Handlers
-//
-const ADMIN_DASHBOARD_ACTION_HANDLERS = {
-  [DASHBOARD_INCREMENT]: (state, action) => {
+/**
+ * Action Handlers
+ */
+const PROFILE_ACTION_HANDLERS = {
+  [REQUEST_PROFILE_POSTS]: (state) => {
     return ({
       ...state,
-      counter: state.counter + action.payload
+      isLoading: true
     })
   },
-  [DASHBOARD_DOUBLE_ASYNC]: (state, action) => {
+  [REQUEST_PROFILE_SUCCESS]: (state, action) => {
     return ({
       ...state,
-      counter: state.counter * 2
+      isLoading: false,
+      userInfo: action.payload.data
     })
+  },
+  [REQUEST_PROFILE_FAILURE]: (state) => {
+    return ({
+      ...state,
+      isLoading: false
+    })
+  },
+}
+
+/**
+ * Reducer
+ */
+const initialState = {
+  isLoading: false,
+  userInfo: {
+    'name': '',
+    'phone': '',
+    'email': '',
+    'country': ''
   }
 }
 
-//
-// Reducer
-//
-const initialState = {
-  counter: 0
-}
-
 export default function profileReducer (state = initialState, action) {
-  const handler = ADMIN_DASHBOARD_ACTION_HANDLERS[action.type]
+  const handler = PROFILE_ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state
 }

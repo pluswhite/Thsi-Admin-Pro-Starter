@@ -72,7 +72,7 @@ class Dashboard extends Component {
         data: newDashData.x
       },
       yAxis: {
-        interval: 200,
+        // interval: 200,
         min: 0,
         axisTick: {
           show: false

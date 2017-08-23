@@ -3,39 +3,37 @@ import axios from 'axios'
 /**
  * Constants
  */
-export const VALIDATE_TOKEN = 'VALIDATE_TOKEN'
-
-export const REQUEST_LOGIN_POSTS = 'REQUEST_LOGIN_POSTS'
-export const REQUEST_LOGIN_SUCCESS = 'REQUEST_LOGIN_SUCCESS'
-export const REQUEST_LOGIN_FAILURE = 'REQUEST_LOGIN_FAILURE'
+export const MODIFY_PASSWORD_POSTS = 'MODIFY_PASSWORD_POSTS'
+export const MODIFY_PASSWORD_SUCCESS = 'MODIFY_PASSWORD_SUCCESS'
+export const MODIFY_PASSWORD_FAILURE = 'MODIFY_PASSWORD_FAILURE'
 
 /**
  * Actions
  */
-export const requestPasswordPosts = () => {
+export const modifyPasswordPosts = () => {
   return {
-    type: REQUEST_LOGIN_POSTS
+    type: MODIFY_PASSWORD_POSTS
   }
 }
 
-export const requestPasswordSuccess = (data) => {
+export const modifyPasswordSuccess = (data) => {
   return {
-    type: REQUEST_LOGIN_SUCCESS,
+    type: MODIFY_PASSWORD_SUCCESS,
     payload: {
       data
     }
   }
 }
 
-export const requestPasswordFailure = () => {
+export const modifyPasswordFailure = () => {
   return {
-    type: REQUEST_LOGIN_FAILURE
+    type: MODIFY_PASSWORD_FAILURE
   }
 }
 
-export const handlePassword = (passwordData, callback) => {
+export const handleModifyPassword = (passwordData, callback) => {
   return (dispatch) => {
-    dispatch(requestPasswordPosts())
+    dispatch(modifyPasswordPosts())
 
     return axios.get('mocks/password.json', {
       params: {
@@ -46,37 +44,37 @@ export const handlePassword = (passwordData, callback) => {
       .then(res => {
         if (res.data.status === 'success') {
           const { userid, accesstoken } = res.data.data
-          dispatch(requestPasswordSuccess(res.data.data))
+          dispatch(modifyPasswordSuccess(res.data.data))
           console.log(accesstoken)
           localStorage.setItem('access_token', accesstoken)
           localStorage.setItem('user_id', userid)
           callback && callback()
         } else {
-          dispatch(requestPasswordFailure())
+          dispatch(modifyPasswordFailure())
         }
       })
       .catch(err => {
-        dispatch(requestPasswordFailure())
+        dispatch(modifyPasswordFailure())
         console.log(err)
       })
   }
 }
 
 export const actions = {
-  handlePassword
+  handleModifyPassword
 }
 
 /**
  * Action Handlers
  */
 const AUTH_ACTION_HANDLERS = {
-  [REQUEST_LOGIN_POSTS]: (state) => {
+  [MODIFY_PASSWORD_POSTS]: (state) => {
     return ({
       ...state,
       isLoading: true
     })
   },
-  [REQUEST_LOGIN_SUCCESS]: (state, action) => {
+  [MODIFY_PASSWORD_SUCCESS]: (state, action) => {
     return ({
       ...state,
       isLoading: false,
@@ -85,7 +83,7 @@ const AUTH_ACTION_HANDLERS = {
       accessToken: action.payload.data.accesstoken
     })
   },
-  [REQUEST_LOGIN_FAILURE]: (state) => {
+  [MODIFY_PASSWORD_FAILURE]: (state) => {
     return ({
       ...state,
       isLoading: false

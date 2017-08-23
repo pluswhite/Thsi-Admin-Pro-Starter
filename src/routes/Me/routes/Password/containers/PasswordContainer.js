@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
-// import { handlePassword } from 'vstore/auth'
+import { handleModifyPassword } from 'vstore/auth'
 import WrappedPasswordForm from '../components/Password'
 
 const mapActionCreators = {
-  // handlePassword
+  handleModifyPassword
 }
 
 const mapStateToProps = (state) => ({
-  // redirectPath: state.location.query.redirect
+  isLoading: state.auth.isLoading
 })
 
 export default connect(mapStateToProps, mapActionCreators)(WrappedPasswordForm)

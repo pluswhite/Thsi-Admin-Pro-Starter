@@ -9,7 +9,8 @@ module.exports = {
     auth: {
       register: 'auth/register.json',
       login: 'auth/login.json',
-      validateToken: 'auth/validate_token.json'
+      validateToken: 'auth/validate_token.json',
+      modifyPsw: 'auth/modify_password.json'
     },
     me: {
       profile: 'me/profile.json',

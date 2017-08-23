@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link, browserHistory } from 'react-router'
-import { Form, Icon, Input, Button, Checkbox } from 'antd'
+import { browserHistory } from 'react-router'
+import {
+  Form,
+  Icon,
+  Input,
+  Button,
+  Spin,
+  Message
+} from 'antd'
 import { Helmet } from 'react-helmet'
 
 import './password.scss'
@@ -10,30 +17,28 @@ const FormItem = Form.Item
 
 class Password extends Component {
   static propTypes = {
-    // handlePassword: PropTypes.func.isRequired
+    isLoading: PropTypes.bool,
+    handleModifyPassword: PropTypes.func.isRequired,
+    form: PropTypes.any
   }
 
   constructor (props) {
     super(props)
     this.state = {
       focused: false,
-      focused1: false,
-      redirectPath: props.redirectPath
+      focused1: false
     }
   }
 
   handlePasswordSubmit = (evt) => {
-    const { redirectPath } = this.state
+    const form = this.props.form
     evt.preventDefault()
-    this.props.form.validateFields((err, values) => {
+    form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
-        this.props.handlePassword(values, () => {
-          if (redirectPath) {
-            browserHistory.push(redirectPath)
-          } else {
-            browserHistory.push('/')
-          }
+        this.props.handleModifyPassword(values, () => {
+          Message.success('Modify password successifully!')
+          form.resetFields()
         })
       }
     })
@@ -46,7 +51,7 @@ class Password extends Component {
 
   checkPassword = (rule, value, callback) => {
     const form = this.props.form
-    if (value && value !== form.getFieldValue('password')) {
+    if (value && value !== form.getFieldValue('newPassword')) {
       callback('Two passwords that you enter is inconsistent!')
     } else {
       callback()
@@ -63,54 +68,61 @@ class Password extends Component {
 
   render () {
     const {
+      isLoading,
+      form
+    } = this.props
+
+    const {
       getFieldDecorator
-    } = this.props.form
+    } = form
 
     return (
-      <div id='password-form-wrapper'>
+      <div className='password-form-wrapper'>
         <Helmet>
           <title>修改密码</title>
         </Helmet>
         <h2 className='page-title'>Modify Password</h2>
-        <Form onSubmit={this.handlePasswordSubmit} className='password-form'>
-          <FormItem>
-            {getFieldDecorator('old-password', {
-              rules: [{
-                required: true,
-                message: 'Please input your Password!'
-              }],
-            })(
-              <Input prefix={<Icon type='lock' style={{ fontSize: 13 }} />} type='password' placeholder='Old Password' />
-            )}
-          </FormItem>
-          <FormItem>
-            {getFieldDecorator('new-password', {
-              rules: [{
-                required: true, message: 'Please input your password!',
-              }, {
-                validator: this.checkConfirm,
-              }],
-            })(
-              <Input prefix={<Icon type='lock' />} type='password' placeholder='New Password' />
-            )}
-          </FormItem>
-          <FormItem>
-            {getFieldDecorator('confirm', {
-              rules: [{
-                required: true, message: 'Please confirm your password!',
-              }, {
-                validator: this.checkPassword,
-              }],
-            })(
-              <Input prefix={<Icon type='lock' />} type='password' placeholder='Confirm Password' onBlur={this.handleConfirmBlur} />
-            )}
-          </FormItem>
-          <FormItem>
-            <Button type='primary' htmlType='submit' className='password-form-button'>
-              Modify Password
-            </Button>
-          </FormItem>
-        </Form>
+        <Spin spinning={isLoading}>
+          <Form onSubmit={this.handlePasswordSubmit} className='password-form'>
+            <FormItem>
+              {getFieldDecorator('oldPassword', {
+                rules: [{
+                  required: true,
+                  message: 'Please input your Password!'
+                }],
+              })(
+                <Input prefix={<Icon type='key' style={{ fontSize: 13 }} />} type='password' placeholder='Old Password' />
+              )}
+            </FormItem>
+            <FormItem>
+              {getFieldDecorator('newPassword', {
+                rules: [{
+                  required: true, message: 'Please input your password!',
+                }, {
+                  validator: this.checkConfirm,
+                }],
+              })(
+                <Input prefix={<Icon type='lock' />} type='password' placeholder='New Password' />
+              )}
+            </FormItem>
+            <FormItem>
+              {getFieldDecorator('confirm', {
+                rules: [{
+                  required: true, message: 'Please confirm your password!',
+                }, {
+                  validator: this.checkPassword,
+                }],
+              })(
+                <Input prefix={<Icon type='lock' />} type='password' placeholder='Confirm Password' onBlur={this.handleConfirmBlur} />
+              )}
+            </FormItem>
+            <FormItem>
+              <Button type='primary' htmlType='submit' className='password-form-button'>
+                Modify Password
+              </Button>
+            </FormItem>
+          </Form>
+        </Spin>
       </div>
     )
   }

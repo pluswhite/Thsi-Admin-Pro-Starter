@@ -3,7 +3,6 @@ import { browserHistory } from 'react-router'
 import store from 'store'
 import apiConfig from 'vcfg/apiConfig'
 // console.log(apiConfig)
-console.log(store)
 
 export const ApiList = apiConfig.apiList
 
@@ -41,6 +40,11 @@ export const AUTH_REGISTER_FAILURE = 'AUTH_REGISTER_FAILURE'
 export const VALIDATE_TOKEN_POSTS = 'VALIDATE_TOKEN_POSTS'
 export const VALIDATE_TOKEN_SUCCESS = 'VALIDATE_TOKEN_SUCCESS'
 export const VALIDATE_TOKEN_FAILURE = 'VALIDATE_TOKEN_FAILURE'
+
+// Modify Password
+export const MODIFY_PASSWORD_POSTS = 'MODIFY_PASSWORD_POSTS'
+export const MODIFY_PASSWORD_SUCCESS = 'MODIFY_PASSWORD_SUCCESS'
+export const MODIFY_PASSWORD_FAILURE = 'MODIFY_PASSWORD_FAILURE'
 
 /**
  * Actions
@@ -126,6 +130,27 @@ export const validateTokenSuccess = (data) => {
 export const validateTokenFailure = () => {
   return {
     type: VALIDATE_TOKEN_FAILURE
+  }
+}
+
+export const modifyPasswordPosts = () => {
+  return {
+    type: MODIFY_PASSWORD_POSTS
+  }
+}
+
+export const modifyPasswordSuccess = (data) => {
+  return {
+    type: MODIFY_PASSWORD_SUCCESS,
+    payload: {
+      data
+    }
+  }
+}
+
+export const modifyPasswordFailure = () => {
+  return {
+    type: MODIFY_PASSWORD_FAILURE
   }
 }
 
@@ -250,6 +275,36 @@ export const handleValidateToken = () => {
   }
 }
 
+export const handleModifyPassword = (passwordData, callback) => {
+  return (dispatch) => {
+    dispatch(modifyPasswordPosts())
+
+    return requestAuthInstance.get(apiConfig.apiList.auth.modifyPsw, {
+      params: {
+        ...passwordData,
+        'rnd': (new Date()).getTime()
+      }
+    })
+      .then(res => {
+        if (res.data.status === 'success') {
+          const { userId, userName, accessToken } = res.data.data
+          dispatch(modifyPasswordSuccess(res.data.data))
+          console.log(accessToken)
+          store.set('access_token', accessToken)
+          store.set('user_id', userId)
+          store.set('user_name', userName)
+          callback && callback()
+        } else {
+          dispatch(modifyPasswordFailure())
+        }
+      })
+      .catch(err => {
+        dispatch(modifyPasswordFailure())
+        console.log(err)
+      })
+  }
+}
+
 /**
  * Action Handlers
  */
@@ -344,6 +399,28 @@ const AUTH_ACTION_HANDLERS = {
       userId: null,
       userName: '',
       accessToken: null
+    })
+  },
+  [MODIFY_PASSWORD_POSTS]: (state) => {
+    return ({
+      ...state,
+      isLoading: true
+    })
+  },
+  [MODIFY_PASSWORD_SUCCESS]: (state, action) => {
+    return ({
+      ...state,
+      isLoading: false,
+      isAuthenticated: true,
+      userId: action.payload.data.userid,
+      userName: action.payload.data.userName,
+      accessToken: action.payload.data.accesstoken
+    })
+  },
+  [MODIFY_PASSWORD_FAILURE]: (state) => {
+    return ({
+      ...state,
+      isLoading: false
     })
   },
 }

@@ -21,6 +21,9 @@ module.exports = {
     },
     users: {
       index: 'users/userList.json'
+    },
+    reports: {
+      index: 'reports/reportList.json'
     }
   }
 }

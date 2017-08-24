@@ -5,7 +5,7 @@ import Reports from '../components/Reports'
 
 const mapStateToProps = (state) => ({
   isLoading: state.reports.isLoading,
-  userList: state.reports.userList
+  reportList: state.reports.reportList
 })
 
 const mapActionCreators = {

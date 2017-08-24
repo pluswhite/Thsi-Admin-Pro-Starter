@@ -6,22 +6,22 @@ import {
 /**
  * Constants
  */
-export const REQUEST_USERS_POSTS = 'REQUEST_USERS_POSTS'
-export const REQUEST_USERS_SUCCESS = 'REQUEST_USERS_SUCCESS'
-export const REQUEST_USERS_FAILURE = 'REQUEST_USERS_FAILURE'
+export const REQUEST_REPORTS_POSTS = 'REQUEST_REPORTS_POSTS'
+export const REQUEST_REPORTS_SUCCESS = 'REQUEST_REPORTS_SUCCESS'
+export const REQUEST_REPORTS_FAILURE = 'REQUEST_REPORTS_FAILURE'
 
 /**
  * Actions
  */
 export const requestReportsPosts = () => {
   return {
-    type: REQUEST_USERS_POSTS
+    type: REQUEST_REPORTS_POSTS
   }
 }
 
 export const requestReportsSuccess = (data) => {
   return {
-    type: REQUEST_USERS_SUCCESS,
+    type: REQUEST_REPORTS_SUCCESS,
     payload: {
       data
     }
@@ -30,19 +30,20 @@ export const requestReportsSuccess = (data) => {
 
 export const requestReportsFailure = () => {
   return {
-    type: REQUEST_USERS_FAILURE
+    type: REQUEST_REPORTS_FAILURE
   }
 }
 
 /**
  * Async method
  */
-export const fetchReports = () => {
+export const fetchReports = (searchData) => {
   return (dispatch) => {
     dispatch(requestReportsPosts())
 
     return requestAuthInstance.get(ApiList.reports.index, {
       params: {
+        ...searchData,
         'rnd': (new Date()).getTime()
       }
     })
@@ -70,21 +71,21 @@ export const actions = {
 /**
  * Action Handlers
  */
-const ADMIN_USERS_ACTION_HANDLERS = {
-  [REQUEST_USERS_POSTS]: (state) => {
+const ADMIN_REPORTS_ACTION_HANDLERS = {
+  [REQUEST_REPORTS_POSTS]: (state) => {
     return ({
       ...state,
       isLoading: true
     })
   },
-  [REQUEST_USERS_SUCCESS]: (state, action) => {
+  [REQUEST_REPORTS_SUCCESS]: (state, action) => {
     return ({
       ...state,
       isLoading: false,
-      userList: action.payload.data.list
+      reportList: action.payload.data.list
     })
   },
-  [REQUEST_USERS_FAILURE]: (state) => {
+  [REQUEST_REPORTS_FAILURE]: (state) => {
     return ({
       ...state,
       isLoading: false
@@ -97,11 +98,11 @@ const ADMIN_USERS_ACTION_HANDLERS = {
  */
 const initialState = {
   isLoading: false,
-  userList: []
+  reportList: []
 }
 
 export default function UserReducer (state = initialState, action) {
-  const handler = ADMIN_USERS_ACTION_HANDLERS[action.type]
+  const handler = ADMIN_REPORTS_ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state
 }

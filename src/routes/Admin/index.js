@@ -29,6 +29,8 @@ export default (store) => ({
         // Remove imports!
         require('./routes/Dashboard').default(store),
         require('./routes/Users').default(store),
+        require('./routes/Reports').default(store),
+        require('./routes/Settings').default(store),
       ])
     })
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { Layout, Menu, Icon, Breadcrumb } from 'antd'
+import { Layout, Menu, Icon } from 'antd'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Header from 'vctns/HeaderContainer'
@@ -17,7 +17,9 @@ const { SubMenu } = Menu
 
 const SiderMenuConfig = {
   '/admin': ['dash'],
-  '/admin/users': ['user-list', 'users']
+  '/admin/users': ['user-list', 'users'],
+  '/admin/reports': ['total-report', 'reports'],
+  '/admin/settings': ['settings']
 }
 
 class Admin extends Component {
@@ -89,6 +91,20 @@ class Admin extends Component {
                   <Link to='/admin/users'>List</Link>
                 </Menu.Item>
               </SubMenu>
+              <SubMenu
+                key='reports'
+                title={<span><Icon type='file-text' /><span>Reports</span></span>}
+              >
+                <Menu.Item key='total-report'>
+                  <Link to='/admin/reports'>Total Reports</Link>
+                </Menu.Item>
+              </SubMenu>
+              <Menu.Item key='settings'>
+                <Link to='/admin/settings'>
+                  <Icon type='setting' />
+                  <span>Settings</span>
+                </Link>
+              </Menu.Item>
             </Menu>
           </Sider>
           <Layout>

@@ -326,7 +326,7 @@ class Dashboard extends Component {
               </Card>
             </Col>
           </Row>
-          <Row>
+          <Row gutter={24}>
             <Col span={12}>
               <Card title='Pie Chart' bordered={false}>
                 <Spin spinning={isLoading}>

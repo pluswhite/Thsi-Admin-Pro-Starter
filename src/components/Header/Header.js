@@ -7,7 +7,6 @@ import './Header.scss'
 
 const { Header } = Layout
 const SubMenu = Menu.SubMenu
-const MenuItemGroup = Menu.ItemGroup
 
 class HeaderView extends Component {
   static propTypes = {
@@ -41,18 +40,11 @@ class HeaderView extends Component {
                 </IndexLink>
               </Menu.Item>
               {isAuthenticated &&
-                <SubMenu title={<span><Icon type='appstore-o' />Admin</span>}>
-                  <Menu.Item key='admin-dashbaord'>
-                    <Link className='btn' to='/admin' activeClassName='active'>
-                      <Icon type='line-chart' /> Dashboard
-                    </Link>
-                  </Menu.Item>
-                  <Menu.Item key='admin-users'>
-                    <Link className='btn' to='/admin/users' activeClassName='active'>
-                      <Icon type='user' /> Users
-                    </Link>
-                  </Menu.Item>
-                </SubMenu>
+                <Menu.Item key='admin-dashbaord'>
+                  <Link className='btn' to='/admin' activeClassName='active'>
+                    <Icon type='appstore-o' /> Admin
+                  </Link>
+                </Menu.Item>
               }
             </Menu>
           </Col>

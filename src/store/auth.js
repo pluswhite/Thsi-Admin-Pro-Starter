@@ -337,31 +337,28 @@ export const handleModifyPassword = (passwordData, callback) => {
   }
 }
 
-export const handleResetPassword = (passwordData, callback) => {
+export const handleResetPassword = (emailData, successCallback, errorCallback) => {
   return (dispatch) => {
     dispatch(resetPasswordPosts())
 
     return requestInstance.get(apiConfig.apiList.auth.resetPsw, {
       params: {
-        ...passwordData,
+        ...emailData,
         'rnd': (new Date()).getTime()
       }
     })
       .then(res => {
         if (res.data.status === 'success') {
-          const { userId, userName, accessToken } = res.data.data
-          dispatch(resetPasswordSuccess(res.data.data))
-          console.log(accessToken)
-          store.set('access_token', accessToken)
-          store.set('user_id', userId)
-          store.set('user_name', userName)
-          callback && callback()
+          dispatch(resetPasswordSuccess())
+          successCallback && successCallback()
         } else {
           dispatch(resetPasswordFailure())
+          errorCallback && errorCallback()
         }
       })
       .catch(err => {
         dispatch(resetPasswordFailure())
+        errorCallback && errorCallback()
         console.log(err)
       })
   }

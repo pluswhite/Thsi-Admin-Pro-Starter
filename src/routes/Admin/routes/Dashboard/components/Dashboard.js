@@ -60,13 +60,13 @@ class Dashboard extends Component {
         axisLine: {
           onZero: false,
           lineStyle: {
-            width: 2
+            // width: 2
           }
         },
         axisLabel: {
           interval: 0,
           textStyle: {
-            fontSize: 12
+            // fontSize: 12
           }
         },
         data: newDashData.x
@@ -82,12 +82,12 @@ class Dashboard extends Component {
         },
         axisLine: {
           lineStyle: {
-            width: 2
+            // width: 2
           }
         },
         axisLabel: {
           textStyle: {
-            fontSize: 12
+            // fontSize: 12
           }
         }
       },
@@ -106,13 +106,13 @@ class Dashboard extends Component {
               show: true,
               formatter: '{c}',
               textStyle: {
-                fontSize: 13
+                // fontSize: 13
               }
             }
           },
           lineStyle: {
             normal: {
-              width: 3
+              // width: 3
             }
           },
           smooth: true

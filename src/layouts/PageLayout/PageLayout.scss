@@ -30,6 +30,14 @@
       border-right-width: 0;
     }
   }
+
+  .ant-layout-sider-trigger {
+    background-color: #333c47;
+  }
+
+  .ant-layout-footer {
+    border-top: 1px solid #e9e9e9;
+  }
 }
 .page-title {
   margin: 10px 5px;
@@ -38,6 +46,12 @@
   // border-bottom: 1px solid #f3f3f3;
 }
 
-.header + div {
-  padding: 10px 15px;
+.header {
+  & + div {
+    padding: 10px 15px 0 15px;
+  }
+
+  & + .ant-layout-has-sider {
+    padding-left: 0;
+  }
 }

@@ -15,28 +15,44 @@ const {
 
 const { SubMenu } = Menu
 
+const SiderMenuConfig = {
+  '/admin': ['dash'],
+  '/admin/users': ['user-list', 'users']
+}
+
 class Admin extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    handleValidateToken: PropTypes.func
+    handleValidateToken: PropTypes.func,
+    siderCollpased: PropTypes.bool,
+    location: PropTypes.object,
+    siderChange: PropTypes.func
   }
   constructor (props) {
     super(props)
     this.state = {
-      collapsed: true
+      siderKeys: SiderMenuConfig[props.location.pathname]
     }
     this.props.handleValidateToken()
   }
 
   onCollapse = (collapsed) => {
-    this.setState({
-      collapsed
-    })
+    // console.log(collapsed)
+    this.props.siderChange(collapsed)
   }
 
   render () {
-    const { children } = this.props
-    const { collapsed } = this.state
+    const {
+      children,
+      siderCollpased
+    } = this.props
+
+    const {
+      siderKeys
+    } = this.state
+
+    // console.log(siderKeys)
+    // console.log(siderCollpased)
 
     return (
       <Layout>
@@ -47,24 +63,30 @@ class Admin extends Component {
         <Layout>
           <Sider
             collapsible
-            collapsed={collapsed}
+            collapsed={siderCollpased}
             onCollapse={this.onCollapse}
             style={{
               background: '#fff'
             }}
           >
-            <Menu defaultSelectedKeys={['1']} mode='inline'>
-              <Menu.Item key='1'>
+            <Menu
+              defaultSelectedKeys={siderKeys}
+              selectedKeys={siderKeys}
+              defaultOpenKeys={siderKeys}
+              inlineCollapsed={false}
+              mode='inline'
+            >
+              <Menu.Item key='dash'>
                 <Link to='/admin'>
                   <Icon type='line-chart' />
                   <span>Dashboard</span>
                 </Link>
               </Menu.Item>
               <SubMenu
-                key='sub1'
-                title={<span><Icon type='team' /><span>User</span></span>}
+                key='users'
+                title={<span><Icon type='team' /><span>Users</span></span>}
               >
-                <Menu.Item key='3'>
+                <Menu.Item key='user-list'>
                   <Link to='/admin/users'>List</Link>
                 </Menu.Item>
               </SubMenu>

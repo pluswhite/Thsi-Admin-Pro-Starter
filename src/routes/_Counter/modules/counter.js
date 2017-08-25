@@ -1,16 +1,65 @@
-// ------------------------------------
-// Constants
-// ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
+import {
+  requestAuthInstance,
+  ApiList
+} from 'vstore/auth'
 
-// ------------------------------------
-// Actions
-// ------------------------------------
-export function increment (value = 1) {
+/**
+ * Constants
+ */
+export const REQUEST_COUNTER_POSTS = 'REQUEST_COUNTER_POSTS'
+export const REQUEST_COUNTER_SUCCESS = 'REQUEST_COUNTER_SUCCESS'
+export const REQUEST_COUNTER_FAILURE = 'REQUEST_COUNTER_FAILURE'
+
+/**
+ * Actions
+ */
+export const requestCounterPosts = () => {
   return {
-    type    : COUNTER_INCREMENT,
-    payload : value
+    type: REQUEST_COUNTER_POSTS
+  }
+}
+
+export const requestCounterSuccess = (data) => {
+  return {
+    type: REQUEST_COUNTER_SUCCESS,
+    payload: {
+      data
+    }
+  }
+}
+
+export const requestCounterFailure = () => {
+  return {
+    type: REQUEST_COUNTER_FAILURE
+  }
+}
+
+/*  This is a thunk, meaning it is a function that immediately
+    returns a function for lazy evaluation. It is incredibly useful for
+    creating async actions, especially when combined with redux-thunk! */
+/**
+ * Async method
+ */
+export const fetchCounter = () => {
+  return (dispatch, getState) => {
+    dispatch(requestCounterPosts())
+
+    return requestAuthInstance.get(ApiList.dash.index, {
+      params: {
+        'rnd': (new Date()).getTime()
+      }
+    })
+      .then(res => {
+        if (res.data.status === 'success') {
+          dispatch(requestCounterSuccess(res.data.data))
+        } else {
+          dispatch(requestCounterFailure())
+        }
+      })
+      .catch(err => {
+        dispatch(requestCounterFailure())
+        console.log(err)
+      })
   }
 }
 
@@ -18,37 +67,42 @@ export function increment (value = 1) {
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
 
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch({
-          type    : COUNTER_DOUBLE_ASYNC,
-          payload : getState().counter
-        })
-        resolve()
-      }, 200)
-    })
-  }
-}
-
 export const actions = {
-  increment,
-  doubleAsync
+  fetchCounter
 }
 
-// ------------------------------------
-// Action Handlers
-// ------------------------------------
+/**
+ * Action Handlers
+ */
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2
+  [REQUEST_COUNTER_POSTS]: (state) => {
+    return ({
+      ...state,
+      isLoading: true
+    })
+  },
+  [REQUEST_COUNTER_SUCCESS]: (state, action) => {
+    return ({
+      ...state,
+      isLoading: false,
+      counter: action.payload.data.counter
+    })
+  },
+  [REQUEST_COUNTER_FAILURE]: (state) => {
+    return ({
+      ...state,
+      isLoading: false
+    })
+  },
 }
 
-// ------------------------------------
-// Reducer
-// ------------------------------------
-const initialState = 0
+/**
+ * Reducer
+ */
+const initialState = {
+  isLoading: false,
+  counter: {}
+}
 export default function counterReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

@@ -190,7 +190,7 @@ export const resetPasswordFailure = () => {
  * Method.
  */
 
-export const handleLogin = (loginData, callback) => {
+export const handleLogin = (loginData, successCallback, errorCallback) => {
   return (dispatch) => {
     dispatch(requestLoginPosts())
 
@@ -204,17 +204,19 @@ export const handleLogin = (loginData, callback) => {
         if (res.data.status === 'success') {
           const { userId, userName, accessToken } = res.data.data
           dispatch(requestLoginSuccess(res.data.data))
-          console.log(accessToken)
+          // console.log(accessToken)
           store.set('access_token', accessToken)
           store.set('user_id', userId)
           store.set('user_name', userName)
-          callback && callback()
+          successCallback && successCallback()
         } else {
           dispatch(requestLoginFailure())
+          errorCallback && errorCallback()
         }
       })
       .catch(err => {
         dispatch(requestLoginFailure())
+        errorCallback && errorCallback()
         console.log(err)
       })
   }
@@ -231,13 +233,13 @@ export const handleLogout = (callback) => {
       dispatch(requestLogoutSuccess())
       callback && callback()
     } catch (err) {
-      console.log(err)
       dispatch(requestLogoutFailure())
+      console.log(err)
     }
   }
 }
 
-export const handleRegister = (registerData, callback) => {
+export const handleRegister = (registerData, successCallback, errorCallback) => {
   return (dispatch) => {
     dispatch(requestRegisterPosts())
 
@@ -251,17 +253,19 @@ export const handleRegister = (registerData, callback) => {
         if (res.data.status === 'success') {
           const { userId, userName, accessToken } = res.data.data
           dispatch(requestRegisterSuccess(res.data.data))
-          console.log(accessToken)
+          // console.log(accessToken)
           store.set('access_token', accessToken)
           store.set('user_id', userId)
           store.set('user_name', userName)
-          callback && callback()
+          successCallback && successCallback()
         } else {
           dispatch(requestRegisterFailure())
+          errorCallback && errorCallback()
         }
       })
       .catch(err => {
         dispatch(requestRegisterFailure())
+        errorCallback && errorCallback()
         console.log(err)
       })
   }
@@ -307,7 +311,7 @@ export const handleValidateToken = () => {
   }
 }
 
-export const handleModifyPassword = (passwordData, callback) => {
+export const handleModifyPassword = (passwordData, successCallback, errorCallback) => {
   return (dispatch) => {
     dispatch(modifyPasswordPosts())
 
@@ -321,17 +325,19 @@ export const handleModifyPassword = (passwordData, callback) => {
         if (res.data.status === 'success') {
           const { userId, userName, accessToken } = res.data.data
           dispatch(modifyPasswordSuccess(res.data.data))
-          console.log(accessToken)
+          // console.log(accessToken)
           store.set('access_token', accessToken)
           store.set('user_id', userId)
           store.set('user_name', userName)
-          callback && callback()
+          successCallback && successCallback()
         } else {
           dispatch(modifyPasswordFailure())
+          errorCallback && errorCallback()
         }
       })
       .catch(err => {
         dispatch(modifyPasswordFailure())
+        errorCallback && errorCallback()
         console.log(err)
       })
   }

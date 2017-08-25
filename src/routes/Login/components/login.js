@@ -36,8 +36,13 @@ class Login extends Component {
   }
 
   componentWillMount = () => {
+    const { redirectPath } = this.state
     if (this.props.isAuthenticated) {
-      browserHistory.push('/')
+      if (redirectPath) {
+        browserHistory.push(redirectPath)
+      } else {
+        browserHistory.push('/')
+      }
     }
   }
 
@@ -46,12 +51,12 @@ class Login extends Component {
     evt.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values)
+        // console.log('Received values of form: ', values)
         this.props.handleLogin(values, () => {
           if (redirectPath) {
             browserHistory.push(redirectPath)
           } else {
-            browserHistory.push('/')
+            browserHistory.push('/admin')
           }
         })
       }

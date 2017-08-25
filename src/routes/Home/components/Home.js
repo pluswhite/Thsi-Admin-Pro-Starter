@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <div className='home-wrapper'>
         <Helmet>
-          <title>首页</title>
+          <title>Home</title>
         </Helmet>
         <Header />
         <div>

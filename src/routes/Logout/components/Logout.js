@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router'
 
 import './Logout.scss'
 
 class Logout extends Component {
+  static propTypes = {
+    handleLogout: PropTypes.func,
+    redirect: PropTypes.func
+  }
   constructor (props) {
     super(props)
 

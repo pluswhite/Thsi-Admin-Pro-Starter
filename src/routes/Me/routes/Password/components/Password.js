@@ -78,7 +78,7 @@ class Password extends Component {
     return (
       <div className='password-form-wrapper'>
         <Helmet>
-          <title>修改密码</title>
+          <title>Modify Password</title>
         </Helmet>
         <h2 className='page-title'>Modify Password</h2>
         <Spin spinning={isLoading}>

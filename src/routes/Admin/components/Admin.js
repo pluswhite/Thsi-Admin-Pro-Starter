@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { Layout, Menu, Icon } from 'antd'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import moment from 'moment'
 import Header from 'vctns/HeaderContainer'
 
 import './Admin.scss'
@@ -33,7 +34,8 @@ class Admin extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      siderKeys: SiderMenuConfig[props.location.pathname]
+      siderKeys: SiderMenuConfig[props.location.pathname],
+      thisYear: moment().format('YYYY')
     }
     this.props.handleValidateToken()
   }
@@ -50,7 +52,8 @@ class Admin extends Component {
     } = this.props
 
     const {
-      siderKeys
+      siderKeys,
+      thisYear
     } = this.state
     // console.log(siderKeys)
     // console.log(siderCollpased)
@@ -58,7 +61,7 @@ class Admin extends Component {
     return (
       <Layout>
         <Helmet>
-          <title>后台管理</title>
+          <title>Admin</title>
         </Helmet>
         <Header />
         <Layout>
@@ -116,7 +119,7 @@ class Admin extends Component {
             <Footer style={{
               textAlign: 'center'
             }}>
-              VM React Admin ©2017 Created by PlusWhite
+              VM React Admin ©{thisYear} Created by PlusWhite
             </Footer>
           </Layout>
         </Layout>

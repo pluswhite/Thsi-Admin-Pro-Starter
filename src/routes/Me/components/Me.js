@@ -22,7 +22,7 @@ class Me extends Component {
     return (
       <div>
         <Helmet>
-          <title>用户信息</title>
+          <title>Me</title>
         </Helmet>
         <Header />
         <div className='me-wrapper'>

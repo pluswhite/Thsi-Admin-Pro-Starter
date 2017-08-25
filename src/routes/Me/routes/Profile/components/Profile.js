@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import {
   Form,
   Spin
@@ -49,6 +50,9 @@ class Profile extends Component {
 
     return (
       <div className='profile-wrapper'>
+        <Helmet>
+          <title>Profile</title>
+        </Helmet>
         <h2 className='page-title'>Profile</h2>
         <div className='profile-infos'>
           <Spin spinning={isLoading}>

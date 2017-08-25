@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import {
   Form,
   Row,
@@ -50,7 +51,8 @@ class Reports extends Component {
   static propTypes = {
     isLoading: PropTypes.bool,
     form: PropTypes.object,
-    fetchReports: PropTypes.func
+    fetchReports: PropTypes.func,
+    reportList: PropTypes.array.isRequired
   }
 
   constructor (props) {
@@ -87,6 +89,9 @@ class Reports extends Component {
 
     return (
       <div className='reports-wrapper'>
+        <Helmet>
+          <title>Total Report</title>
+        </Helmet>
         <h2 className='page-title'>Reports</h2>
         <div className='report-wrapper'>
           <div className='search-filter-wrapper'>

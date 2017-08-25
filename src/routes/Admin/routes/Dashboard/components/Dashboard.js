@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import {
   Row,
   Col,
   Spin,
   Card
 } from 'antd'
-import Helmet from 'react-helmet'
 import ReactEchartsCore from 'echarts-for-react/lib/core'
 import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/line'

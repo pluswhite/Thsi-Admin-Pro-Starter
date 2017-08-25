@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 // import {
 //   Table,
 //   Icon
@@ -7,6 +9,10 @@ import React, { Component } from 'react'
 import './Settings.scss'
 
 class Settings extends Component {
+  static propTypes = {
+    isLoading: PropTypes.bool,
+  }
+
   constructor (props) {
     super(props)
     this.state = {}
@@ -19,11 +25,13 @@ class Settings extends Component {
   render () {
     const {
       isLoading,
-      userList
     } = this.props
 
     return (
       <div className='settings-wrapper'>
+        <Helmet>
+          <title>Settings</title>
+        </Helmet>
         <h2 className='page-title'>Settings</h2>
         <div className='settings-list'>
         </div>

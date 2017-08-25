@@ -236,15 +236,15 @@ class Dashboard extends Component {
           data: [
             {
               value: 10,
-              name: '偏高'
+              name: 'High'
             },
             {
               value: 10,
-              name: '正常'
+              name: 'Normal'
             },
             {
               value: 10,
-              name: '偏低'
+              name: 'Low'
             }
           ]
         }

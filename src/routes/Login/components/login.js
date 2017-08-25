@@ -69,14 +69,14 @@ class Login extends Component {
     } = form
 
     return (
-      <div>
+      <div className='page-layout__viewport'>
         <Helmet>
           <title>Login</title>
         </Helmet>
         <Header />
-        <div className='page-layout__viewport'>
+        <div className='page-layout__container'>
+          <h2 className='page-title'>Login</h2>
           <div className='login-form-wrapper'>
-            <h2 className='page-title'>Login</h2>
             <Spin spinning={isLoading}>
               <Form onSubmit={this.handleLoginSubmit} className='login-form'>
                 <FormItem>

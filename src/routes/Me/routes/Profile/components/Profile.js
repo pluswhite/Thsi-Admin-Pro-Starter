@@ -49,40 +49,42 @@ class Profile extends Component {
     }
 
     return (
-      <div className='profile-wrapper'>
+      <div className='page-layout__container'>
         <Helmet>
           <title>Profile</title>
         </Helmet>
         <h2 className='page-title'>Profile</h2>
-        <div className='profile-infos'>
-          <Spin spinning={isLoading}>
-            <Form>
-              <FormItem
-                {...formItemLayout}
-                label='Name'
-              >
-                <span className='ant-form-text'>{name}</span>
-              </FormItem>
-              <FormItem
-                {...formItemLayout}
-                label='Phone'
-              >
-                <span className='ant-form-text'>{phone}</span>
-              </FormItem>
-              <FormItem
-                {...formItemLayout}
-                label='Email'
-              >
-                <span className='ant-form-text'>{email}</span>
-              </FormItem>
-              <FormItem
-                {...formItemLayout}
-                label='Country'
-              >
-                <span className='ant-form-text'>{country}</span>
-              </FormItem>
-            </Form>
-          </Spin>
+        <div className='profile-wrapper'>
+          <div className='profile-infos'>
+            <Spin spinning={isLoading}>
+              <Form>
+                <FormItem
+                  {...formItemLayout}
+                  label='Name'
+                >
+                  <span className='ant-form-text'>{name}</span>
+                </FormItem>
+                <FormItem
+                  {...formItemLayout}
+                  label='Phone'
+                >
+                  <span className='ant-form-text'>{phone}</span>
+                </FormItem>
+                <FormItem
+                  {...formItemLayout}
+                  label='Email'
+                >
+                  <span className='ant-form-text'>{email}</span>
+                </FormItem>
+                <FormItem
+                  {...formItemLayout}
+                  label='Country'
+                >
+                  <span className='ant-form-text'>{country}</span>
+                </FormItem>
+              </Form>
+            </Spin>
+          </div>
         </div>
       </div>
     )

@@ -12,12 +12,12 @@ class Home extends Component {
 
   render () {
     return (
-      <div className='home-wrapper'>
+      <div className='page-layout__viewport'>
         <Helmet>
           <title>Home</title>
         </Helmet>
         <Header />
-        <div>
+        <div className='page-layout__container'>
           <h2 className='page-title'>Welcome!</h2>
         </div>
       </div>

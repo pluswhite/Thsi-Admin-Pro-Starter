@@ -20,14 +20,12 @@ class Me extends Component {
   render () {
     const { children } = this.props
     return (
-      <div>
+      <div className='page-layout__viewport'>
         <Helmet>
           <title>Me</title>
         </Helmet>
         <Header />
-        <div className='me-wrapper'>
-          {children}
-        </div>
+        {children}
       </div>
     )
   }

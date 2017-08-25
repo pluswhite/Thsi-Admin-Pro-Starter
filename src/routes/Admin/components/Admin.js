@@ -6,7 +6,7 @@ import Helmet from 'react-helmet'
 import moment from 'moment'
 import Header from 'vctns/HeaderContainer'
 
-import './Admin.scss'
+// import './Admin.scss'
 
 const {
   Footer,
@@ -59,12 +59,12 @@ class Admin extends Component {
     // console.log(siderCollpased)
 
     return (
-      <Layout>
+      <Layout className='page-layout__viewport'>
         <Helmet>
           <title>Admin</title>
         </Helmet>
         <Header />
-        <Layout>
+        <Layout className='page-layout__container'>
           <Sider
             collapsible
             collapsed={siderCollpased}
@@ -112,7 +112,7 @@ class Admin extends Component {
           </Sider>
           <Layout>
             <Content>
-              <div className='admin-wrapper'>
+              <div className='page-layout__wrapper'>
                 {children}
               </div>
             </Content>

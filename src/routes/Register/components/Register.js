@@ -75,14 +75,14 @@ class Register extends Component {
     const { getFieldDecorator } = form
 
     return (
-      <div>
+      <div className='page-layout__viewport'>
         <Helmet>
           <title>Register</title>
         </Helmet>
         <Header />
-        <div className='page-layout__viewport'>
+        <div className='page-layout__container'>
+          <h2 className='page-title'>Register</h2>
           <div className='reigster-form-wrapper'>
-            <h2 className='page-title'>Register</h2>
             <Spin spinning={isLoading}>
               <Form onSubmit={this.handleSubmit} className='register-form'>
                 <FormItem>

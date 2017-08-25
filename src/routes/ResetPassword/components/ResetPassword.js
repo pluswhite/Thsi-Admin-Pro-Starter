@@ -74,12 +74,12 @@ class ResetPassword extends Component {
     } = this.state
 
     return (
-      <div>
+      <div className='page-layout__viewport'>
         <Helmet>
           <title>Reset Password</title>
         </Helmet>
         <Header />
-        <div className='page-layout__viewport'>
+        <div className='page-layout__container'>
           <h2 className='page-title'>Reset Password</h2>
           {!showTips &&
             <div className='resetPassword-form-wrapper'>

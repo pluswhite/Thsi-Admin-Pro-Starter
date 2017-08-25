@@ -76,52 +76,54 @@ class Password extends Component {
     } = form
 
     return (
-      <div className='password-form-wrapper'>
+      <div className='page-layout__container'>
         <Helmet>
           <title>Modify Password</title>
         </Helmet>
         <h2 className='page-title'>Modify Password</h2>
-        <Spin spinning={isLoading}>
-          <Form onSubmit={this.handlePasswordSubmit} className='password-form'>
-            <FormItem>
-              {getFieldDecorator('oldPassword', {
-                rules: [{
-                  required: true,
-                  message: 'Please input your Password!'
-                }],
-              })(
-                <Input prefix={<Icon type='key' style={{ fontSize: 13 }} />} type='password' placeholder='Old Password' />
-              )}
-            </FormItem>
-            <FormItem>
-              {getFieldDecorator('newPassword', {
-                rules: [{
-                  required: true, message: 'Please input your password!',
-                }, {
-                  validator: this.checkConfirm,
-                }],
-              })(
-                <Input prefix={<Icon type='lock' />} type='password' placeholder='New Password' />
-              )}
-            </FormItem>
-            <FormItem>
-              {getFieldDecorator('confirm', {
-                rules: [{
-                  required: true, message: 'Please confirm your password!',
-                }, {
-                  validator: this.checkPassword,
-                }],
-              })(
-                <Input prefix={<Icon type='lock' />} type='password' placeholder='Confirm Password' onBlur={this.handleConfirmBlur} />
-              )}
-            </FormItem>
-            <FormItem>
-              <Button type='primary' htmlType='submit' className='password-form-button'>
-                Modify Password
-              </Button>
-            </FormItem>
-          </Form>
-        </Spin>
+        <div className='password-form-wrapper'>
+          <Spin spinning={isLoading}>
+            <Form onSubmit={this.handlePasswordSubmit} className='password-form'>
+              <FormItem>
+                {getFieldDecorator('oldPassword', {
+                  rules: [{
+                    required: true,
+                    message: 'Please input your Password!'
+                  }],
+                })(
+                  <Input prefix={<Icon type='key' style={{ fontSize: 13 }} />} type='password' placeholder='Old Password' />
+                )}
+              </FormItem>
+              <FormItem>
+                {getFieldDecorator('newPassword', {
+                  rules: [{
+                    required: true, message: 'Please input your password!',
+                  }, {
+                    validator: this.checkConfirm,
+                  }],
+                })(
+                  <Input prefix={<Icon type='lock' />} type='password' placeholder='New Password' />
+                )}
+              </FormItem>
+              <FormItem>
+                {getFieldDecorator('confirm', {
+                  rules: [{
+                    required: true, message: 'Please confirm your password!',
+                  }, {
+                    validator: this.checkPassword,
+                  }],
+                })(
+                  <Input prefix={<Icon type='lock' />} type='password' placeholder='Confirm Password' onBlur={this.handleConfirmBlur} />
+                )}
+              </FormItem>
+              <FormItem>
+                <Button type='primary' htmlType='submit' className='password-form-button'>
+                  Modify Password
+                </Button>
+              </FormItem>
+            </Form>
+          </Spin>
+        </div>
       </div>
     )
   }

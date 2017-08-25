@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {
   Form,
-  Spin
+  Spin,
+  Row,
+  Col
 } from 'antd'
 
 import './Profile.scss'
@@ -53,39 +55,45 @@ class Profile extends Component {
         <Helmet>
           <title>Profile</title>
         </Helmet>
-        <h2 className='page-title'>Profile</h2>
-        <div className='profile-wrapper'>
-          <div className='profile-infos'>
-            <Spin spinning={isLoading}>
-              <Form>
-                <FormItem
-                  {...formItemLayout}
-                  label='Name'
-                >
-                  <span className='ant-form-text'>{name}</span>
-                </FormItem>
-                <FormItem
-                  {...formItemLayout}
-                  label='Phone'
-                >
-                  <span className='ant-form-text'>{phone}</span>
-                </FormItem>
-                <FormItem
-                  {...formItemLayout}
-                  label='Email'
-                >
-                  <span className='ant-form-text'>{email}</span>
-                </FormItem>
-                <FormItem
-                  {...formItemLayout}
-                  label='Country'
-                >
-                  <span className='ant-form-text'>{country}</span>
-                </FormItem>
-              </Form>
-            </Spin>
-          </div>
-        </div>
+        <Row>
+          <Col xs={0} md={8} />
+          <Col md={8}>
+            <h2 className='page-title'>Profile</h2>
+            <div className='profile-wrapper'>
+              <div className='profile-infos'>
+                <Spin spinning={isLoading}>
+                  <Form>
+                    <FormItem
+                      {...formItemLayout}
+                      label='Name'
+                    >
+                      <span className='ant-form-text'>{name}</span>
+                    </FormItem>
+                    <FormItem
+                      {...formItemLayout}
+                      label='Phone'
+                    >
+                      <span className='ant-form-text'>{phone}</span>
+                    </FormItem>
+                    <FormItem
+                      {...formItemLayout}
+                      label='Email'
+                    >
+                      <span className='ant-form-text'>{email}</span>
+                    </FormItem>
+                    <FormItem
+                      {...formItemLayout}
+                      label='Country'
+                    >
+                      <span className='ant-form-text'>{country}</span>
+                    </FormItem>
+                  </Form>
+                </Spin>
+              </div>
+            </div>
+          </Col>
+          <Col xs={0} md={8} />
+        </Row>
       </div>
     )
   }

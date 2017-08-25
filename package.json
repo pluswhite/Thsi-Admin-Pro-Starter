@@ -20,7 +20,7 @@
   "author": "Eric Zhang <beefjava@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "antd": "^2.12.6",
+    "antd": "^2.12.7",
     "antd-mobile": "^1.6.3",
     "axios": "^0.16.2",
     "classnames": "^2.2.5",

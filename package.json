@@ -1,7 +1,7 @@
 {
   "name": "react-redux-admin",
   "version": "0.1.0",
-  "description": "A Admin Template with React, Redux, and React-Router!",
+  "description": "Admin Template with React, Redux, and React-Router!",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",

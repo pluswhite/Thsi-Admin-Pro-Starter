@@ -7,7 +7,9 @@ import {
   Icon,
   Input,
   Button,
-  Checkbox
+  Checkbox,
+  Row,
+  Col
 } from 'antd'
 import { Helmet } from 'react-helmet'
 
@@ -80,52 +82,58 @@ class Login extends Component {
         </Helmet>
         <Header />
         <div className='page-layout__container'>
-          <h2 className='page-title'>Login</h2>
-          <div className='login-form-wrapper'>
-            <Spin spinning={isLoading}>
-              <Form onSubmit={this.handleLoginSubmit} className='login-form'>
-                <FormItem>
-                  {getFieldDecorator('email', {
-                    rules: [
-                      {
-                        type: 'email',
-                        message: 'The input is not valid E-mail!',
-                      },
-                      {
-                        required: true,
-                        message: 'Please input your E-mail!',
-                      }
-                    ],
-                  })(
-                    <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />} placeholder='Email' />
-                  )}
-                </FormItem>
-                <FormItem>
-                  {getFieldDecorator('password', {
-                    rules: [{
-                      required: true,
-                      message: 'Please input your Password!'
-                    }],
-                  })(
-                    <Input prefix={<Icon type='lock' style={{ fontSize: 13 }} />} type='password' placeholder='Password' />
-                  )}
-                </FormItem>
-                <FormItem>
-                  {getFieldDecorator('remember', {
-                    valuePropName: 'checked',
-                    initialValue: true,
-                  })(
-                    <Checkbox>Remember me</Checkbox>
-                  )}
-                  <Link className='login-form-forgot' to='/reset-psw'>Forgot password</Link>
-                  <Button type='primary' htmlType='submit' className='login-form-button'>
-                    Login
-                  </Button>
-                  Or <Link to='/register'>register now!</Link>
-                </FormItem>
-              </Form>
-            </Spin>
-          </div>
+          <Row>
+            <Col xs={0} md={8} />
+            <Col md={8}>
+              <h2 className='page-title'>Login</h2>
+              <div className='login-form-wrapper'>
+                <Spin spinning={isLoading}>
+                  <Form onSubmit={this.handleLoginSubmit} className='login-form'>
+                    <FormItem>
+                      {getFieldDecorator('email', {
+                        rules: [
+                          {
+                            type: 'email',
+                            message: 'The input is not valid E-mail!',
+                          },
+                          {
+                            required: true,
+                            message: 'Please input your E-mail!',
+                          }
+                        ],
+                      })(
+                        <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />} placeholder='Email' />
+                      )}
+                    </FormItem>
+                    <FormItem>
+                      {getFieldDecorator('password', {
+                        rules: [{
+                          required: true,
+                          message: 'Please input your Password!'
+                        }],
+                      })(
+                        <Input prefix={<Icon type='lock' style={{ fontSize: 13 }} />} type='password' placeholder='Password' />
+                      )}
+                    </FormItem>
+                    <FormItem>
+                      {getFieldDecorator('remember', {
+                        valuePropName: 'checked',
+                        initialValue: true,
+                      })(
+                        <Checkbox>Remember me</Checkbox>
+                      )}
+                      <Link className='login-form-forgot' to='/reset-psw'>Forgot password</Link>
+                      <Button type='primary' htmlType='submit' className='login-form-button'>
+                        Login
+                      </Button>
+                      Or <Link to='/register'>register now!</Link>
+                    </FormItem>
+                  </Form>
+                </Spin>
+              </div>
+            </Col>
+            <Col xs={0} md={8} />
+          </Row>
         </div>
       </div>
     )

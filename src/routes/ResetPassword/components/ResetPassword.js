@@ -6,7 +6,9 @@ import {
   Form,
   Icon,
   Input,
-  Button
+  Button,
+  Row,
+  Col
 } from 'antd'
 import { Helmet } from 'react-helmet'
 
@@ -80,42 +82,48 @@ class ResetPassword extends Component {
         </Helmet>
         <Header />
         <div className='page-layout__container'>
-          <h2 className='page-title'>Reset Password</h2>
-          {!showTips &&
-            <div className='resetPassword-form-wrapper'>
-              <Spin spinning={isLoading}>
-                <Form onSubmit={this.handleResetPasswordSubmit} className='resetPassword-form'>
-                  <FormItem>
-                    {getFieldDecorator('email', {
-                      rules: [
-                        {
-                          type: 'email',
-                          message: 'The input is not valid E-mail!',
-                        },
-                        {
-                          required: true,
-                          message: 'Please input your E-mail!',
-                        }
-                      ],
-                    })(
-                      <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />} placeholder='Email' />
-                    )}
-                  </FormItem>
-                  <FormItem>
-                    <Button type='primary' htmlType='submit' className='resetPassword-form-button'>
-                      Reset Password
-                    </Button>
-                  </FormItem>
-                </Form>
-              </Spin>
-            </div>
-          }
-          {showTips &&
-            <div className='reset-password-tips'>
-              <p className='text-success'>We send a link to your email! </p>
-              <p>Please click link to reset your password. </p>
-            </div>
-          }
+          <Row>
+            <Col xs={0} md={8} />
+            <Col md={8}>
+              <h2 className='page-title'>Reset Password</h2>
+              {!showTips &&
+                <div className='resetPassword-form-wrapper'>
+                  <Spin spinning={isLoading}>
+                    <Form onSubmit={this.handleResetPasswordSubmit} className='resetPassword-form'>
+                      <FormItem>
+                        {getFieldDecorator('email', {
+                          rules: [
+                            {
+                              type: 'email',
+                              message: 'The input is not valid E-mail!',
+                            },
+                            {
+                              required: true,
+                              message: 'Please input your E-mail!',
+                            }
+                          ],
+                        })(
+                          <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />} placeholder='Email' />
+                        )}
+                      </FormItem>
+                      <FormItem>
+                        <Button type='primary' htmlType='submit' className='resetPassword-form-button'>
+                          Reset Password
+                        </Button>
+                      </FormItem>
+                    </Form>
+                  </Spin>
+                </div>
+              }
+              {showTips &&
+                <div className='reset-password-tips'>
+                  <p className='text-success'>We send a link to your email! </p>
+                  <p>Please click link to reset your password. </p>
+                </div>
+              }
+            </Col>
+            <Col xs={0} md={8} />
+          </Row>
         </div>
       </div>
     )

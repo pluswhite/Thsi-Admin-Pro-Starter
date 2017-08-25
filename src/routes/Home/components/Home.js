@@ -18,7 +18,11 @@ class Home extends Component {
         </Helmet>
         <Header />
         <div className='page-layout__container'>
-          <h2 className='page-title'>Welcome!</h2>
+          <div className='home-wrapper'>
+            <h2 className='page-title'>Welcome!</h2>
+            <p>This is an Admin Template with React, Redux, and React-Router! </p>
+            <p>You can use validated email & password to login.</p>
+          </div>
         </div>
       </div>
     )

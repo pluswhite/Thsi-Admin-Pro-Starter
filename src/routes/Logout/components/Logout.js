@@ -46,8 +46,8 @@ class Logout extends Component {
 
   render () {
     return (
-      <div className='logout-wrapper'>
-        <div style={{ textAlign: 'center' }}>
+      <div className='page-layout__viewport'>
+        <div className='logout-wrapper'>
           <p>
             <strong>You have been logged out.</strong>
           </p>

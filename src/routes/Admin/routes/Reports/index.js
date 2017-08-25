@@ -8,22 +8,22 @@ export default (store) => ({
         and embed an async module loader (jsonp) when bundling   */
     require.ensure([
       './containers/ReportsContainer',
-      './modules/reports'
+      // './modules/reports'
     ], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const Reports = require('./containers/ReportsContainer').default
-      const reportsReducer = require('./modules/reports').default
+      // const reportsReducer = require('./modules/reports').default
 
       /*  Add the reducer to the store on key 'User'  */
-      injectReducer(store, {
-        key: 'reports',
-        reducer: reportsReducer
-      })
+      // injectReducer(store, {
+      //   key: 'reports',
+      //   reducer: reportsReducer
+      // })
 
       /*  Return getComponent   */
       next(null, Reports)
-    })
+    }, 'reports')
   },
   getChildRoutes (location, cb) {
     require.ensure([], (require) => {

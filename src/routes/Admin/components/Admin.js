@@ -99,7 +99,7 @@ class Admin extends Component {
                 title={<span><Icon type='file-text' /><span>Reports</span></span>}
               >
                 <Menu.Item key='total-report'>
-                  <Link to='/admin/reports'>Total Reports</Link>
+                  <Link to='/admin/reports/total'>Total Reports</Link>
                 </Menu.Item>
               </SubMenu>
               <Menu.Item key='settings'>

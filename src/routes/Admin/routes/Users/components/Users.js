@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {
   Table,
-  Icon
+  Icon,
+  Card
 } from 'antd'
 
 import './Users.scss'
@@ -55,12 +56,17 @@ class Users extends Component {
       <div className='page-layout__wrapper users-wrapper'>
         <h2 className='page-title'>Users</h2>
         <div className='users-list'>
-          <Table
-            columns={columns}
-            dataSource={userList}
-            loading={isLoading}
-            size='middle'
-            bordered />
+          <Card
+            title={<span><Icon type='bars' /> List</span>}
+            noHovering={true}
+            bordered={false}>
+            <Table
+              columns={columns}
+              dataSource={userList}
+              loading={isLoading}
+              size='middle'
+              bordered />
+          </Card>
         </div>
       </div>
     )

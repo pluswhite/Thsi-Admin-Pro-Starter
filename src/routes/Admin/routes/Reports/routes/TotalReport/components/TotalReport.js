@@ -10,7 +10,8 @@ import {
   Icon,
   DatePicker,
   Table,
-  Spin
+  Spin,
+  Card
 } from 'antd'
 
 import './TotalReport.scss'
@@ -95,57 +96,67 @@ class TotalReport extends Component {
         <h2 className='page-title'>Total Report</h2>
         <div className='report-wrapper'>
           <div className='search-filter-wrapper'>
-            <Form className='search-form' onSubmit={this.handleSearch}>
-              <Row gutter={40}>
-                <Col span={8} key='name'>
-                  <FormItem {...formItemLayout} label='Name'>
-                    {getFieldDecorator('name')(
-                      <Input placeholder='placeholder' />
-                    )}
-                  </FormItem>
-                </Col>
-                <Col span={8} key='type'>
-                  <FormItem {...formItemLayout} label='Type'>
-                    {getFieldDecorator('type')(
-                      <Input placeholder='placeholder' />
-                    )}
-                  </FormItem>
-                </Col>
-                <Col span={8} key='date'>
-                  <FormItem {...formItemLayout} label='Date'>
-                    {getFieldDecorator('date', {
-                      rules: [{
-                        type: 'array',
-                        message: 'Please select time!'
-                      }]
-                    })(
-                      <RangePicker />
-                    )}
-                  </FormItem>
-                </Col>
-              </Row>
-              <Row>
-                <Col span={24} style={{ textAlign: 'right' }}>
-                  <Button type='primary' htmlType='submit' icon='search' loading={isLoading}>
-                    Search
-                  </Button>
-                  <Button style={{ marginLeft: 8 }} onClick={this.handleReset}>
-                    Clear
-                  </Button>
-                  {/* <a style={{ marginLeft: 8, fontSize: 12 }} onClick={this.toggle}>
-                    Collapse <Icon type={this.state.expand ? 'up' : 'down'} />
-                  </a> */}
-                </Col>
-              </Row>
-            </Form>
+            <Card
+              title={<span><Icon type='filter' /> Filter</span>}
+              noHovering={true}
+              bordered={false}>
+              <Form className='search-form' onSubmit={this.handleSearch}>
+                <Row gutter={40}>
+                  <Col span={8} key='name'>
+                    <FormItem {...formItemLayout} label='Name'>
+                      {getFieldDecorator('name')(
+                        <Input placeholder='placeholder' />
+                      )}
+                    </FormItem>
+                  </Col>
+                  <Col span={8} key='type'>
+                    <FormItem {...formItemLayout} label='Type'>
+                      {getFieldDecorator('type')(
+                        <Input placeholder='placeholder' />
+                      )}
+                    </FormItem>
+                  </Col>
+                  <Col span={8} key='date'>
+                    <FormItem {...formItemLayout} label='Date'>
+                      {getFieldDecorator('date', {
+                        rules: [{
+                          type: 'array',
+                          message: 'Please select time!'
+                        }]
+                      })(
+                        <RangePicker />
+                      )}
+                    </FormItem>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={24} style={{ textAlign: 'right' }}>
+                    <Button type='primary' htmlType='submit' icon='search' loading={isLoading}>
+                      Search
+                    </Button>
+                    <Button style={{ marginLeft: 8 }} onClick={this.handleReset}>
+                      Clear
+                    </Button>
+                    {/* <a style={{ marginLeft: 8, fontSize: 12 }} onClick={this.toggle}>
+                      Collapse <Icon type={this.state.expand ? 'up' : 'down'} />
+                    </a> */}
+                  </Col>
+                </Row>
+              </Form>
+            </Card>
           </div>
           <div className='reports-list'>
-            <Table
-              columns={columns}
-              dataSource={reportList}
-              loading={isLoading}
-              size='middle'
-              bordered />
+            <Card
+              title={<span><Icon type='bars' /> Result</span>}
+              noHovering={true}
+              bordered={false}>
+              <Table
+                columns={columns}
+                dataSource={reportList}
+                loading={isLoading}
+                size='middle'
+                bordered />
+              </Card>
           </div>
         </div>
       </div>

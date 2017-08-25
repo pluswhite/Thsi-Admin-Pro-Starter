@@ -10,6 +10,8 @@ export const REQUEST_TOTAL_REPORTS_POSTS = 'REQUEST_TOTAL_REPORTS_POSTS'
 export const REQUEST_TOTAL_REPORTS_SUCCESS = 'REQUEST_TOTAL_REPORTS_SUCCESS'
 export const REQUEST_TOTAL_REPORTS_FAILURE = 'REQUEST_TOTAL_REPORTS_FAILURE'
 
+export const CLEAR_TOTAL_REPORTS_LIST = 'CLEAR_TOTAL_REPORTS_LIST'
+
 /**
  * Actions
  */
@@ -31,6 +33,12 @@ export const requestTotalReportSuccess = (data) => {
 export const requestTotalReportFailure = () => {
   return {
     type: REQUEST_TOTAL_REPORTS_FAILURE
+  }
+}
+
+export const clearTotalReportList = () => {
+  return {
+    type: CLEAR_TOTAL_REPORTS_LIST
   }
 }
 
@@ -63,6 +71,12 @@ export const fetchTotalReport = () => {
   }
 }
 
+export const clearTotalReport = () => {
+  return (dispatch) => {
+    dispatch(clearTotalReportList())
+  }
+}
+
 /*  This is a thunk, meaning it is a function that immediately
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
@@ -92,6 +106,12 @@ const ACTION_HANDLERS = {
     return ({
       ...state,
       isLoading: false
+    })
+  },
+  [CLEAR_TOTAL_REPORTS_LIST]: (state) => {
+    return ({
+      ...state,
+      reportList: []
     })
   },
 }

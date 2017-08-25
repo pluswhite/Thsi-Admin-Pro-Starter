@@ -61,9 +61,9 @@ class TotalReport extends Component {
     this.state = {}
   }
 
-  handleSearch = (e) => {
+  handleSearch = (evt) => {
     const { form, fetchTotalReport } = this.props
-    e.preventDefault()
+    evt.preventDefault()
     form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
@@ -72,11 +72,18 @@ class TotalReport extends Component {
     })
   }
 
+  handleReset = (evt) => {
+    const { form, clearTotalReport } = this.props
+    evt.preventDefault()
+    clearTotalReport()
+    form.resetFields()
+  }
+
   render () {
     const {
       isLoading,
       form,
-      reportList
+      reportList,
     } = this.props
 
     const {

@@ -1,10 +1,14 @@
 import { connect } from 'react-redux'
-import { fetchTotalReport } from '../modules/totalReport'
+import {
+  fetchTotalReport,
+  clearTotalReport
+} from '../modules/totalReport'
 
 import TotalReport from '../components/TotalReport'
 
 const mapActionCreators = {
-  fetchTotalReport
+  fetchTotalReport,
+  clearTotalReport
 }
 
 const mapStateToProps = (state) => ({

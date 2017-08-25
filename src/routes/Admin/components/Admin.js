@@ -20,6 +20,7 @@ const SiderMenuConfig = {
   '/admin': ['dash'],
   '/admin/users': ['user-list', 'users'],
   '/admin/reports': ['total-report', 'reports'],
+  '/admin/reports/total': ['total-report', 'reports'],
   '/admin/settings': ['settings']
 }
 

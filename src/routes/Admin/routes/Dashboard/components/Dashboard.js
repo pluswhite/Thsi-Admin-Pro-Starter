@@ -290,7 +290,7 @@ class Dashboard extends Component {
 
     // console.log(stats)
     return (
-      <div className='dash-wrapper'>
+      <div className='page-layout__wrapper dash-wrapper'>
         <Helmet>
           <title>Dashboard</title>
         </Helmet>

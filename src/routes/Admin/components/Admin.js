@@ -112,9 +112,7 @@ class Admin extends Component {
           </Sider>
           <Layout>
             <Content>
-              <div className='page-layout__wrapper'>
-                {children}
-              </div>
+              {children}
             </Content>
             <Footer style={{
               textAlign: 'center'

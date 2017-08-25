@@ -28,7 +28,7 @@ class Settings extends Component {
     } = this.props
 
     return (
-      <div className='settings-wrapper'>
+      <div className='page-layout__wrapper settings-wrapper'>
         <Helmet>
           <title>Settings</title>
         </Helmet>

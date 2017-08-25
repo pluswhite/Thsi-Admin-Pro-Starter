@@ -52,7 +52,7 @@ class Users extends Component {
     } = this.props
 
     return (
-      <div className='users-wrapper'>
+      <div className='page-layout__wrapper users-wrapper'>
         <h2 className='page-title'>Users</h2>
         <div className='users-list'>
           <Table

@@ -1,7 +1,7 @@
 import { injectReducer } from 'vstore/reducers'
 
 export default (store) => ({
-  path : 'counter',
+  path : 'total',
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, next) {
     /*  Webpack - use 'require.ensure' to create a split point
@@ -9,17 +9,17 @@ export default (store) => ({
     require.ensure([], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-      const Counter = require('./containers/CounterContainer').default
-      const reducer = require('./modules/counter').default
+      const TotalReport = require('./containers/TotalReportContainer').default
+      const reducer = require('./modules/totalReport').default
 
-      /*  Add the reducer to the store on key 'counter'  */
+      /*  Add the reducer to the store on key 'totalReport'  */
       injectReducer(store, {
-        key: 'counter',
+        key: 'totalReport',
         reducer
       })
 
       /*  Return getComponent   */
-      next(null, Counter)
+      next(null, TotalReport)
 
     /* Webpack named bundle   */
     })

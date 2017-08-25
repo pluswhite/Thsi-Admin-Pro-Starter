@@ -24,5 +24,13 @@ export default (store) => ({
       /*  Return getComponent   */
       next(null, Reports)
     })
+  },
+  getChildRoutes (location, cb) {
+    require.ensure([], (require) => {
+      cb(null, [
+        // Remove imports!
+        require('./routes/TotalReport').default(store),
+      ])
+    })
   }
 })

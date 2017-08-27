@@ -58,7 +58,7 @@ class Users extends Component {
         <div className='users-list'>
           <Card
             title={<span><Icon type='bars' /> List</span>}
-            noHovering={true}
+            noHovering
             bordered={false}>
             <Table
               columns={columns}

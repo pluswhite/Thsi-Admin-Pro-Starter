@@ -2,11 +2,30 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { IndexLink, Link } from 'react-router'
 import { Layout, Menu, Icon, Row, Col } from 'antd'
+import classnames from 'classnames'
 
 import './Header.scss'
 
 const { Header } = Layout
 const SubMenu = Menu.SubMenu
+
+const MsgList = [
+  {
+    'id': '1',
+    'msg': 'Give me a call.',
+    'hasRead': false
+  },
+  {
+    'id': '2',
+    'msg': 'Reports attached.',
+    'hasRead': false
+  },
+  {
+    'id': '3',
+    'msg': 'Metting today.',
+    'hasRead': true
+  }
+]
 
 class HeaderView extends Component {
   static propTypes = {
@@ -24,6 +43,24 @@ class HeaderView extends Component {
       isAuthenticated,
       userName
     } = this.props
+
+    let msgShowList = MsgList.map((item, index) => {
+      const { id, msg, hasRead } = item
+      let msgClass = classnames(
+        'btn',
+        {
+          'has-read': hasRead
+        }
+      )
+      return (
+        <Menu.Item key={index}>
+          <Link className={msgClass} to={`/me/message/${id}`}>
+            <p>{msg}</p>
+          </Link>
+        </Menu.Item>
+      )
+    })
+
     return (
       <Header className='header'>
         <Row>
@@ -53,6 +90,16 @@ class HeaderView extends Component {
               mode='horizontal'
               style={{ float: 'right' }}
             >
+              {isAuthenticated &&
+                <SubMenu title={<span><Icon type='mail' />Messages</span>}>
+                  {msgShowList}
+                  <Menu.Item key='all-message' className='view-all-message'>
+                    <Link className='btn' to='/me/message'>
+                      View all messages
+                    </Link>
+                  </Menu.Item>
+                </SubMenu>
+              }
               {isAuthenticated && userName &&
                 <SubMenu title={<span><Icon type='user' />{userName}</span>}>
                   <Menu.Item key='me-profile'>

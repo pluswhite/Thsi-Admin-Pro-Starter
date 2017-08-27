@@ -30,6 +30,7 @@ export default (store, authRouteCheck) => ({
         // Remove imports!
         require('./routes/Profile').default(store),
         require('./routes/Password').default(store),
+        require('./routes/Message').default(store),
       ])
     })
   }

@@ -1,7 +1,12 @@
-import { injectReducer } from 'vstore/reducers'
+// import { injectReducer } from 'vstore/reducers'
 
 export default (store) => ({
   path: 'reports',
+  getIndexRoute (location, cb) {
+    require.ensure([], (require) => {
+      cb(null, require('./routes/TotalReport').default(store))
+    })
+  },
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, next) {
     /*  Webpack - use 'require.ensure' to create a split point

@@ -19,6 +19,7 @@ const { SubMenu } = Menu
 const SiderMenuConfig = {
   '/admin': ['dash'],
   '/admin/users': ['user-list', 'users'],
+  '/admin/users/list': ['user-list', 'users'],
   '/admin/reports': ['total-report', 'reports'],
   '/admin/reports/total': ['total-report', 'reports'],
   '/admin/settings': ['settings']
@@ -109,7 +110,7 @@ class Admin extends Component {
                 title={<span><Icon type='team' /><span>Users</span></span>}
               >
                 <Menu.Item key='user-list'>
-                  <Link to='/admin/users'>List</Link>
+                  <Link to='/admin/users/list'>List</Link>
                 </Menu.Item>
               </SubMenu>
               <SubMenu

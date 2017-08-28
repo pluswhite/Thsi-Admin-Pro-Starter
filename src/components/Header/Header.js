@@ -78,7 +78,7 @@ class HeaderView extends Component {
               </Menu.Item>
               {isAuthenticated &&
                 <Menu.Item key='admin-dashbaord'>
-                  <Link className='btn' to='/admin' activeClassName='active'>
+                  <Link className='btn' to='/admin/dashboard' activeClassName='active'>
                     <Icon type='appstore-o' /> Admin
                   </Link>
                 </Menu.Item>

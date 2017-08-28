@@ -2,6 +2,7 @@ import { injectReducer } from 'vstore/reducers'
 
 export default (store) => ({
   /*  Async getComponent is only invoked when route matches   */
+  path: 'dashboard',
   getComponent (nextState, next) {
     /*  Webpack - use 'require.ensure' to create a split point
         and embed an async module loader (jsonp) when bundling   */

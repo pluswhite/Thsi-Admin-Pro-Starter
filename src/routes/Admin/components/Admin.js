@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { Layout, Menu, Icon } from 'antd'
+import { Layout, Menu, Icon, Breadcrumb } from 'antd'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import moment from 'moment'
@@ -27,6 +27,8 @@ const SiderMenuConfig = {
 class Admin extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    routes: PropTypes.array,
+    params: PropTypes.object,
     handleValidateToken: PropTypes.func,
     siderCollpased: PropTypes.bool,
     location: PropTypes.object,
@@ -46,10 +48,25 @@ class Admin extends Component {
     this.props.siderChange(collapsed)
   }
 
+  itemRender = (route, params, routes, paths) => {
+    const currIndex = routes.indexOf(route)
+    const last = currIndex === routes.length - 1
+    const first = currIndex === 0
+
+    if (first) {
+      return <Link key={currIndex} to={'/' + paths.join('/')}><Icon type='home' /></Link>
+    } else {
+      return last ? <span key={currIndex}>{route.path}</span>
+                  : <Link key={currIndex} to={'/' + paths.join('/')}>{route.path}</Link>
+    }
+  }
+
   render () {
     const {
       children,
-      siderCollpased
+      siderCollpased,
+      routes,
+      params
     } = this.props
 
     const {
@@ -82,7 +99,7 @@ class Admin extends Component {
               mode='inline'
             >
               <Menu.Item key='dash'>
-                <Link to='/admin'>
+                <Link to='/admin/dashboard'>
                   <Icon type='line-chart' />
                   <span>Dashboard</span>
                 </Link>
@@ -112,6 +129,7 @@ class Admin extends Component {
             </Menu>
           </Sider>
           <Layout>
+            <Breadcrumb routes={routes} params={params} itemRender={this.itemRender} />
             <Content>
               {children}
             </Content>

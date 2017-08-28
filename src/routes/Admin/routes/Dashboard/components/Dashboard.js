@@ -5,7 +5,7 @@ import {
   Row,
   Col,
   Spin,
-  Card
+  Card,
 } from 'antd'
 import ReactEchartsCore from 'echarts-for-react/lib/core'
 import echarts from 'echarts/lib/echarts'

@@ -44,7 +44,7 @@ export const fetchMessage = () => {
   return (dispatch, getState) => {
     dispatch(requestMessagePosts())
 
-    return requestAuthInstance.get(ApiList.dash.index, {
+    return requestAuthInstance.get(ApiList.me.message, {
       params: {
         'rnd': (new Date()).getTime()
       }
@@ -85,7 +85,7 @@ const ACTION_HANDLERS = {
     return ({
       ...state,
       isLoading: false,
-      message: action.payload.data.message
+      messageList: action.payload.data.list
     })
   },
   [REQUEST_MESSAGE_FAILURE]: (state) => {
@@ -101,7 +101,7 @@ const ACTION_HANDLERS = {
  */
 const initialState = {
   isLoading: false,
-  message: {}
+  messageList: []
 }
 export default function messageReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]

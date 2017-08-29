@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {
   Table,
   Icon,
@@ -37,6 +38,12 @@ const columns = [{
 }]
 
 class List extends Component {
+  static propTypes = {
+    isLoading: PropTypes.bool,
+    userList: PropTypes.array,
+    fetchList: PropTypes.func
+  }
+
   constructor (props) {
     super(props)
     this.state = {}

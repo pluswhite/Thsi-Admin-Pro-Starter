@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
 
 import Header from 'vctns/HeaderContainer'
 
@@ -21,9 +20,6 @@ class Me extends Component {
     const { children } = this.props
     return (
       <div className='page-layout__viewport'>
-        <Helmet>
-          <title>Me</title>
-        </Helmet>
         <Header />
         {children}
       </div>

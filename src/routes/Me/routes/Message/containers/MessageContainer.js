@@ -17,7 +17,7 @@ const mapActionCreators = {
 }
 
 const mapStateToProps = (state) => ({
-  message : state.message
+  messageList : state.message.messageList
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

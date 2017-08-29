@@ -41,6 +41,7 @@ const columns = [
   }
 ]
 
+/**
 const data = [
   {
     key: 1,
@@ -64,11 +65,14 @@ const data = [
     description: 'My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.'
   }
 ]
+  *
+  */
 
 class Message extends Component {
   static propTypes = {
-    message: PropTypes.object.isRequired,
-    // fetchMessage: PropTypes.func.isRequired
+    isLoading: PropTypes.bool,
+    messageList: PropTypes.array.isRequired,
+    fetchMessage: PropTypes.func
   }
 
   constructor (props) {
@@ -76,9 +80,14 @@ class Message extends Component {
     this.state = {}
   }
 
+  componentWillMount = () => {
+    this.props.fetchMessage()
+  }
+
   render () {
     const {
-      message
+      isLoading,
+      messageList
     } = this.props
 
     return (
@@ -96,7 +105,9 @@ class Message extends Component {
             <Table
               columns={columns}
               expandedRowRender={record => <p>{record.description}</p>}
-              dataSource={data}
+              dataSource={messageList}
+              loading={isLoading}
+              size='middle'
               bordered
             />
           </Card>

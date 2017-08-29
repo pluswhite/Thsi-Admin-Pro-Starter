@@ -53,7 +53,8 @@ class TotalReport extends Component {
     isLoading: PropTypes.bool,
     form: PropTypes.object,
     reportList: PropTypes.array.isRequired,
-    fetchTotalReport: PropTypes.func.isRequired
+    fetchTotalReport: PropTypes.func.isRequired,
+    clearTotalReport: PropTypes.func
   }
 
   constructor (props) {

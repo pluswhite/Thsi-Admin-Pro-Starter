@@ -33,8 +33,7 @@ class Settings extends Component {
           <title>Settings</title>
         </Helmet>
         <h2 className='page-title'>Settings</h2>
-        <div className='settings-list'>
-        </div>
+        <div className='settings-list'></div>
       </div>
     )
   }

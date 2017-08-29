@@ -21,7 +21,7 @@ export const siderChange = () => {
     let siderCollpasedStatus = getState().admin && getState().admin.siderCollpased
     // console.log(siderCollpasedStatus)
     dispatch(siderCollapsedChange())
-    store.set('sider_collpased', siderCollpasedStatus)
+    store.set('sider_collpased', !siderCollpasedStatus)
   }
 }
 

@@ -59,7 +59,7 @@ class Login extends Component {
           if (redirectPath) {
             browserHistory.push(redirectPath)
           } else {
-            browserHistory.push('/admin')
+            browserHistory.push('/admin/dashboard')
           }
         }, (msg) => {
           message.error(msg)

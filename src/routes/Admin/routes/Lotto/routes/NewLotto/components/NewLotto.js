@@ -1,41 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {
-  Table,
   Icon,
-  Card
+  Card,
+  Row,
+  Col,
+
 } from 'antd'
 
 import './NewLotto.scss'
-
-const columns = [{
-  title: 'Name',
-  dataIndex: 'name',
-  key: 'name',
-  render: text => <a href='#'>{text}</a>,
-}, {
-  title: 'Age',
-  dataIndex: 'age',
-  key: 'age',
-}, {
-  title: 'Address',
-  dataIndex: 'address',
-  key: 'address',
-}, {
-  title: 'Action',
-  key: 'action',
-  render: (text, record) => (
-    <span>
-      <a href='#' title='Edit'><Icon type='edit' /></a>
-      <span className='ant-divider' />
-      <a href='#' title='Delete'><Icon type='delete' /></a>
-      <span className='ant-divider' />
-      <a href='#' className='ant-dropdown-link' title='Actions'>
-        <Icon type='ellipsis' />
-      </a>
-    </span>
-  )
-}]
 
 class List extends Component {
   static propTypes = {
@@ -65,6 +38,13 @@ class List extends Component {
             title={<span><Icon type='plus-circle-o' /> New</span>}
             noHovering
             bordered={false}>
+            <Row>
+              <Col span="8" />
+              <Col span="8">
+                Lotto Form.
+              </Col>
+              <Col span="8" />
+            </Row>
           </Card>
         </div>
       </div>

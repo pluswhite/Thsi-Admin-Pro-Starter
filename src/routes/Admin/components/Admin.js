@@ -48,11 +48,6 @@ class Admin extends Component {
     this.props.handleValidateToken()
   }
 
-  onCollapse = (collapsed) => {
-    // console.log(collapsed)
-    this.props.siderChange(collapsed)
-  }
-
   itemRender = (route, params, routes, paths) => {
     const currIndex = routes.indexOf(route)
     const last = currIndex === routes.length - 1
@@ -86,12 +81,12 @@ class Admin extends Component {
         <Helmet>
           <title>Admin</title>
         </Helmet>
-        <Header />
+        <Header siderChange={this.props.siderChange} />
         <Layout className='page-layout__container'>
           <Sider
+            trigger={null}
             collapsible
             collapsed={siderCollpased}
-            onCollapse={this.onCollapse}
             style={{
               background: '#fff'
             }}
@@ -101,6 +96,7 @@ class Admin extends Component {
               selectedKeys={siderKeys}
               defaultOpenKeys={siderKeys}
               inlineCollapsed={false}
+              multiple
               mode='inline'
             >
               <Menu.Item key='dash'>

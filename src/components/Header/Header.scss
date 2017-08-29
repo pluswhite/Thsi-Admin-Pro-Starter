@@ -3,7 +3,7 @@
   border-bottom: 1px solid #dadada;
 
   .header-logo {
-    display: block;
+    display: inline-block;
     height: 60px;
     color: #131313;
     font-size: 24px;
@@ -11,6 +11,15 @@
     // text-align: center;
     border-radius: 6px;
     text-decoration: none;
+  }
+
+  .menu-trigger {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 15px;
+    font-size: 20px;
+    cursor: pointer;
   }
 
   &.ant-layout-header {

@@ -7,22 +7,21 @@ export const SIDER_COLLAPSED_CHANGE = 'SIDER_COLLAPSED_CHANGE'
 /**
  * Actions
  */
-export const siderCollapsedChange = (collapsed) => {
+export const siderCollapsedChange = () => {
   return {
-    type: SIDER_COLLAPSED_CHANGE,
-    payload: {
-      collapsed
-    }
+    type: SIDER_COLLAPSED_CHANGE
   }
 }
 /**
  * Async Method
  */
-export const siderChange = (collapsed) => {
-  return (dispatch) => {
+export const siderChange = () => {
+  return (dispatch, getState) => {
     // console.log(collapsed)
-    dispatch(siderCollapsedChange(collapsed))
-    store.set('sider_collpased', collapsed)
+    let siderCollpasedStatus = getState().admin && getState().admin.siderCollpased
+    // console.log(siderCollpasedStatus)
+    dispatch(siderCollapsedChange())
+    store.set('sider_collpased', siderCollpasedStatus)
   }
 }
 
@@ -36,7 +35,7 @@ const AUTH_ACTION_HANDLERS = {
   [SIDER_COLLAPSED_CHANGE]: (state, action) => {
     return ({
       ...state,
-      siderCollpased: action.payload.collapsed
+      siderCollpased: !state.siderCollpased
     })
   },
 }

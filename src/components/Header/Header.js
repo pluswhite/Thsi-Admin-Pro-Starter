@@ -30,7 +30,8 @@ const MsgList = [
 class HeaderView extends Component {
   static propTypes = {
     isAuthenticated: PropTypes.bool.isRequired,
-    userName: PropTypes.string
+    userName: PropTypes.string,
+    siderChange: PropTypes.func
   }
 
   constructor (props) {
@@ -41,7 +42,8 @@ class HeaderView extends Component {
   render () {
     const {
       isAuthenticated,
-      userName
+      userName,
+      siderChange
     } = this.props
 
     let msgShowList = MsgList.map((item, index) => {
@@ -66,6 +68,9 @@ class HeaderView extends Component {
         <Row>
           <Col span={6}>
             <Link className='header-logo' to='/'>VM React Admin</Link>
+            <div className='menu-trigger' onClick={siderChange}>
+              <Icon type='bars' />
+            </div>
           </Col>
           <Col span={12}>
             <Menu

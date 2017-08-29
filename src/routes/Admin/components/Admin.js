@@ -25,6 +25,7 @@ const SiderMenuConfig = {
   '/admin/reports/total': ['total-report', 'reports'],
   '/admin/lotto': ['lotto-list', 'lotto'],
   '/admin/lotto/list': ['lotto-list', 'lotto'],
+  '/admin/lotto/new': ['lotto-list', 'lotto'],
   '/admin/settings': ['settings']
 }
 

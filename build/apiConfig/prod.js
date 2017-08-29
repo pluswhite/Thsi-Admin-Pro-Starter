@@ -15,15 +15,19 @@ module.exports = {
     },
     me: {
       profile: 'me/profile.json',
+      message: 'me/message_list.json'
     },
     dash: {
       index: 'dash/dash.json'
     },
     users: {
-      index: 'users/userList.json'
+      index: 'users/user_list.json'
     },
     reports: {
-      index: 'reports/reportList.json'
-    }
+      index: 'reports/report_list.json'
+    },
+    lotto: {
+      index: 'lotto/lotto_list.json'
+    },
   }
 }

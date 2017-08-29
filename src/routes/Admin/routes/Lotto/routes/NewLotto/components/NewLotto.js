@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { browserHistory } from 'react-router'
 import {
   Table,
   Icon,
-  Card,
-  Button
+  Card
 } from 'antd'
 
-import './LottoList.scss'
+import './NewLotto.scss'
 
 const columns = [{
   title: 'Name',
@@ -42,8 +40,7 @@ const columns = [{
 class List extends Component {
   static propTypes = {
     isLoading: PropTypes.bool,
-    lottoList: PropTypes.array,
-    fetchLottoList: PropTypes.func
+    // fetchNewLotto: PropTypes.func
   }
 
   constructor (props) {
@@ -52,34 +49,22 @@ class List extends Component {
   }
 
   componentWillMount = () => {
-    this.props.fetchLottoList()
-  }
-
-  onNewClick = () => {
-    browserHistory.push('/admin/lotto/new')
+    // this.props.fetchNewLotto()
   }
 
   render () {
     const {
       isLoading,
-      lottoList
     } = this.props
 
     return (
       <div className='page-layout__wrapper list-wrapper'>
-        <h2 className='page-title'>List</h2>
+        <h2 className='page-title'>New</h2>
         <div className='list-list'>
           <Card
-            title={<span><Icon type='bars' /> List</span>}
+            title={<span><Icon type='plus-circle-o' /> New</span>}
             noHovering
-            bordered={false}
-            extra={<Button type='default' icon='plus' onClick={this.onNewClick}>New Lotto</Button>}>
-            <Table
-              columns={columns}
-              dataSource={lottoList}
-              loading={isLoading}
-              size='middle'
-              bordered />
+            bordered={false}>
           </Card>
         </div>
       </div>

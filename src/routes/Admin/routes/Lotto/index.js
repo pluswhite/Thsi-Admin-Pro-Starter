@@ -35,6 +35,7 @@ export default (store) => ({
       cb(null, [
         // Remove imports!
         require('./routes/LottoList').default(store),
+        require('./routes/NewLotto').default(store),
       ])
     })
   }

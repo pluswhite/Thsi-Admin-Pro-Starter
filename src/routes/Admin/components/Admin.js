@@ -18,6 +18,7 @@ const { SubMenu } = Menu
 
 const SiderMenuConfig = {
   '/admin': ['dash'],
+  '/admin/dashboard': ['dash'],
   '/admin/users': ['user-list', 'users'],
   '/admin/users/list': ['user-list', 'users'],
   '/admin/reports': ['total-report', 'reports'],

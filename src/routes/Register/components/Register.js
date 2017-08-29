@@ -10,7 +10,8 @@ import {
   Checkbox,
   Button,
   Row,
-  Col
+  Col,
+  message
 } from 'antd'
 import { Helmet } from 'react-helmet'
 
@@ -41,6 +42,8 @@ class Register extends Component {
         // console.log('Received values of form: ', values)
         this.props.handleRegister(values, () => {
           browserHistory.push('/')
+        }, (msg) => {
+          message.error(msg)
         })
       }
     })

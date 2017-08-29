@@ -111,7 +111,7 @@ class Dashboard extends Component {
             normal: {
             }
           },
-          symbolSize: 9,
+          // symbolSize: 9,
           label: {
             normal: {
               show: true,
@@ -298,7 +298,7 @@ class Dashboard extends Component {
         <div className='dash-infos'>
           <Row gutter={24}>
             <Col span={12}>
-              <Card title='Linear Chart' noHovering={true} bordered={false}>
+              <Card title='Linear Chart' noHovering bordered={false}>
                 <Spin spinning={isLoading}>
                   <ReactEchartsCore
                     echarts={echarts}
@@ -312,7 +312,7 @@ class Dashboard extends Component {
               </Card>
             </Col>
             <Col span={12}>
-              <Card title='Bar Chart' noHovering={true} bordered={false}>
+              <Card title='Bar Chart' noHovering bordered={false}>
                 <Spin spinning={isLoading}>
                   <ReactEchartsCore
                     echarts={echarts}
@@ -328,7 +328,7 @@ class Dashboard extends Component {
           </Row>
           <Row gutter={24}>
             <Col span={12}>
-              <Card title='Pie Chart' noHovering={true} bordered={false}>
+              <Card title='Pie Chart' noHovering bordered={false}>
                 <Spin spinning={isLoading}>
                   <ReactEchartsCore
                     echarts={echarts}
@@ -342,7 +342,7 @@ class Dashboard extends Component {
               </Card>
             </Col>
             <Col span={12}>
-              <Card title='Radar Chart' noHovering={true} bordered={false}>
+              <Card title='Radar Chart' noHovering bordered={false}>
                 <Spin spinning={isLoading}>
                   <ReactEchartsCore
                     echarts={echarts}

@@ -211,12 +211,12 @@ export const handleLogin = (loginData, successCallback, errorCallback) => {
           successCallback && successCallback()
         } else {
           dispatch(requestLoginFailure())
-          errorCallback && errorCallback()
+          errorCallback && errorCallback(res.data.msg)
         }
       })
       .catch(err => {
         dispatch(requestLoginFailure())
-        errorCallback && errorCallback()
+        errorCallback && errorCallback('Request failure! Please try again.')
         console.log(err)
       })
   }
@@ -260,12 +260,12 @@ export const handleRegister = (registerData, successCallback, errorCallback) => 
           successCallback && successCallback()
         } else {
           dispatch(requestRegisterFailure())
-          errorCallback && errorCallback()
+          errorCallback && errorCallback(res.data.msg)
         }
       })
       .catch(err => {
         dispatch(requestRegisterFailure())
-        errorCallback && errorCallback()
+        errorCallback && errorCallback('Request failure! Please try again.')
         console.log(err)
       })
   }
@@ -332,12 +332,12 @@ export const handleModifyPassword = (passwordData, successCallback, errorCallbac
           successCallback && successCallback()
         } else {
           dispatch(modifyPasswordFailure())
-          errorCallback && errorCallback()
+          errorCallback && errorCallback(res.data.msg)
         }
       })
       .catch(err => {
         dispatch(modifyPasswordFailure())
-        errorCallback && errorCallback()
+        errorCallback && errorCallback('Request failure! Please try again.')
         console.log(err)
       })
   }
@@ -359,12 +359,12 @@ export const handleResetPassword = (emailData, successCallback, errorCallback) =
           successCallback && successCallback()
         } else {
           dispatch(resetPasswordFailure())
-          errorCallback && errorCallback()
+          errorCallback && errorCallback(res.data.msg)
         }
       })
       .catch(err => {
         dispatch(resetPasswordFailure())
-        errorCallback && errorCallback()
+        errorCallback && errorCallback('Request failure! Please try again.')
         console.log(err)
       })
   }

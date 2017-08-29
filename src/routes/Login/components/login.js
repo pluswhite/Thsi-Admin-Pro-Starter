@@ -9,7 +9,8 @@ import {
   Button,
   Checkbox,
   Row,
-  Col
+  Col,
+  message
 } from 'antd'
 import { Helmet } from 'react-helmet'
 
@@ -60,6 +61,8 @@ class Login extends Component {
           } else {
             browserHistory.push('/admin')
           }
+        }, (msg) => {
+          message.error(msg)
         })
       }
     })

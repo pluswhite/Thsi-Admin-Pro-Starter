@@ -8,7 +8,8 @@ import {
   Spin,
   Message,
   Row,
-  Col
+  Col,
+  message
 } from 'antd'
 import { Helmet } from 'react-helmet'
 
@@ -40,6 +41,8 @@ class Password extends Component {
         this.props.handleModifyPassword(values, () => {
           Message.success('Modify password successifully!')
           form.resetFields()
+        }, (msg) => {
+          message.error(msg)
         })
       }
     })

@@ -7,22 +7,22 @@ export default (store) => ({
     /*  Webpack - use 'require.ensure' to create a split point
         and embed an async module loader (jsonp) when bundling   */
     require.ensure([
-      './containers/ListContainer',
-      './modules/list'
+      './containers/UserListContainer',
+      './modules/userList'
     ], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-      const List = require('./containers/ListContainer').default
-      const listReducer = require('./modules/list').default
+      const UserList = require('./containers/UserListContainer').default
+      const userListReducer = require('./modules/userList').default
 
       /*  Add the reducer to the store on key 'User'  */
       injectReducer(store, {
-        key: 'list',
-        reducer: listReducer
+        key: 'userList',
+        reducer: userListReducer
       })
 
       /*  Return getComponent   */
-      next(null, List)
+      next(null, UserList)
     })
   }
 })

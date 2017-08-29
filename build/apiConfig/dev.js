@@ -24,6 +24,9 @@ module.exports = {
     },
     reports: {
       index: 'reports/reportList.json'
-    }
+    },
+    lotto: {
+      index: 'lotto/lottoList.json'
+    },
   }
 }

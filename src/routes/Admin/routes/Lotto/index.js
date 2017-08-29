@@ -1,10 +1,10 @@
 // import { injectReducer } from 'vstore/reducers'
 
 export default (store) => ({
-  path: 'users',
+  path: 'lotto',
   getIndexRoute (location, cb) {
     require.ensure([], (require) => {
-      cb(null, require('./routes/UserList').default(store))
+      cb(null, require('./routes/LottoList').default(store))
     })
   },
   /*  Async getComponent is only invoked when route matches   */
@@ -12,29 +12,29 @@ export default (store) => ({
     /*  Webpack - use 'require.ensure' to create a split point
         and embed an async module loader (jsonp) when bundling   */
     require.ensure([
-      './containers/UsersContainer',
-      // './modules/users'
+      './containers/LottoContainer',
+      // './modules/lotto'
     ], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-      const Users = require('./containers/UsersContainer').default
-      // const usersReducer = require('./modules/users').default
+      const Lotto = require('./containers/LottoContainer').default
+      // const lottoReducer = require('./modules/lotto').default
 
       /*  Add the reducer to the store on key 'User'  */
       // injectReducer(store, {
-      //   key: 'users',
-      //   reducer: usersReducer
+      //   key: 'lotto',
+      //   reducer: lottoReducer
       // })
 
       /*  Return getComponent   */
-      next(null, Users)
+      next(null, Lotto)
     })
   },
   getChildRoutes (location, cb) {
     require.ensure([], (require) => {
       cb(null, [
         // Remove imports!
-        require('./routes/UserList').default(store),
+        require('./routes/LottoList').default(store),
       ])
     })
   }

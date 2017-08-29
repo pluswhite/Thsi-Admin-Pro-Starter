@@ -23,6 +23,8 @@ const SiderMenuConfig = {
   '/admin/users/list': ['user-list', 'users'],
   '/admin/reports': ['total-report', 'reports'],
   '/admin/reports/total': ['total-report', 'reports'],
+  '/admin/lotto': ['lotto-list', 'lotto'],
+  '/admin/lotto/list': ['lotto-list', 'lotto'],
   '/admin/settings': ['settings']
 }
 
@@ -120,6 +122,14 @@ class Admin extends Component {
               >
                 <Menu.Item key='total-report'>
                   <Link to='/admin/reports/total'>Total Reports</Link>
+                </Menu.Item>
+              </SubMenu>
+              <SubMenu
+                key='lotto'
+                title={<span><Icon type='pay-circle-o' /><span>Lotto</span></span>}
+              >
+                <Menu.Item key='lotto-list'>
+                  <Link to='/admin/lotto/list'>List</Link>
                 </Menu.Item>
               </SubMenu>
               <Menu.Item key='settings'>

@@ -5,7 +5,7 @@ import {
   Card
 } from 'antd'
 
-import './List.scss'
+import './UserList.scss'
 
 const columns = [{
   title: 'Name',

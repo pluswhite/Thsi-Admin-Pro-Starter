@@ -30,6 +30,7 @@ export default (store) => ({
         require('./routes/Dashboard').default(store),
         require('./routes/Users').default(store),
         require('./routes/Reports').default(store),
+        require('./routes/Lotto').default(store),
         require('./routes/Settings').default(store),
       ])
     })

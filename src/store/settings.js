@@ -4,6 +4,7 @@ import store from 'store'
  * Constants
  */
 export const SIDER_COLLAPSED_CHANGE = 'SIDER_COLLAPSED_CHANGE'
+export const SIDER_VISIBLE_CHANGE = 'SIDER_VISIBLE_CHANGE'
 /**
  * Actions
  */
@@ -12,15 +13,30 @@ export const siderCollapsedChange = () => {
     type: SIDER_COLLAPSED_CHANGE
   }
 }
+
+export const siderHideChange = () => {
+  return {
+    type: SIDER_VISIBLE_CHANGE
+  }
+}
 /**
  * Async Method
  */
 export const siderChange = () => {
   return (dispatch, getState) => {
     // console.log(collapsed)
-    let siderCollpasedStatus = getState().admin && getState().admin.siderCollpased
+    let siderCollapsedStatus = getState().settings && getState().settings.siderCollapsed
     dispatch(siderCollapsedChange())
-    store.set('sider_collpased', !siderCollpasedStatus)
+    store.set('sider_collapsed', !siderCollapsedStatus)
+  }
+}
+
+export const siderVisibleChange = () => {
+  return (dispatch, getState) => {
+    // console.log(collapsed)
+    let siderVisibleStatus = getState().settings && getState().settings.siderVisible
+    dispatch(siderHideChange())
+    store.set('sider_collapsed_visible', !siderVisibleStatus)
   }
 }
 
@@ -31,10 +47,16 @@ export const siderChange = () => {
  * Action Handlers
  */
 const SETTINGS_ACTION_HANDLERS = {
-  [SIDER_COLLAPSED_CHANGE]: (state, action) => {
+  [SIDER_COLLAPSED_CHANGE]: (state) => {
     return ({
       ...state,
-      siderCollpased: !state.siderCollpased
+      siderCollapsed: !state.siderCollapsed,
+    })
+  },
+  [SIDER_VISIBLE_CHANGE]: (state) => {
+    return ({
+      ...state,
+      siderVisible: !state.siderVisible
     })
   },
 }
@@ -44,7 +66,8 @@ const SETTINGS_ACTION_HANDLERS = {
  */
 const initialState = {
   isLoading: false,
-  siderCollpased: store.get('sider_collpased') || false
+  siderCollapsed: store.get('sider_collapsed') || false,
+  siderVisible: store.get('sider_collapsed_visible') || false,
 }
 export default function settingsReducer (state = initialState, action) {
   const handler = SETTINGS_ACTION_HANDLERS[action.type]

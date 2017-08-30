@@ -14,7 +14,8 @@ const mapActionCreators = {
 }
 
 const mapStateToProps = (state) => ({
-  siderCollpased: state.settings.siderCollpased
+  siderCollapsed: state.settings.siderCollapsed,
+  siderVisible: state.settings.siderVisible
 })
 
 export default connect(mapStateToProps, mapActionCreators)(admin)

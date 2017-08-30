@@ -77,7 +77,7 @@ class List extends Component {
             title={<span><Icon type='bars' /> List</span>}
             noHovering
             bordered={false}
-            extra={<Button type='default' icon='plus' onClick={this.onNewClick}>New Lotto</Button>}>
+            extra={<Button ghost type='primary' icon='plus' onClick={this.onNewClick}>New Lotto</Button>}>
             <Table
               columns={columns}
               dataSource={lottoList}

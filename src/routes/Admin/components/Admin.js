@@ -35,7 +35,7 @@ class Admin extends Component {
     routes: PropTypes.array,
     params: PropTypes.object,
     handleValidateToken: PropTypes.func,
-    siderCollpased: PropTypes.bool,
+    siderCollapsed: PropTypes.bool,
     location: PropTypes.object
   }
   constructor (props) {
@@ -63,7 +63,8 @@ class Admin extends Component {
   render () {
     const {
       children,
-      siderCollpased,
+      siderCollapsed,
+      siderVisible,
       routes,
       params
     } = this.props
@@ -73,7 +74,8 @@ class Admin extends Component {
       thisYear
     } = this.state
     // console.log(siderKeys)
-    // console.log(siderCollpased)
+    // console.log(siderCollapsed)
+    let siderCollapsedWidth = siderVisible ? 64 : 0
 
     return (
       <Layout className='page-layout__viewport'>
@@ -85,7 +87,8 @@ class Admin extends Component {
           <Sider
             trigger={null}
             collapsible
-            collapsed={siderCollpased}
+            collapsed={siderCollapsed}
+            collapsedWidth={siderCollapsedWidth}
             style={{
               background: '#fff'
             }}

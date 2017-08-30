@@ -5,7 +5,7 @@ import { fetchSettings } from '../modules/settings'
 import Settings from '../components/Settings'
 
 const mapStateToProps = (state) => ({
-  isLoading: state.setting.isLoading,
+  // isLoading: state.setting.isLoading,
   siderVisible: state.settings.siderVisible
 })
 

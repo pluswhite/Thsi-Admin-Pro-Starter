@@ -31,13 +31,12 @@ class Settings extends Component {
   }
 
   onChange = (checked) => {
-    console.log(checked)
+    // console.log(checked)
     this.props.siderVisibleChange()
   }
 
   render () {
     const {
-      isLoading,
       siderVisible
     } = this.props
 
@@ -67,7 +66,7 @@ class Settings extends Component {
                 <Form>
                   <FormItem
                     {...formItemLayout}
-                    label='Sider Menu'
+                    label='Sider Menu Visible'
                   >
                     <Switch
                       defaultChecked={siderVisible}

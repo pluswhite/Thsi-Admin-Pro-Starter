@@ -1,4 +1,4 @@
-import { injectReducer } from 'vstore/reducers'
+// import { injectReducer } from 'vstore/reducers'
 
 export default (store) => ({
   path: 'settings',
@@ -8,18 +8,18 @@ export default (store) => ({
         and embed an async module loader (jsonp) when bundling   */
     require.ensure([
       './containers/SettingsContainer',
-      './modules/settings'
+      // './modules/settings'
     ], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const Settings = require('./containers/SettingsContainer').default
-      const settingsReducer = require('./modules/settings').default
+      // const settingsReducer = require('./modules/settings').default
 
       /*  Add the reducer to the store on key 'User'  */
-      injectReducer(store, {
-        key: 'setting',
-        reducer: settingsReducer
-      })
+      // injectReducer(store, {
+      //   key: 'setting',
+      //   reducer: settingsReducer
+      // })
 
       /*  Return getComponent   */
       next(null, Settings)

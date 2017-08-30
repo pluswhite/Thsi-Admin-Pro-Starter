@@ -91,7 +91,7 @@ class Message extends Component {
     } = this.props
 
     return (
-      <div className='page-layout__container'>
+      <div className='page-layout__viewport'>
         <Helmet>
           <title>Message</title>
         </Helmet>

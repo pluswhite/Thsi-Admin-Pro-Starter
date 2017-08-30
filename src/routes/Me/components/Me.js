@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Layout } from 'antd'
 
 import Header from 'vctns/HeaderContainer'
+import Footer from 'vcms/Footer'
 
 import './Me.scss'
+
+const { Content } = Layout
 
 class Me extends Component {
   static propTypes = {
@@ -12,17 +16,19 @@ class Me extends Component {
 
   constructor (props) {
     super(props)
-    this.state = {
-    }
+    this.state = {}
   }
 
   render () {
     const { children } = this.props
     return (
-      <div className='page-layout__viewport'>
+      <Layout className='layout'>
         <Header />
-        {children}
-      </div>
+        <Content>
+          {children}
+        </Content>
+        <Footer />
+      </Layout>
     )
   }
 }

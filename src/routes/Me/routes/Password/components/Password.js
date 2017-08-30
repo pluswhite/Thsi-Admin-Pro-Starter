@@ -83,7 +83,7 @@ class Password extends Component {
     } = form
 
     return (
-      <div className='page-layout__container'>
+      <div className='page-layout__viewport'>
         <Helmet>
           <title>Modify Password</title>
         </Helmet>

@@ -51,7 +51,7 @@ class Profile extends Component {
     }
 
     return (
-      <div className='page-layout__container'>
+      <div className='page-layout__viewport'>
         <Helmet>
           <title>Profile</title>
         </Helmet>

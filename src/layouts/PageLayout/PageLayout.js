@@ -15,7 +15,7 @@ class PageLayout extends Component {
   render () {
     const { children } = this.props
     return (
-      <div className='container text-center'>
+      <div className='container'>
         {children}
       </div>
     )

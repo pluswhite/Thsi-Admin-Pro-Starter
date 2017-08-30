@@ -1,4 +1,4 @@
-import { injectReducer } from 'vstore/reducers'
+// import { injectReducer } from 'vstore/reducers'
 import userIsAuthenticated from 'vcms/RouterAuth'
 
 export default (store) => ({
@@ -11,14 +11,14 @@ export default (store) => ({
   getComponent (nextState, next) {
     require.ensure([
       './containers/AdminContainer',
-      './modules/admin'
+      // './modules/admin'
     ], (require) => {
       const Admin = require('./containers/AdminContainer').default
-      const adminReducer = require('./modules/admin').default
-      injectReducer(store, {
-        key: 'admin',
-        reducer: adminReducer
-      })
+      // const adminReducer = require('./modules/admin').default
+      // injectReducer(store, {
+      //   key: 'admin',
+      //   reducer: adminReducer
+      // })
 
       next(null, userIsAuthenticated(Admin))
     })

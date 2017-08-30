@@ -1,5 +1,3 @@
-import store from 'store'
-
 /**
  * Constants
  */
@@ -15,15 +13,15 @@ export const siderCollapsedChange = () => {
 /**
  * Async Method
  */
-export const siderChange = () => {
-  return (dispatch, getState) => {
-    // console.log(collapsed)
-    let siderCollpasedStatus = getState().admin && getState().admin.siderCollpased
-    // console.log(siderCollpasedStatus)
-    dispatch(siderCollapsedChange())
-    store.set('sider_collpased', !siderCollpasedStatus)
-  }
-}
+// export const siderChange = () => {
+//   return (dispatch, getState) => {
+//     // console.log(collapsed)
+//     let siderCollpasedStatus = getState().admin && getState().admin.siderCollpased
+//     // console.log(siderCollpasedStatus)
+//     dispatch(siderCollapsedChange())
+//     store.set('sider_collpased', !siderCollpasedStatus)
+//   }
+// }
 
 // export const actions = {
 // }
@@ -34,8 +32,7 @@ export const siderChange = () => {
 const AUTH_ACTION_HANDLERS = {
   [SIDER_COLLAPSED_CHANGE]: (state, action) => {
     return ({
-      ...state,
-      siderCollpased: !state.siderCollpased
+      ...state
     })
   },
 }
@@ -44,8 +41,7 @@ const AUTH_ACTION_HANDLERS = {
  * Reducers
  */
 const initialState = {
-  isLoading: false,
-  siderCollpased: store.get('sider_collpased') || false
+  isLoading: false
 }
 export default function adminReducer (state = initialState, action) {
   const handler = AUTH_ACTION_HANDLERS[action.type]

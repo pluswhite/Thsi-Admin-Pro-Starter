@@ -68,9 +68,11 @@ class HeaderView extends Component {
         <Row>
           <Col span={6}>
             <Link className='header-logo' to='/'>VM React Admin</Link>
-            <div className='menu-trigger' onClick={siderChange}>
-              <i className='fa fa-bars' />
-            </div>
+            {siderChange &&
+              <div className='menu-trigger' onClick={siderChange}>
+                <i className='fa fa-bars' />
+              </div>
+            }
           </Col>
           <Col span={12}>
             <Menu

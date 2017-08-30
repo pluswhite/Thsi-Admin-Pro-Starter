@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { handleValidateToken } from 'vstore/auth'
-import { siderChange } from '../modules/admin'
+import { siderChange } from 'vstore/settings'
 
 // import {
 //   fetchadmin
@@ -14,7 +14,7 @@ const mapActionCreators = {
 }
 
 const mapStateToProps = (state) => ({
-  siderCollpased: state.admin.siderCollpased
+  siderCollpased: state.settings.siderCollpased
 })
 
 export default connect(mapStateToProps, mapActionCreators)(admin)

@@ -5,11 +5,11 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import moment from 'moment'
 import Header from 'vctns/HeaderContainer'
+import Footer from 'vcms/Footer'
 
 // import './Admin.scss'
 
 const {
-  Footer,
   Sider,
   Content
 } = Layout
@@ -36,8 +36,7 @@ class Admin extends Component {
     params: PropTypes.object,
     handleValidateToken: PropTypes.func,
     siderCollpased: PropTypes.bool,
-    location: PropTypes.object,
-    siderChange: PropTypes.func
+    location: PropTypes.object
   }
   constructor (props) {
     super(props)
@@ -81,7 +80,7 @@ class Admin extends Component {
         <Helmet>
           <title>Admin</title>
         </Helmet>
-        <Header siderChange={this.props.siderChange} />
+        <Header />
         <Layout className='page-layout__container'>
           <Sider
             trigger={null}

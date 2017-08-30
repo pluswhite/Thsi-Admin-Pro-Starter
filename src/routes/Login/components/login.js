@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link, browserHistory } from 'react-router'
 import {
+  Layout,
   Spin,
   Form,
   Icon,
@@ -13,11 +14,12 @@ import {
   message
 } from 'antd'
 import { Helmet } from 'react-helmet'
-
 import Header from 'vctns/HeaderContainer'
+import Footer from 'vcms/Footer'
 
 import './login.scss'
 
+const { Content } = Layout
 const FormItem = Form.Item
 
 class Login extends Component {
@@ -79,66 +81,69 @@ class Login extends Component {
     } = form
 
     return (
-      <div className='page-layout__viewport'>
+      <Layout className='layout'>
         <Helmet>
           <title>Login</title>
         </Helmet>
         <Header />
-        <div className='page-layout__container'>
-          <Row>
-            <Col xs={0} md={8} />
-            <Col md={8}>
-              <h2 className='page-title'>Login</h2>
-              <div className='login-form-wrapper'>
-                <Spin spinning={isLoading}>
-                  <Form onSubmit={this.handleLoginSubmit} className='login-form'>
-                    <FormItem>
-                      {getFieldDecorator('email', {
-                        rules: [
-                          {
-                            type: 'email',
-                            message: 'The input is not valid E-mail!',
-                          },
-                          {
+        <Content>
+          <div className='page-layout__viewport'>
+            <Row>
+              <Col xs={0} md={8} />
+              <Col md={8}>
+                <h2 className='page-title'>Login</h2>
+                <div className='login-form-wrapper'>
+                  <Spin spinning={isLoading}>
+                    <Form onSubmit={this.handleLoginSubmit} className='login-form'>
+                      <FormItem>
+                        {getFieldDecorator('email', {
+                          rules: [
+                            {
+                              type: 'email',
+                              message: 'The input is not valid E-mail!',
+                            },
+                            {
+                              required: true,
+                              message: 'Please input your E-mail!',
+                            }
+                          ],
+                        })(
+                          <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />} placeholder='Email' />
+                        )}
+                      </FormItem>
+                      <FormItem>
+                        {getFieldDecorator('password', {
+                          rules: [{
                             required: true,
-                            message: 'Please input your E-mail!',
-                          }
-                        ],
-                      })(
-                        <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />} placeholder='Email' />
-                      )}
-                    </FormItem>
-                    <FormItem>
-                      {getFieldDecorator('password', {
-                        rules: [{
-                          required: true,
-                          message: 'Please input your Password!'
-                        }],
-                      })(
-                        <Input prefix={<Icon type='lock' style={{ fontSize: 13 }} />} type='password' placeholder='Password' />
-                      )}
-                    </FormItem>
-                    <FormItem>
-                      {getFieldDecorator('remember', {
-                        valuePropName: 'checked',
-                        initialValue: true,
-                      })(
-                        <Checkbox>Remember me</Checkbox>
-                      )}
-                      <Link className='login-form-forgot' to='/reset-psw'>Forgot password</Link>
-                      <Button type='primary' htmlType='submit' className='login-form-button'>
-                        Login
-                      </Button>
-                      Or <Link to='/register'>register now!</Link>
-                    </FormItem>
-                  </Form>
-                </Spin>
-              </div>
-            </Col>
-            <Col xs={0} md={8} />
-          </Row>
-        </div>
-      </div>
+                            message: 'Please input your Password!'
+                          }],
+                        })(
+                          <Input prefix={<Icon type='lock' style={{ fontSize: 13 }} />} type='password' placeholder='Password' />
+                        )}
+                      </FormItem>
+                      <FormItem>
+                        {getFieldDecorator('remember', {
+                          valuePropName: 'checked',
+                          initialValue: true,
+                        })(
+                          <Checkbox>Remember me</Checkbox>
+                        )}
+                        <Link className='login-form-forgot' to='/reset-psw'>Forgot password</Link>
+                        <Button type='primary' htmlType='submit' className='login-form-button'>
+                          Login
+                        </Button>
+                        Or <Link to='/register'>register now!</Link>
+                      </FormItem>
+                    </Form>
+                  </Spin>
+                </div>
+              </Col>
+              <Col xs={0} md={8} />
+            </Row>
+          </div>
+        </Content>
+        <Footer />
+      </Layout>
     )
   }
 }

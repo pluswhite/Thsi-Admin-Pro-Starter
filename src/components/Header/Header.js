@@ -29,6 +29,7 @@ const MsgList = [
 
 class HeaderView extends Component {
   static propTypes = {
+    pathname: PropTypes.string,
     isAuthenticated: PropTypes.bool.isRequired,
     userName: PropTypes.string,
     siderChange: PropTypes.func
@@ -41,10 +42,14 @@ class HeaderView extends Component {
 
   render () {
     const {
+      pathname,
       isAuthenticated,
       userName,
       siderChange
     } = this.props
+
+    let isAdmin = /admin/.test(pathname)
+    // console.log(isAdmin)
 
     let msgShowList = MsgList.map((item, index) => {
       const { id, msg, hasRead } = item
@@ -68,7 +73,7 @@ class HeaderView extends Component {
         <Row>
           <Col span={6}>
             <Link className='header-logo' to='/'>VM React Admin</Link>
-            {siderChange &&
+            {isAdmin &&
               <div className='menu-trigger' onClick={siderChange}>
                 <i className='fa fa-bars' />
               </div>

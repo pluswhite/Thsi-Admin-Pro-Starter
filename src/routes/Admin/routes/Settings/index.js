@@ -17,7 +17,7 @@ export default (store) => ({
 
       /*  Add the reducer to the store on key 'User'  */
       injectReducer(store, {
-        key: 'settings',
+        key: 'setting',
         reducer: settingsReducer
       })
 

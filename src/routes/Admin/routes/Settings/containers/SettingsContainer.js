@@ -4,8 +4,7 @@ import { fetchSettings } from '../modules/settings'
 import Settings from '../components/Settings'
 
 const mapStateToProps = (state) => ({
-  isLoading: state.settings.isLoading,
-  userList: state.settings.userList
+  isLoading: state.setting.isLoading
 })
 
 const mapActionCreators = {

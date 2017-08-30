@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import {
   Icon,
   Card,
@@ -32,6 +33,9 @@ class List extends Component {
 
     return (
       <div className='page-layout__wrapper list-wrapper'>
+        <Helmet>
+          <title>New User</title>
+        </Helmet>
         <h2 className='page-title'>New</h2>
         <div className='list-list'>
           <Card

@@ -10,7 +10,6 @@ import {
   Icon,
   DatePicker,
   Table,
-  Spin,
   Card
 } from 'antd'
 
@@ -106,7 +105,7 @@ class TotalReport extends Component {
           <div className='search-filter-wrapper'>
             <Card
               title={<span><Icon type='filter' /> Filter</span>}
-              noHovering={true}
+              noHovering
               bordered={false}>
               <Form className='search-form' onSubmit={this.handleSearch}>
                 <Row gutter={40}>
@@ -156,7 +155,7 @@ class TotalReport extends Component {
           <div className='reports-list'>
             <Card
               title={<span><Icon type='bars' /> Result</span>}
-              noHovering={true}
+              noHovering
               bordered={false}>
               <Table
                 columns={columns}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import { browserHistory } from 'react-router'
 import {
   Table,
@@ -67,6 +68,9 @@ class List extends Component {
 
     return (
       <div className='page-layout__wrapper list-wrapper'>
+        <Helmet>
+          <title>Lotto List</title>
+        </Helmet>
         <h2 className='page-title'>List</h2>
         <div className='list-list'>
           <Card

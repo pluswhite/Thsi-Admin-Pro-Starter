@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+
 import {
   Table,
   Icon,
@@ -60,9 +62,12 @@ class List extends Component {
     } = this.props
 
     return (
-      <div className='page-layout__wrapper list-wrapper'>
+      <div className='page-layout__wrapper'>
+        <Helmet>
+          <title>User List</title>
+        </Helmet>
         <h2 className='page-title'>List</h2>
-        <div className='list-list'>
+        <div className='user-list-wrapper'>
           <Card
             title={<span><Icon type='bars' /> List</span>}
             noHovering

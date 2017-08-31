@@ -36,6 +36,7 @@ const config = {
       vctns: path.resolve(__dirname, '../src/containers/'),
       vassets: path.resolve(__dirname, '../src/assets/'),
       vstore: path.resolve(__dirname, '../src/store/'),
+      vi18n: path.resolve(__dirname, '../src/i18n/'),
       vcfg: path.resolve(__dirname, '../build/'),
     },
     extensions: ['*', '.web.jsx', '.web.js', '.js', '.jsx', '.json'],

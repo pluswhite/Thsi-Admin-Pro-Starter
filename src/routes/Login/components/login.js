@@ -38,6 +38,7 @@ class Login extends Component {
       focused1: false,
       redirectPath: props.redirectPath
     }
+    console.log(props.intl)
   }
 
   componentWillMount = () => {

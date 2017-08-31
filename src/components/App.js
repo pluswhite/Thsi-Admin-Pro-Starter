@@ -59,17 +59,19 @@ class App extends React.Component {
   static propTypes = {
     store: PropTypes.object.isRequired,
     routes: PropTypes.object.isRequired,
+    locale: PropTypes.string
   }
 
-  shouldComponentUpdate () {
-    return false
-  }
+  // shouldComponentUpdate () {
+  //   return false
+  // }
 
   render () {
-    const { store, routes } = this.props
-    const locale = store.getState().settings.locale || navigator.language
-    const localeConfig = chooseLocale(locale)
+    const { store, routes, locale } = this.props
+    const localeName = locale || navigator.language
+    const localeConfig = chooseLocale(localeName)
     // console.log(localeConfig)
+    // console.log(locale)
 
     return (
       <LocaleProvider locale={localeConfig.antd}>

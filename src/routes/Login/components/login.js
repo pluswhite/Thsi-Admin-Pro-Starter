@@ -92,19 +92,23 @@ class Login extends Component {
     return (
       <Layout className='layout'>
         <Helmet>
-          <title>Login</title>
+          <title>
+            {formatMessage({
+              id: 'login.title'
+            })}
+          </title>
         </Helmet>
         <Header />
         <Content>
           <div className='page-layout__viewport'>
-            {formatMessage({
-              id: 'intl.hello',
-              defaultMessage: 'The default locale of this example app.'
-            })}
             <Row>
               <Col xs={0} md={8} />
               <Col md={8}>
-                <h2 className='page-title'>Login</h2>
+                <h2 className='page-title'>
+                  {formatMessage({
+                    id: 'login.title'
+                  })}
+                </h2>
                 <div className='login-form-wrapper'>
                   <Spin spinning={isLoading}>
                     <Form onSubmit={this.handleLoginSubmit} className='login-form'>

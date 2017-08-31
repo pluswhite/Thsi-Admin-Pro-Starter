@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 import Header from 'vcms/Header'
 import { siderChange, changeLanguage } from 'vstore/settings'
 
@@ -14,4 +15,4 @@ const mapStateToProps = (state) => ({
   locale: state.settings.locale
 })
 
-export default connect(mapStateToProps, mapActionCreators)(Header)
+export default connect(mapStateToProps, mapActionCreators)(injectIntl(Header))

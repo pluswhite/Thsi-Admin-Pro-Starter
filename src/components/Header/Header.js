@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { IndexLink, Link } from 'react-router'
-import { Layout, Menu, Icon, Row, Col, Dropdown } from 'antd'
+import { Layout, Menu, Icon, Row, Col } from 'antd'
 import classnames from 'classnames'
 
 import './Header.scss'
@@ -52,6 +52,8 @@ class HeaderView extends Component {
       changeLanguage
     } = this.props
 
+    const { formatMessage } = this.props.intl
+
     let isAdmin = /admin/.test(pathname)
     // console.log(isAdmin)
 
@@ -74,8 +76,8 @@ class HeaderView extends Component {
 
     // console.log(locale)
     let localeBtn = locale.toLowerCase() === 'zh-cn'
-                    ? <a href='javascript:void(0);' onClick={() => changeLanguage('en-US')}>EN</a>
-                    : <a href='javascript:void(0);' onClick={() => changeLanguage('zh-CN')}>中文</a>
+                    ? <a href='javascript:void(0);' style={{ minWidth: 30, textAlign: 'center' }} onClick={() => changeLanguage('en-US')}>EN</a>
+                    : <a href='javascript:void(0);' style={{ minWidth: 30, textAlign: 'center' }} onClick={() => changeLanguage('zh-CN')}>中文</a>
 
     return (
       <Header className='header'>
@@ -94,13 +96,19 @@ class HeaderView extends Component {
             >
               <Menu.Item key='home'>
                 <IndexLink className='btn' to='/' activeClassName='active'>
-                  <Icon type='home' /> Home
+                  <Icon type='home' />
+                  {formatMessage({
+                    id: 'header.home'
+                  })}
                 </IndexLink>
               </Menu.Item>
               {isAuthenticated &&
                 <Menu.Item key='admin-dashbaord'>
                   <Link className='btn' to='/admin/dashboard' activeClassName='active'>
-                    <Icon type='appstore-o' /> Admin
+                    <Icon type='appstore-o' />
+                    {formatMessage({
+                      id: 'header.admin'
+                    })}
                   </Link>
                 </Menu.Item>
               }
@@ -112,11 +120,21 @@ class HeaderView extends Component {
               style={{ float: 'right' }}
             >
               {isAuthenticated &&
-                <SubMenu title={<span><Icon type='mail' />Messages</span>}>
+                <SubMenu title={
+                  <span>
+                    <Icon type='mail' />
+                    {formatMessage({
+                      id: 'header.messages'
+                    })}
+                  </span>
+                }>
                   {msgShowList}
                   <Menu.Item key='all-message' className='view-all-message'>
-                    <Link className='btn' to='/me/message'>
-                      View all messages
+                    <Link className='btn' to='/me/message' style={{ textAlign: 'center' }}>
+                      {formatMessage({
+                        id: 'header.view_all_messages',
+                        defaultMessage: 'View all messages'
+                      })}
                     </Link>
                   </Menu.Item>
                 </SubMenu>
@@ -125,12 +143,20 @@ class HeaderView extends Component {
                 <SubMenu title={<span><Icon type='user' />{userName}</span>}>
                   <Menu.Item key='me-profile'>
                     <Link className='btn' to='/me' activeClassName='active'>
-                      <Icon type='idcard' /> Profiles
+                      <Icon type='idcard' />
+                      {formatMessage({
+                        id: 'header.profiles',
+                        defaultMessage: 'Profiles'
+                      })}
                     </Link>
                   </Menu.Item>
                   <Menu.Item key='me-password'>
                     <Link className='btn' to='/me/password' activeClassName='active'>
-                      <Icon type='key' /> Password
+                      <Icon type='key' />
+                      {formatMessage({
+                        id: 'header.password',
+                        defaultMessage: 'Password'
+                      })}
                     </Link>
                   </Menu.Item>
                 </SubMenu>
@@ -145,7 +171,10 @@ class HeaderView extends Component {
               {isAuthenticated &&
                 <Menu.Item key='logout'>
                   <Link className='btn nav-logout' to='/logout' activeClassName='active'>
-                    <Icon type='poweroff' /> Logout
+                    <Icon type='poweroff' />
+                    {formatMessage({
+                      id: 'header.logout'
+                    })}
                   </Link>
                 </Menu.Item>
               }

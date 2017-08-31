@@ -28,7 +28,8 @@ class Login extends Component {
     handleLogin: PropTypes.func.isRequired,
     form: PropTypes.object,
     redirectPath: PropTypes.string,
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
+    intl: PropTypes.object
   }
 
   constructor (props) {
@@ -38,7 +39,7 @@ class Login extends Component {
       focused1: false,
       redirectPath: props.redirectPath
     }
-    console.log(props.intl)
+    // console.log(props.intl)
   }
 
   componentWillMount = () => {
@@ -74,12 +75,19 @@ class Login extends Component {
   render () {
     const {
       isLoading,
-      form
+      form,
+      intl
     } = this.props
 
     const {
       getFieldDecorator
     } = form
+
+    const {
+      formatMessage
+    } = intl
+
+    // console.log(this.props)
 
     return (
       <Layout className='layout'>
@@ -89,6 +97,10 @@ class Login extends Component {
         <Header />
         <Content>
           <div className='page-layout__viewport'>
+            {formatMessage({
+              id: 'intl.hello',
+              defaultMessage: 'The default locale of this example app.'
+            })}
             <Row>
               <Col xs={0} md={8} />
               <Col md={8}>

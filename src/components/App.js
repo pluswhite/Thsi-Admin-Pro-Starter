@@ -6,11 +6,54 @@ import { LocaleProvider } from 'antd'
 import PropTypes from 'prop-types'
 
 // import i18n configs.
-import zhCN from 'vi18n/zh.js'
-// import enUS from 'vi18n/en.js'
-import enUS from 'antd/lib/locale-provider/en_US'
+// Antd locales
+import andtEnUS from 'antd/lib/locale-provider/en_US'
+// React Intl locales
+import englishLocaleData from 'react-intl/locale-data/en'
+import chineseLocaleData from 'react-intl/locale-data/zh'
 
-addLocaleData([...zhCN, enUS])
+// Our locales
+import vraEn from 'vi18n/en'
+import vraZhCN from 'vi18n/zh'
+
+addLocaleData([
+  // English.
+  ...englishLocaleData,
+  ...vraEn,
+  // Chinese.
+  ...chineseLocaleData,
+  ...vraZhCN
+])
+
+const chooseLocale = (locale) => {
+  locale = locale.toLowerCase()
+  let configs = {}
+  switch (locale) {
+    case 'en-us':
+      configs = {
+        'locale': 'en',
+        'antd': andtEnUS,
+        'vra': vraEn
+      }
+      break
+    case 'zh-cn':
+      configs = {
+        'locale': 'zh',
+        'antd': {},
+        'vra': vraZhCN
+      }
+      break
+    default:
+      configs = {
+        'locale': 'en',
+        'antd': andtEnUS,
+        'vra': vraEn
+      }
+      break
+  }
+
+  return configs
+}
 
 class App extends React.Component {
   static propTypes = {
@@ -23,13 +66,17 @@ class App extends React.Component {
   }
 
   render () {
-    console.log(this.props.store)
+    const { store, routes } = this.props
+    const locale = store.getState().settings.locale || navigator.language
+    const localeConfig = chooseLocale(locale)
+    // console.log(localeConfig)
+
     return (
-      <LocaleProvider locale={enUS}>
-        <IntlProvider locale={navigator.language}>
-          <Provider store={this.props.store}>
+      <LocaleProvider locale={localeConfig.antd}>
+        <IntlProvider locale={localeConfig.locale} messages={localeConfig.vra}>
+          <Provider store={store}>
             <div style={{ height: '100%' }}>
-              <Router history={browserHistory} children={this.props.routes} />
+              <Router history={browserHistory} children={routes} />
             </div>
           </Provider>
         </IntlProvider>

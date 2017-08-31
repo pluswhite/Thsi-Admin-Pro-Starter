@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { IndexLink, Link } from 'react-router'
-import { Layout, Menu, Icon, Row, Col } from 'antd'
+import { Layout, Menu, Icon, Row, Col, Dropdown } from 'antd'
 import classnames from 'classnames'
 
 import './Header.scss'
@@ -32,7 +32,9 @@ class HeaderView extends Component {
     pathname: PropTypes.string,
     isAuthenticated: PropTypes.bool.isRequired,
     userName: PropTypes.string,
-    siderChange: PropTypes.func
+    siderChange: PropTypes.func,
+    locale: PropTypes.string,
+    changeLanguage: PropTypes.func
   }
 
   constructor (props) {
@@ -45,7 +47,9 @@ class HeaderView extends Component {
       pathname,
       isAuthenticated,
       userName,
-      siderChange
+      siderChange,
+      locale,
+      changeLanguage
     } = this.props
 
     let isAdmin = /admin/.test(pathname)
@@ -67,6 +71,11 @@ class HeaderView extends Component {
         </Menu.Item>
       )
     })
+
+    // console.log(locale)
+    let localeBtn = locale.toLowerCase() === 'zh-cn'
+                    ? <a href='javascript:void(0);' onClick={() => changeLanguage('en-US')}>EN</a>
+                    : <a href='javascript:void(0);' onClick={() => changeLanguage('zh-CN')}>中文</a>
 
     return (
       <Header className='header'>
@@ -140,6 +149,9 @@ class HeaderView extends Component {
                   </Link>
                 </Menu.Item>
               }
+              <Menu.Item key='locale'>
+                {localeBtn}
+              </Menu.Item>
             </Menu>
           </Col>
         </Row>

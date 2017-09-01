@@ -47,6 +47,7 @@ class Admin extends Component {
   }
 
   itemRender = (route, params, routes, paths) => {
+    const { formatMessage } = this.props.intl
     const currIndex = routes.indexOf(route)
     const last = currIndex === routes.length - 1
     const first = currIndex === 0
@@ -54,8 +55,9 @@ class Admin extends Component {
     if (first) {
       return <Link key={currIndex} to={'/' + paths.join('/')}><Icon type='home' /></Link>
     } else {
-      return last ? <span key={currIndex}>{route.path}</span>
-                  : <Link key={currIndex} to={'/' + paths.join('/')}>{route.path}</Link>
+      return last
+        ? <span key={currIndex}>{formatMessage({ id: route.path, defaultMessage: route.path })}</span>
+        : <Link key={currIndex} to={'/' + paths.join('/')}>{formatMessage({ id: route.path, defaultMessage: route.path })}</Link>
     }
   }
 
@@ -84,7 +86,7 @@ class Admin extends Component {
         <Layout className='page-layout__container'>
           <Sider
             trigger={null}
-            collapsible
+            collapsible={false}
             collapsed={siderCollapsed}
             collapsedWidth={siderCollapsedWidth}
             style={{

@@ -1,5 +1,5 @@
 const zhCN = {
-  // Header
+  // Header.
   'header.home': '首页',
   'header.admin': '管理',
   'header.messages': '消息',
@@ -8,7 +8,7 @@ const zhCN = {
   'header.password': '密码',
   'header.logout': '退出',
 
-  // Login
+  // Login.
   'login.title': '登录',
   'login.email': '邮箱地址',
   'login.email.required': '请输入您的邮箱地址',
@@ -19,19 +19,25 @@ const zhCN = {
   'login.forgot_password': '忘记密码？',
   'login.register': '注册',
 
-  // Admin
-  'admin': '后台管理',
+  // Admin.
+  // Breadcrumb.
+  'admin': '管理',
   'dashboard': '概览',
   'users': '用户',
   'list': '列表',
+  'total': '交易总表',
+  'reports': '报表',
+  'lotto': '大乐透',
+  'new': '新增',
+  'settings': '设置',
+
+  // Sider Bar.
   'admin.users': '用户',
   'admin.users.list': '用户列表',
   'admin.reports': '报表',
   'admin.reports.total': '交易总表',
-  'lotto': '大乐透',
   'admin.lotto': '大乐透',
   'admin.lotto.list': '乐透列表',
-  'settings': '设置',
   'admin.settings': '设置',
 }
 

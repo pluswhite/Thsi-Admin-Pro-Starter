@@ -10,12 +10,16 @@ export const requestAuthInstance = axios.create({
   baseURL: apiConfig.apiBaseUrl,
   headers: {
     'Authorization': store.get('access_token') || null,
-    'User-Id': store.get('user_id') || null
+    'User-Id': store.get('user_id') || null,
+    'User-Language': store.get('locale') || 'en-US'
   }
 })
 
 export const requestInstance = axios.create({
-  baseURL: apiConfig.apiBaseUrl
+  baseURL: apiConfig.apiBaseUrl,
+  headers: {
+    'User-Language': store.get('locale') || 'en-US'
+  }
 })
 
 /**

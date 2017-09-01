@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { Layout, Menu, Icon, Breadcrumb } from 'antd'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import moment from 'moment'
 import Header from 'vctns/HeaderContainer'
 import Footer from 'vcms/Footer'
 
@@ -34,15 +32,16 @@ class Admin extends Component {
     children: PropTypes.node.isRequired,
     routes: PropTypes.array,
     params: PropTypes.object,
+    intl: PropTypes.object,
     handleValidateToken: PropTypes.func,
     siderCollapsed: PropTypes.bool,
+    siderVisible: PropTypes.bool,
     location: PropTypes.object
   }
   constructor (props) {
     super(props)
     this.state = {
-      siderKeys: SiderMenuConfig[props.location.pathname],
-      thisYear: moment().format('YYYY')
+      siderKeys: SiderMenuConfig[props.location.pathname]
     }
     this.props.handleValidateToken()
   }
@@ -63,15 +62,17 @@ class Admin extends Component {
   render () {
     const {
       children,
+      intl,
       siderCollapsed,
       siderVisible,
       routes,
       params
     } = this.props
 
+    const { formatMessage } = intl
+
     const {
-      siderKeys,
-      thisYear
+      siderKeys
     } = this.state
     // console.log(siderKeys)
     // console.log(siderCollapsed)
@@ -79,9 +80,6 @@ class Admin extends Component {
 
     return (
       <Layout className='page-layout__viewport'>
-        <Helmet>
-          <title>Admin</title>
-        </Helmet>
         <Header />
         <Layout className='page-layout__container'>
           <Sider
@@ -104,37 +102,62 @@ class Admin extends Component {
               <Menu.Item key='dash'>
                 <Link to='/admin/dashboard'>
                   <Icon type='line-chart' />
-                  <span>Dashboard</span>
+                  <span>
+                    {formatMessage({
+                      id: 'dashboard',
+                      defaultMessage: 'Dashboard'
+                    })}
+                  </span>
                 </Link>
               </Menu.Item>
               <SubMenu
                 key='users'
-                title={<span><Icon type='team' /><span>Users</span></span>}
+                title={<span><Icon type='team' /><span>{formatMessage({ id: 'admin.users.list', defaultMessage: 'Users' })}</span></span>}
               >
                 <Menu.Item key='user-list'>
-                  <Link to='/admin/users/list'>List</Link>
+                  <Link to='/admin/users/list'>
+                    {formatMessage({
+                      id: 'admin.users.list',
+                      defaultMessage: 'List'
+                    })}
+                  </Link>
                 </Menu.Item>
               </SubMenu>
               <SubMenu
                 key='reports'
-                title={<span><Icon type='file-text' /><span>Reports</span></span>}
+                title={<span><Icon type='file-text' /><span>{formatMessage({ id: 'admin.reports', defaultMessage: 'Reports' })}</span></span>}
               >
                 <Menu.Item key='total-report'>
-                  <Link to='/admin/reports/total'>Total Reports</Link>
+                  <Link to='/admin/reports/total'>
+                    {formatMessage({
+                      id: 'admin.reports.total',
+                      defaultMessage: 'Total Reports'
+                    })}
+                  </Link>
                 </Menu.Item>
               </SubMenu>
               <SubMenu
                 key='lotto'
-                title={<span><Icon type='pay-circle-o' /><span>Lotto</span></span>}
+                title={<span><Icon type='pay-circle-o' /><span>{formatMessage({ id: 'admin.lotto', defaultMessage: 'Lotto' })}</span></span>}
               >
                 <Menu.Item key='lotto-list'>
-                  <Link to='/admin/lotto/list'>List</Link>
+                  <Link to='/admin/lotto/list'>
+                    {formatMessage({
+                      id: 'admin.lotto.list',
+                      defaultMessage: 'List'
+                    })}
+                  </Link>
                 </Menu.Item>
               </SubMenu>
               <Menu.Item key='settings'>
                 <Link to='/admin/settings'>
                   <Icon type='setting' />
-                  <span>Settings</span>
+                  <span>
+                    {formatMessage({
+                      id: 'admin.settings',
+                      defaultMessage: 'Settings'
+                    })}
+                  </span>
                 </Link>
               </Menu.Item>
             </Menu>
@@ -144,11 +167,7 @@ class Admin extends Component {
             <Content>
               {children}
             </Content>
-            <Footer style={{
-              textAlign: 'center'
-            }}>
-              VM React Admin ©{thisYear} Created by PlusWhite
-            </Footer>
+            <Footer />
           </Layout>
         </Layout>
       </Layout>

@@ -94,7 +94,8 @@ class Login extends Component {
         <Helmet>
           <title>
             {formatMessage({
-              id: 'login.title'
+              id: 'login.title',
+              defaultMessage: 'Login'
             })}
           </title>
         </Helmet>
@@ -106,7 +107,8 @@ class Login extends Component {
               <Col md={8}>
                 <h2 className='page-title'>
                   {formatMessage({
-                    id: 'login.title'
+                    id: 'login.title',
+                    defaultMessage: 'Login'
                   })}
                 </h2>
                 <div className='login-form-wrapper'>
@@ -117,25 +119,43 @@ class Login extends Component {
                           rules: [
                             {
                               type: 'email',
-                              message: 'The input is not valid E-mail!',
+                              message: formatMessage({
+                                id: 'login.email.format',
+                                defaultMessage: 'The input is not valid E-mail!'
+                              })
                             },
                             {
                               required: true,
-                              message: 'Please input your E-mail!',
+                              message: formatMessage({
+                                id: 'login.email.required',
+                                defaultMessage: 'Please input your E-mail!'
+                              }),
                             }
                           ],
                         })(
-                          <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />} placeholder='Email' />
+                          <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />}
+                            placeholder={formatMessage({
+                              id: 'login.email',
+                              defaultMessage: 'Email'
+                            })} />
                         )}
                       </FormItem>
                       <FormItem>
                         {getFieldDecorator('password', {
                           rules: [{
                             required: true,
-                            message: 'Please input your Password!'
+                            message: formatMessage({
+                              id: 'login.password.required',
+                              defaultMessage: 'Please input your Password!'
+                            })
                           }],
                         })(
-                          <Input prefix={<Icon type='lock' style={{ fontSize: 13 }} />} type='password' placeholder='Password' />
+                          <Input prefix={<Icon type='lock' style={{ fontSize: 13 }} />}
+                            type='password'
+                            placeholder={formatMessage({
+                              id: 'login.password',
+                              defaultMessage: 'Password'
+                            })} />
                         )}
                       </FormItem>
                       <FormItem>
@@ -143,13 +163,32 @@ class Login extends Component {
                           valuePropName: 'checked',
                           initialValue: true,
                         })(
-                          <Checkbox>Remember me</Checkbox>
+                          <Checkbox>
+                            {formatMessage({
+                              id: 'login.remember_me',
+                              defaultMessage: 'Remember me'
+                            })}
+                          </Checkbox>
                         )}
-                        <Link className='login-form-forgot' to='/reset-psw'>Forgot password</Link>
+                        <Link className='login-form-forgot' to='/reset-psw'>
+                          {formatMessage({
+                            id: 'login.forgot_password',
+                            defaultMessage: 'Forgot password'
+                          })}
+                        </Link>
                         <Button type='primary' htmlType='submit' className='login-form-button'>
-                          Login
+                          {formatMessage({
+                            id: 'login.title',
+                            defaultMessage: 'Login'
+                          })}
                         </Button>
-                        Or <Link to='/register'>register now!</Link>
+                        Or
+                        <Link to='/register'>
+                          {formatMessage({
+                            id: 'login.register',
+                            defaultMessage: 'register now!'
+                          })}
+                        </Link>
                       </FormItem>
                     </Form>
                   </Spin>

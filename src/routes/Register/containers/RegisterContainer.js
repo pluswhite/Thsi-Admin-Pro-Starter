@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 import { handleRegister } from 'vstore/auth'
 
 import WrappedRegistrationForm from '../components/Register'
@@ -12,4 +13,4 @@ const mapStateToProps = (state) => ({
   redirectPath: state.location.query.redirect
 })
 
-export default connect(mapStateToProps, mapActionCreators)(WrappedRegistrationForm)
+export default connect(mapStateToProps, mapActionCreators)(injectIntl(WrappedRegistrationForm))

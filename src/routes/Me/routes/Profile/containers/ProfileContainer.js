@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 import { fetchProfile } from '../modules/profile'
 
 import Profile from '../components/Profile'
@@ -12,4 +13,4 @@ const mapActionCreators = {
   fetchProfile
 }
 
-export default connect(mapStateToProps, mapActionCreators)(Profile)
+export default connect(mapStateToProps, mapActionCreators)(injectIntl(Profile))

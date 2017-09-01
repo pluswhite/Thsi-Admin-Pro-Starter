@@ -19,6 +19,7 @@ const FormItem = Form.Item
 
 class Password extends Component {
   static propTypes = {
+    intl: PropTypes.object,
     isLoading: PropTypes.bool,
     handleModifyPassword: PropTypes.func.isRequired,
     form: PropTypes.any
@@ -57,8 +58,12 @@ class Password extends Component {
 
   checkPassword = (rule, value, callback) => {
     const form = this.props.form
+    const { formatMessage } = this.props.intl
     if (value && value !== form.getFieldValue('newPassword')) {
-      callback && callback('Two passwords that you enter is inconsistent!')
+      callback && callback(formatMessage({
+        id: 'modify.password.consistent',
+        defaultMessage: 'Two passwords that you enter is inconsistent!'
+      }))
     } else {
       callback && callback()
     }
@@ -74,9 +79,14 @@ class Password extends Component {
 
   render () {
     const {
+      intl,
       isLoading,
       form
     } = this.props
+
+    const {
+      formatMessage
+    } = intl
 
     const {
       getFieldDecorator
@@ -85,12 +95,22 @@ class Password extends Component {
     return (
       <div className='page-layout__viewport'>
         <Helmet>
-          <title>Modify Password</title>
+          <title>
+            {formatMessage({
+              id: 'modify.password.title',
+              defaultMessage: 'Modify Password'
+            })}
+          </title>
         </Helmet>
         <Row>
           <Col xs={0} md={8} />
           <Col md={8}>
-            <h2 className='page-title'>Modify Password</h2>
+            <h2 className='page-title'>
+              {formatMessage({
+                id: 'modify.password.title',
+                defaultMessage: 'Modify Password'
+              })}
+            </h2>
             <div className='password-form-wrapper'>
               <Spin spinning={isLoading}>
                 <Form onSubmit={this.handlePasswordSubmit} className='password-form'>
@@ -98,37 +118,49 @@ class Password extends Component {
                     {getFieldDecorator('oldPassword', {
                       rules: [{
                         required: true,
-                        message: 'Please input your Password!'
+                        message: formatMessage({ id: 'modify.password.old.required', defaultMessage: 'Please input your old password!' }),
                       }],
                     })(
-                      <Input prefix={<Icon type='key' style={{ fontSize: 13 }} />} type='password' placeholder='Old Password' />
+                      <Input prefix={<Icon type='key' style={{ fontSize: 13 }} />}
+                        type='password'
+                        placeholder={formatMessage({ id: 'modify.password.old', defaultMessage: 'Old Password' })} />
                     )}
                   </FormItem>
                   <FormItem>
                     {getFieldDecorator('newPassword', {
                       rules: [{
-                        required: true, message: 'Please input your password!',
+                        required: true,
+                        message: formatMessage({ id: 'modify.password.new.required', defaultMessage: 'Please input your new password!' }),
                       }, {
                         validator: this.checkConfirm,
                       }],
                     })(
-                      <Input prefix={<Icon type='lock' />} type='password' placeholder='New Password' />
+                      <Input prefix={<Icon type='lock' />}
+                        type='password'
+                        placeholder={formatMessage({ id: 'modify.password.new', defaultMessage: 'New Password' })} />
                     )}
                   </FormItem>
                   <FormItem>
                     {getFieldDecorator('confirm', {
                       rules: [{
-                        required: true, message: 'Please confirm your password!',
+                        required: true,
+                        message: formatMessage({ id: 'modify.password.confirm', defaultMessage: 'Please confirm your password!' }),
                       }, {
                         validator: this.checkPassword,
                       }],
                     })(
-                      <Input prefix={<Icon type='lock' />} type='password' placeholder='Confirm Password' onBlur={this.handleConfirmBlur} />
+                      <Input prefix={<Icon type='lock' />}
+                        type='password'
+                        placeholder={formatMessage({ id: 'modify.password.confirm_password', defaultMessage: 'Confirm Password' })}
+                        onBlur={this.handleConfirmBlur} />
                     )}
                   </FormItem>
                   <FormItem>
                     <Button type='primary' htmlType='submit' className='password-form-button'>
-                      Modify Password
+                      {formatMessage({
+                        id: 'modify.password.title',
+                        defaultMessage: 'Modify Password'
+                      })}
                     </Button>
                   </FormItem>
                 </Form>

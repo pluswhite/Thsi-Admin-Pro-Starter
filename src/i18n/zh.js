@@ -1,4 +1,5 @@
 const zhCN = {
+  // '': '',
   // Header.
   'header.home': '首页',
   'header.admin': '管理',
@@ -53,6 +54,24 @@ const zhCN = {
   'reset.password.email.format': '请输入正确格式的邮箱地址',
   'reset.password.tips.send': '我们已经发送了一个链接到您的邮件，',
   'reset.password.tips.link': '请通过点击该链接重置您的密码。',
+
+  // Me.
+  // Profile.
+  'profile': '个人信息',
+  'profile.name': '昵称',
+  'profile.phone': '手机',
+  'profile.email': '邮箱',
+  'profile.country': '国家',
+
+  // Modify Password.
+  'modify.password.title': '修改密码',
+  'modify.password.old': '旧密码',
+  'modify.password.old.required': '请输入您的旧密码',
+  'modify.password.new': '新密码',
+  'modify.password.new.required': '请输入您的新密码',
+  'modify.password.confirm_password': '确认新密码',
+  'modify.password.confirm': '请再次确认您的密码',
+  'modify.password.consistent': '两次输入的密码不一致',
 
   // Admin.
   // Breadcrumb.

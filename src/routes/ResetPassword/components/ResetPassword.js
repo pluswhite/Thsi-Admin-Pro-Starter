@@ -23,6 +23,7 @@ const FormItem = Form.Item
 
 class ResetPassword extends Component {
   static propTypes = {
+    intl: PropTypes.object,
     isLoading: PropTypes.bool,
     handleResetPassword: PropTypes.func.isRequired,
     form: PropTypes.object,
@@ -66,6 +67,7 @@ class ResetPassword extends Component {
 
   render () {
     const {
+      intl,
       isLoading,
       form
     } = this.props
@@ -75,13 +77,22 @@ class ResetPassword extends Component {
     } = form
 
     const {
+      formatMessage
+    } = intl
+
+    const {
       showTips
     } = this.state
 
     return (
       <Layout className='layout'>
         <Helmet>
-          <title>Reset Password</title>
+          <title>
+            {formatMessage({
+              id: 'reset.password',
+              defaultMessage: 'Reset Password'
+            })}
+          </title>
         </Helmet>
         <Header />
         <Content>
@@ -89,7 +100,12 @@ class ResetPassword extends Component {
             <Row>
               <Col xs={0} md={8} />
               <Col md={8}>
-                <h2 className='page-title'>Reset Password</h2>
+                <h2 className='page-title'>
+                  {formatMessage({
+                    id: 'reset.password',
+                    defaultMessage: 'Reset Password'
+                  })}
+                </h2>
                 {!showTips &&
                   <div className='resetPassword-form-wrapper'>
                     <Spin spinning={isLoading}>
@@ -99,20 +115,24 @@ class ResetPassword extends Component {
                             rules: [
                               {
                                 type: 'email',
-                                message: 'The input is not valid E-mail!',
+                                message: formatMessage({ id: 'reset.password.email.format', defaultMessage: 'The input is not valid E-mail!' }),
                               },
                               {
                                 required: true,
-                                message: 'Please input your E-mail!',
+                                message: formatMessage({ id: 'reset.password.email.required', defaultMessage: 'Please input your E-mail!' }),
                               }
                             ],
                           })(
-                            <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />} placeholder='Email' />
+                            <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />}
+                              placeholder={formatMessage({ id: 'reset.password.email', defaultMessage: 'Email' })} />
                           )}
                         </FormItem>
                         <FormItem>
                           <Button type='primary' htmlType='submit' className='resetPassword-form-button'>
-                            Reset Password
+                            {formatMessage({
+                              id: 'reset.password',
+                              defaultMessage: 'Reset Password'
+                            })}
                           </Button>
                         </FormItem>
                       </Form>
@@ -121,8 +141,18 @@ class ResetPassword extends Component {
                 }
                 {showTips &&
                   <div className='reset-password-tips'>
-                    <p className='text-success'>We send a link to your email! </p>
-                    <p>Please click link to reset your password. </p>
+                    <p className='text-success'>
+                      {formatMessage({
+                        id: 'reset.password.tips.send',
+                        defaultMessage: 'We send a link to your email!'
+                      })}
+                    </p>
+                    <p>
+                      {formatMessage({
+                        id: 'reset.password.tips.link',
+                        defaultMessage: 'Please click link to reset your password.'
+                      })}
+                    </p>
                   </div>
                 }
               </Col>

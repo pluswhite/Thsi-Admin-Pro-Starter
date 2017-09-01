@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 import { handleResetPassword } from 'vstore/auth'
 import WrappedResetPasswordForm from '../components/ResetPassword'
 
@@ -11,4 +12,4 @@ const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoading
 })
 
-export default connect(mapStateToProps, mapActionCreators)(WrappedResetPasswordForm)
+export default connect(mapStateToProps, mapActionCreators)(injectIntl(WrappedResetPasswordForm))

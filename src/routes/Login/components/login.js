@@ -182,11 +182,14 @@ class Login extends Component {
                             defaultMessage: 'Login'
                           })}
                         </Button>
-                        Or
+                        {formatMessage({
+                          id: 'login.register.tips',
+                          defaultMessage: 'Or '
+                        })}
                         <Link to='/register'>
                           {formatMessage({
                             id: 'login.register',
-                            defaultMessage: 'register now!'
+                            defaultMessage: 'Register now!'
                           })}
                         </Link>
                       </FormItem>

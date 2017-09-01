@@ -17,7 +17,8 @@ const zhCN = {
   'login.password.required': '请输入您的密码',
   'login.remember_me': '记住我',
   'login.forgot_password': '忘记密码？',
-  'login.register': '注册',
+  'login.register': '立即注册',
+  'login.register.tips': '还没有账号？',
 
   // Register.
   'register.title': '注册',
@@ -34,6 +35,14 @@ const zhCN = {
   'register.nickname.tips': '该昵称会显示在系统中并能被其他人看到',
   'register.agreement': '用户协议',
   'register.agreement.tips': '我已阅读并同意该',
+
+  // Reset Password.
+  'reset.password': '重置密码',
+  'reset.password.email': '邮箱地址',
+  'reset.password.email.required': '请输入您的邮箱地址',
+  'reset.password.email.format': '请输入正确格式的邮箱地址',
+  'reset.password.tips.send': '我们已经发送了一个链接到您的邮件，',
+  'reset.password.tips.link': '请通过点击该链接重置您的密码。',
 
   // Admin.
   // Breadcrumb.

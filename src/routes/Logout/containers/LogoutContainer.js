@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 import { browserHistory } from 'react-router'
 import { handleLogout } from 'vstore/auth'
 
@@ -18,4 +19,4 @@ const mapActionCreators = {
 export default connect(
   mapStateToProps,
   mapActionCreators
-)(Logout)
+)(injectIntl(Logout))

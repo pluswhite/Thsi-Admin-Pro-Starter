@@ -20,6 +20,16 @@ const zhCN = {
   'login.register': '立即注册',
   'login.register.tips': '还没有账号？',
 
+  // Logout.
+  'logout.tips': '成功退出！',
+  'logout.redirect': '页面将跳转到',
+  'logout.redirect.home_page': '首页',
+  'logout.redirect.time': '在',
+  'logout.redirect.seconds': '秒之后',
+  'logout.redirect.or': '或者点击重新 ',
+  'logout.redirect.login': '登录',
+  'logout.redirect.again': ' ',
+
   // Register.
   'register.title': '注册',
   'register.email': '邮箱地址',

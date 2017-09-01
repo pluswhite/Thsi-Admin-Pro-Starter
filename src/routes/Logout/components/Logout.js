@@ -6,6 +6,7 @@ import './Logout.scss'
 
 class Logout extends Component {
   static propTypes = {
+    intl: PropTypes.object,
     handleLogout: PropTypes.func,
     redirect: PropTypes.func
   }
@@ -45,18 +46,55 @@ class Logout extends Component {
   }
 
   render () {
+    const { formatMessage } = this.props.intl
+
     return (
       <div className='page-layout__viewport'>
         <div className='logout-wrapper'>
           <p>
-            <strong>You have been logged out.</strong>
+            <strong>
+              {formatMessage({
+                id: 'logout.tips',
+                defaultMessage: 'You have been logged out.'
+              })}
+            </strong>
           </p>
           <p>
-            Redirecting to <Link to='/'>home page</Link>
-            ...in {this.state.timeout}s
+            {formatMessage({
+              id: 'logout.redirect',
+              defaultMessage: 'Redirecting to'
+            })}
+            <Link to='/'>
+              {formatMessage({
+                id: 'logout.redirect.home_page',
+                defaultMessage: 'Home Page'
+              })}
+            </Link>
+            {formatMessage({
+              id: 'logout.redirect.time',
+              defaultMessage: '...in'
+            })}
+            {this.state.timeout}s
+            {formatMessage({
+              id: 'logout.redirect.seconds',
+              defaultMessage: 's'
+            })}
           </p>
           <p>
-            or <Link to='/login'>login</Link> again.
+            {formatMessage({
+              id: 'logout.redirect.or',
+              defaultMessage: 'or'
+            })}
+            <Link to='/login'>
+              {formatMessage({
+                id: 'logout.redirect.login',
+                defaultMessage: 'login'
+              })}
+            </Link>
+            {formatMessage({
+              id: 'logout.redirect.again',
+              defaultMessage: 'again.'
+            })}
           </p>
         </div>
       </div>

@@ -73,6 +73,16 @@ const zhCN = {
   'modify.password.confirm': '请再次确认您的密码',
   'modify.password.consistent': '两次输入的密码不一致',
 
+  // Message.
+  'message.title': '消息',
+  'message.list': '消息列表',
+  'message.list.message': '消息',
+  'message.list.date': '日期',
+  'message.list.status': '状态',
+  'message.list.status.read': '已读',
+  'message.list.status.unread': '未读',
+  'message.list.action': '操作',
+
   // Admin.
   // Breadcrumb.
   'admin': '管理',

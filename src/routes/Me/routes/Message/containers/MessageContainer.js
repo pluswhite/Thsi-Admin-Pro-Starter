@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 import { fetchMessage } from '../modules/message'
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -34,4 +35,4 @@ const mapStateToProps = (state) => ({
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect(mapStateToProps, mapActionCreators)(Message)
+export default connect(mapStateToProps, mapActionCreators)(injectIntl(Message))

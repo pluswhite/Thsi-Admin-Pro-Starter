@@ -10,37 +10,6 @@ import {
 
 import './Message.scss'
 
-const columns = [
-  {
-    title: 'Message',
-    dataIndex: 'msg',
-    key: 'msg'
-  },
-  {
-    title: 'Date',
-    dataIndex: 'date',
-    key: 'date'
-  },
-  {
-    title: 'Status',
-    dataIndex: 'status',
-    key: 'status',
-    render: (text, record, index) => {
-      if (text === 'read') {
-        return <Tag color='#c0c0c0'>Read</Tag>
-      } else {
-        return <Tag color='#565656'>Unread</Tag>
-      }
-    }
-  },
-  {
-    title: 'Action',
-    dataIndex: '',
-    key: 'x',
-    render: () => <a href='#'><Icon type='delete' /></a>
-  }
-]
-
 /**
 const data = [
   {
@@ -70,6 +39,7 @@ const data = [
 
 class Message extends Component {
   static propTypes = {
+    intl: PropTypes.object,
     isLoading: PropTypes.bool,
     messageList: PropTypes.array.isRequired,
     fetchMessage: PropTypes.func
@@ -86,19 +56,77 @@ class Message extends Component {
 
   render () {
     const {
+      intl,
       isLoading,
       messageList
     } = this.props
 
+    const {
+      formatMessage
+    } = intl
+
+    const columns = [
+      {
+        title: formatMessage({
+          id: 'message.list.message',
+          defaultMessage: 'Message'
+        }),
+        dataIndex: 'msg',
+        key: 'msg'
+      },
+      {
+        title: formatMessage({
+          id: 'message.list.date',
+          defaultMessage: 'Date'
+        }),
+        dataIndex: 'date',
+        key: 'date'
+      },
+      {
+        title: formatMessage({
+          id: 'message.list.status',
+          defaultMessage: 'Status'
+        }),
+        dataIndex: 'status',
+        key: 'status',
+        render: (text, record, index) => {
+          if (text === 'read') {
+            return <Tag color='#c0c0c0'>{formatMessage({ id: 'message.list.status.read', defaultMessage: 'Read' })}</Tag>
+          } else {
+            return <Tag color='#565656'>{formatMessage({ id: 'message.list.status.unread', defaultMessage: 'Unread' })}</Tag>
+          }
+        }
+      },
+      {
+        title: formatMessage({
+          id: 'message.list.action',
+          defaultMessage: 'Action'
+        }),
+        dataIndex: '',
+        key: 'x',
+        render: () => <a href='#'><Icon type='delete' /></a>
+      }
+    ]
+
     return (
       <div className='page-layout__viewport'>
         <Helmet>
-          <title>Message</title>
+          <title>
+            {formatMessage({
+              id: 'message.title',
+              defaultMessage: 'Message'
+            })}
+          </title>
         </Helmet>
-        <h2 className='page-title'>Message</h2>
+        <h2 className='page-title'>
+          {formatMessage({
+            id: 'message.title',
+            defaultMessage: 'Message'
+          })}
+        </h2>
         <div className='msg-list'>
           <Card
-            title={<span><Icon type='bars' /> List</span>}
+            title={<span><Icon type='bars' /> {formatMessage({ id: 'message.list', defaultMessage: 'List' })}</span>}
             noHovering
             bordered={false}
             >

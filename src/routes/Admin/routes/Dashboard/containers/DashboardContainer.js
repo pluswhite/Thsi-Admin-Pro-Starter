@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 import { fetchDash } from '../modules/dashboard'
 
 import Dashboard from '../components/Dashboard'
@@ -12,4 +13,4 @@ const mapActionCreators = {
   fetchDash
 }
 
-export default connect(mapStateToProps, mapActionCreators)(Dashboard)
+export default connect(mapStateToProps, mapActionCreators)(injectIntl(Dashboard))

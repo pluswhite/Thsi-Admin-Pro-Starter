@@ -18,6 +18,7 @@ import './Dashboard.scss'
 
 class Dashboard extends Component {
   static propTypes = {
+    intl: PropTypes.object,
     isLoading: PropTypes.bool,
     fetchDash: PropTypes.func.isRequired,
     stats: PropTypes.array
@@ -257,7 +258,7 @@ class Dashboard extends Component {
     let option = {
       radar: {
         indicator: [
-          { name: 'sales', max: 6500 },
+          { name: 'Sales', max: 6500 },
           { name: 'Administration', max: 16000 },
           { name: 'Information Techology', max: 30000 },
           { name: 'Customer Support', max: 38000 },
@@ -284,21 +285,37 @@ class Dashboard extends Component {
 
   render () {
     const {
+      intl,
       isLoading,
       stats
     } = this.props
+
+    const { formatMessage } = intl
 
     // console.log(stats)
     return (
       <div className='page-layout__wrapper dash-wrapper'>
         <Helmet>
-          <title>Dashboard</title>
+          <title>
+            {formatMessage({
+              id: 'dashboard',
+              defaultMessage: 'Dashboard'
+            })}
+          </title>
         </Helmet>
-        <h2 className='page-title'>Dashboard</h2>
+        <h2 className='page-title'>
+          {formatMessage({
+            id: 'dashboard',
+            defaultMessage: 'Dashboard'
+          })}
+        </h2>
         <div className='dash-infos'>
           <Row gutter={24}>
             <Col span={12}>
-              <Card title='Linear Chart' noHovering bordered={false}>
+              <Card
+                title={formatMessage({ id: 'dashboard.chart.linear', defaultMessage: 'Linear Chart' })}
+                noHovering
+                bordered={false}>
                 <Spin spinning={isLoading}>
                   <ReactEchartsCore
                     echarts={echarts}
@@ -312,7 +329,10 @@ class Dashboard extends Component {
               </Card>
             </Col>
             <Col span={12}>
-              <Card title='Bar Chart' noHovering bordered={false}>
+              <Card
+                title={formatMessage({ id: 'dashboard.chart.linear', defaultMessage: 'Bar Chart' })}
+                noHovering
+                bordered={false}>
                 <Spin spinning={isLoading}>
                   <ReactEchartsCore
                     echarts={echarts}
@@ -328,7 +348,10 @@ class Dashboard extends Component {
           </Row>
           <Row gutter={24}>
             <Col span={12}>
-              <Card title='Pie Chart' noHovering bordered={false}>
+              <Card
+                title={formatMessage({ id: 'dashboard.chart.linear', defaultMessage: 'Pie Chart' })}
+                noHovering
+                bordered={false}>
                 <Spin spinning={isLoading}>
                   <ReactEchartsCore
                     echarts={echarts}
@@ -342,7 +365,10 @@ class Dashboard extends Component {
               </Card>
             </Col>
             <Col span={12}>
-              <Card title='Radar Chart' noHovering bordered={false}>
+              <Card
+                title={formatMessage({ id: 'dashboard.chart.linear', defaultMessage: 'Radar Chart' })}
+                noHovering
+                bordered={false}>
                 <Spin spinning={isLoading}>
                   <ReactEchartsCore
                     echarts={echarts}

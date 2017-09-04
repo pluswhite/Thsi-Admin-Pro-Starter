@@ -103,6 +103,12 @@ const zhCN = {
   'admin.lotto': '大乐透',
   'admin.lotto.list': '乐透列表',
   'admin.settings': '设置',
+
+  // Dashboard
+  'dashboard.chart.linear': '线形图',
+  'dashboard.chart.bar': '柱状图',
+  'dashboard.chart.pie': '饼图',
+  'dashboard.chart.radar': '雷达图',
 }
 
 export default zhCN

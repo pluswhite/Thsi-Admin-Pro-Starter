@@ -109,6 +109,15 @@ const zhCN = {
   'dashboard.chart.bar': '柱状图',
   'dashboard.chart.pie': '饼图',
   'dashboard.chart.radar': '雷达图',
+
+  // User
+  // List
+  'user.list': '列表',
+  'user.list.title': '用户列表',
+  'user.list.name': '名称',
+  'user.list.age': '年龄',
+  'user.list.address': '地址',
+  'user.list.action': '操作'
 }
 
 export default zhCN

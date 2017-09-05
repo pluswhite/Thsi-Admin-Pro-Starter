@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 import { fetchList } from '../modules/userList'
 
 import UserList from '../components/UserList'
@@ -12,4 +13,4 @@ const mapActionCreators = {
   fetchList
 }
 
-export default connect(mapStateToProps, mapActionCreators)(UserList)
+export default connect(mapStateToProps, mapActionCreators)(injectIntl(UserList))

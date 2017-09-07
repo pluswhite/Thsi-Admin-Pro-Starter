@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-import { Layout } from 'antd'
+import { Layout, Row, Col } from 'antd'
+// import ReactMarkdown from 'react-markdown'
 import Header from 'vctns/HeaderContainer'
 import Footer from 'vcms/Footer'
+import HomeMd from './demo.md'
 
 import './Home.scss'
 
@@ -12,6 +14,7 @@ class Home extends Component {
   constructor (props) {
     super(props)
     this.state = {}
+    console.log(HomeMd)
   }
 
   render () {
@@ -24,9 +27,14 @@ class Home extends Component {
         <Content>
           <div className='page-layout__viewport'>
             <div className='home-wrapper'>
-              <h2 className='page-title'>Welcome!</h2>
-              <p>This is an Admin Template with React, Redux, and React-Router! </p>
-              <p>You can use validated email & password to login.</p>
+              <Row>
+                <Col span='8' />
+                <Col span='8'>
+                  <h2 className='page-title'>Welcome!</h2>
+                  {/* <ReactMarkdown source={HomeMd} /> */}
+                </Col>
+                <Col span='8' />
+              </Row>
             </div>
           </div>
         </Content>

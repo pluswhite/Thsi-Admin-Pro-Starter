@@ -264,6 +264,13 @@ config.module.rules.push({
   })
 })
 
+// Markdown
+config.module.rules.push({
+  test: /\.md$/,
+  exclude: /node_modules/,
+  use: 'raw-loader',
+})
+
 // HTML Template
 // ------------------------------------
 config.plugins.push(new HtmlWebpackPlugin({

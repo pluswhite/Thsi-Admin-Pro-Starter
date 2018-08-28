@@ -1,0 +1,39 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": [
+    {
+      "type": "select",
+      "label": "酒店等级",
+      "value": "2da",
+      "data": [
+        {
+          "label": "奢华",
+          "value": "23"
+        },
+        {
+          "label": "精选",
+          "value": "2312"
+        },
+        {
+          "label": "豪华",
+          "value": "2da"
+        },
+        {
+          "label": "标准",
+          "value": "adad"
+        }
+      ]
+    },
+    {
+      "type": "input",
+      "label": "input类型",
+      "value": ""
+    },
+    {
+      "type": "switch",
+      "label": "switch类型",
+      "value": true
+    }
+  ]
+}

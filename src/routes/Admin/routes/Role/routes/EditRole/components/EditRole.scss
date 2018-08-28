@@ -1,0 +1,7 @@
+.role-new-wrapper {
+  .ant-tree-child-tree-open {
+    & > li {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "status": "success",
+  "data": {
+    "id": "32",
+    "publish_name": "发布管理-测试白名单",
+    "date_range": ["2018-01-10 11:35:00", "2018-01-10 21:00:00"],
+    "goods_list": [{
+      "key": "c_1",
+      "label": "cpc-发布管理1-1"
+    }, {
+      "key": "c_6",
+      "label": "cpc-发布管理1-2"
+    }, {
+      "key": "c_18",
+      "label": "cpc-发布管理1-3"
+    }, {
+      "key": "c_26",
+      "label": "cpc-发布管理10-1"
+    }],
+    "goods_count": 4,
+    "users_list": [{
+      "label": "Plus White",
+      "key": "4"
+    }, {
+      "label": "雪若依",
+      "key": "6"
+    }, {
+      "label": "rereadyou",
+      "key": "24"
+    }],
+    "user_count": 6,
+    "tags_list": [{
+      "label": "文青",
+      "key": "9"
+    }],
+    "tags_count": 1,
+    "is_black_or_white": "1",
+    "user_list_type": "1",
+    "status": "1",
+    "publisher": "root",
+    "last_modified_at": "2018-01-10 11:28:09"
+  },
+  "msg": ""
+}

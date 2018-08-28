@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": [
+    {
+      "label": "CPD",
+      "value": "1"
+    },
+    {
+      "label": "CPC",
+      "value": "2"
+    },
+    {
+      "label": "CPS",
+      "value": "3"
+    },
+    {
+      "label": "未知",
+      "value": "0"
+    }
+  ]
+}

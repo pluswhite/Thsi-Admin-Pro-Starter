@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "msg": "设置成功！",
+  "data": {
+    "id": "370000198803017536",
+    "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+    "nickname": "Michael Williams",
+    "phone": "13758895856",
+    "sex": "0",
+    "location": "海外 海外",
+    "country": "海外",
+    "status": "2",
+    "type": "2",
+    "last_login_at": "2017-11-23 15:48:11",
+    "last_modified_at": "2017-12-05 14:40:34"
+  }
+}

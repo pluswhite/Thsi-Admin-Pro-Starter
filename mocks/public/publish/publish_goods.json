@@ -1,0 +1,34 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": [
+    {
+      "key": "01",
+      "label": "publish01"
+    },
+    {
+      "key": "02",
+      "label": "publish02"
+    },
+    {
+      "key": "03",
+      "label": "publish03"
+    },
+    {
+      "key": "04",
+      "label": "publish04"
+    },
+    {
+      "key": "05",
+      "label": "publish05"
+    },
+    {
+      "key": "06",
+      "label": "publish06"
+    },
+    {
+      "key": "07",
+      "label": "publish07"
+    }
+  ]
+}

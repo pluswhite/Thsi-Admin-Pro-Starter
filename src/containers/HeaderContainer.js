@@ -1,7 +1,9 @@
 import { connect } from 'react-redux'
-import { injectIntl } from 'react-intl'
 import Header from 'vcms/Header'
-import { siderChange, changeLanguage } from 'vstore/settings'
+import {
+  siderChange,
+  changeLanguage
+} from 'vstore/settings'
 
 const mapActionCreators = {
   siderChange,
@@ -10,9 +12,10 @@ const mapActionCreators = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  // siderCollapsed: state.settings.siderCollapsed,
+  permissions: state.auth.permissions,
   userName: state.auth.userName,
-  pathname: state.location.pathname,
-  locale: state.settings.locale
+  pathname: state.location.pathname
 })
 
-export default connect(mapStateToProps, mapActionCreators)(injectIntl(Header))
+export default connect(mapStateToProps, mapActionCreators)(Header)

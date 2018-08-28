@@ -18,10 +18,8 @@ class FooterView extends Component {
     const { thisYear } = this.state
 
     return (
-      <Footer style={{
-        textAlign: 'center'
-      }}>
-        VM React Admin ©{thisYear} Created by PlusWhite
+      <Footer className='footer'>
+        Copyright © 2017-{thisYear} LOGO All Rights Reserved.
       </Footer>
     )
   }

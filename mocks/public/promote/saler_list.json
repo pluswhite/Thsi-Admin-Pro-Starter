@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": [
+    {
+      "label": "京东",
+      "value": "1"
+    },
+    {
+      "label": "天猫",
+      "value": "2"
+    },
+    {
+      "label": "taobao",
+      "value": "3"
+    }
+  ]
+}

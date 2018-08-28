@@ -1,0 +1,68 @@
+.twlj {
+  width: 770px;
+  height: 180px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
+  transition: box-shadow 0.2s ease;
+  border-radius: 3px;
+  .pic {
+    width: 160px;
+    height: 160px;
+    flex: none;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .text {
+    flex: none;
+    width: calc(770px - 20px - 160px);
+    padding-left: 10px;
+    height: 160px;
+    overflow: hidden;
+    align-self: flex-start;
+    line-height: 1;
+    .title {
+      width: 100%;
+      font-size: 30px;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .desc {
+      font-size: 20px;
+      line-height: 1.5;
+      color: #777;
+      padding-top: 10px;
+    }
+  }
+  &:hover {
+    // box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.12), 0px 8px 8px 0px rgba(0,0,0,0.24);
+  }
+  &.t-p {
+    .pic {
+      order: 2;
+    }
+    .text {
+      order: 1;
+      padding-left: 0;
+      padding-right: 10px;
+    }
+  }
+  &.p {
+    height: 170px;
+    .pic {
+      width: 750px;
+      height: 150px;
+    }
+    .text {
+      display: none;
+    }
+  }
+}

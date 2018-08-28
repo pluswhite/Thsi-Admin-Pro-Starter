@@ -1,0 +1,27 @@
+// .container .ant-table-thead>tr>th {
+//   background-color: #fff;
+// }
+
+// .ant-table-tbody {
+//   & > tr.row-disabled {
+//     & > td {
+//       background-color: #ccc;
+//     }
+//   }
+// }
+
+.container {
+  .ant-table-column-sorter-down.on .anticon-caret-down,
+  .ant-table-column-sorter-down.on .anticon-caret-up,
+  .ant-table-column-sorter-up.on .anticon-caret-down,
+  .ant-table-column-sorter-up.on .anticon-caret-up {
+    color: #f64b4b;
+  }
+
+  .ant-table-tbody {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+

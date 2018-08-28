@@ -17,11 +17,12 @@ export const createRoutes = (store) => ({
       cb(null, [
         // Remove imports!
         require('./Admin').default(store),
-        require('./Me').default(store),
+        // require('./Publisher').default(store),
         require('./Register').default(store),
         require('./Login').default(store),
-        require('./Logout').default(store),
+        // require('./Logout').default(store),
         require('./ResetPassword').default(store),
+        require('./ErrorPage').default(store),
         require('./NoContent').default(store),
       ])
     })

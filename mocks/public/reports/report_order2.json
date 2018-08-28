@@ -1,0 +1,51 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "total": {
+      "order_type": "CPC",
+      "order": [12313, 23123.12],
+      "region": [
+        {
+          "label": "上海",
+          "value": 231
+        },
+        {
+          "label": "北京",
+          "value": 122
+        },
+        {
+          "label": "广州",
+          "value": 431
+        },
+        {
+          "label": "深圳",
+          "value": 231
+        },
+        {
+          "label": "西安",
+          "value": 782
+        }
+      ],
+      "platform": [{ "label": "微信", "value": 96 }],
+      "rebate": [21331.23, 431231.21]
+    },
+
+    "list": [
+      {
+        "date": "2017-23-12",
+        "order_type": "CPC",
+        "order": [12313, 23123.12],
+        "region": [],
+        "hot_category": [],
+        "platform": [{ "label": "微信", "value": 96 }],
+        "rebate": [21331.23, 431231.21]
+      }
+    ],
+    "infos": {
+      "total": 123,
+      "current": 1,
+      "pageSize": 15
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.page-layout__container {
+  .ant-back-top {
+    right: 50px;
+    .ant-back-top-content {
+      background: #3f86ff;
+      &:hover {
+        background: #005eff;
+      }
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .breadcrumb {
+      margin-top: 60px;
+    }
+  }
+}

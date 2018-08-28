@@ -1,0 +1,49 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "type": "pt",
+    "content": {
+      "title": "fdsa",
+      "desc": "fdsaf",
+      "size": "320*150",
+      "show_mode": "t-p",
+      "main_img": [
+        {
+          "uid": "247",
+          "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+        }
+      ],
+      "content_body": "<p><strong>123132</strong><strong style='background-color: rgb(230, 0, 0);'>131313</strong></p>",
+      "landing_link": "http://www.siskk.com",
+      "limit": 1231.2,
+      "share_title": "fdasf",
+      "share_desc": "fdsaf"
+    },
+    "title": "活动标题",
+    "desc": "活动描述",
+    "start": "2018-12-11 23:12:22",
+    "stop": "2018-12-11 23:12:22",
+    "is_black_or_white": "2",
+    "tags_list": [
+      {
+        "label": "文青",
+        "key": "9"
+      }
+    ],
+    "users_list": [
+      {
+        "label": "Plus White",
+        "key": "4"
+      },
+      {
+        "label": "雪若依",
+        "key": "6"
+      },
+      {
+        "label": "rereadyou",
+        "key": "24"
+      }
+    ]
+  }
+}

@@ -1,1 +1,37 @@
+.page-layout__container {
+  .ant-back-top {
+    right: 50px;
+    .ant-back-top-content {
+      background: #673ab7;
+      &:hover {
+        background: darken(#673ab7, 10);
+      }
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .breadcrumb {
+      margin-top: 60px;
+    }
+  }
+}
 
+.sider {
+  .ant-menu-item {
+    height: auto !important;
+    line-height: 28px !important;
+    padding: 8px 0 !important;
+  }
+}
+
+.nav-item {
+  text-align: center;
+
+  .nav-icon {
+    font-size: 20px;
+  }
+
+  .nav-text {
+    margin-bottom: 0;
+    font-size: 13px;
+  }
+}

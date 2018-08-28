@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": [
+    {
+      "label": "拼团new",
+      "value": "pt_new"
+    },
+    {
+      "label": "拼团",
+      "value": "pt"
+    }
+  ]
+}

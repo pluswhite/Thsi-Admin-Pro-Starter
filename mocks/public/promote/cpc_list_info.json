@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "buyerList": [{
+        "label": "Google Ads",
+        "value": "google"
+      },
+      {
+        "label": "ValueMaker",
+        "value": "valuemaker"
+      },
+      {
+        "label": "JD Media",
+        "value": "jd"
+      }
+    ],
+    "sizeList": ["200*100", "200*150", "250*100", "250*150", "300*200"]
+  }
+}

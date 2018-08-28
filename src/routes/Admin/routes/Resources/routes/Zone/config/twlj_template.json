@@ -1,0 +1,86 @@
+[
+  {
+    "type": "hd",
+    "label": "基本信息"
+  },
+  {
+    "key": "title",
+    "type": "input",
+    "label": "活动名称",
+    "placeholder": "请输入活动名称",
+    "message": "请输入活动名称",
+    "required": true
+  },
+  {
+    "key": "desc",
+    "type": "textarea",
+    "label": "活动描述",
+    "placeholder": "请输入活动描述",
+    "message": "请输入活动描述",
+    "required": false
+  },
+  {
+    "type": "br"
+  },
+  {
+    "action": "\/file\/cpd-add?type=twlj",
+    "key": "main_img",
+    "type": "upload",
+    "label": "标题图",
+    "extra": "图文尺寸为160px*160px，大小不超过30KB；全图尺寸750px*150px，大小不超过50KB",
+    "message": "请上传标题图",
+    "required": true
+  },
+  {
+    "key": "saler",
+    "type": "select",
+    "label": "活动来源",
+    "placeholder": "请选择活动来源",
+    "message": "请选择活动来源",
+    "required": true,
+    "value": "jd",
+    "dataSource": [
+      {
+        "label": "京东",
+        "value": "jd"
+      }
+    ]
+  },
+  {
+    "type": "br"
+  },
+  {
+    "key": "landing_link",
+    "type": "textarea",
+    "valueType": "url",
+    "label": "活动落地页URL",
+    "placeholder": "请输入落地页链接",
+    "message": "请输入落地页链接",
+    "required": true
+  },
+  {
+    "type": "hd",
+    "label": "展示形式"
+  },
+  {
+    "key": "show_mode",
+    "type": "tabs",
+    "tabsType": "twlj",
+    "label": "",
+    "value": "p-t",
+    "dataSource": [
+      {
+        "label": "左图右文",
+        "value": "p-t"
+      },
+      {
+        "label": "左文右图",
+        "value": "t-p"
+      },
+      {
+        "label": "全图无文字",
+        "value": "p"
+      }
+    ]
+  }
+]

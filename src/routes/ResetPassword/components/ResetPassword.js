@@ -16,7 +16,7 @@ import { Helmet } from 'react-helmet'
 import Header from 'vctns/HeaderContainer'
 import Footer from 'vcms/Footer'
 
-import './resetPassword.scss'
+import './ResetPassword.scss'
 
 const { Content } = Layout
 const FormItem = Form.Item

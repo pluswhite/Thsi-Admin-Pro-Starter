@@ -42,7 +42,7 @@ class Settings extends Component {
 
     const formItemLayout = {
       labelCol: {
-        span: 6
+        span: 10
       },
       wrapperCol: {
         span: 14
@@ -52,31 +52,30 @@ class Settings extends Component {
     return (
       <div className='page-layout__wrapper'>
         <Helmet>
-          <title>Settings</title>
+          <title>系统设置</title>
         </Helmet>
-        <h2 className='page-title'>Settings</h2>
+        <h2 className='page-title'>
+          设置
+        </h2>
         <div className='settings-wrapper'>
           <Card
-            title={<span><Icon type='setting' /> Settings</span>}
-            noHovering
+            title={<span><Icon type='setting' /> 设置列表</span>}
             bordered={false}>
-            <Row>
-              <Col xs={2} md={8} />
-              <Col xs={20} md={8}>
+            <Row gutter={24}>
+              <Col xxl={6} xl={8} lg={8} md={8} sm={12} xs={24}>
                 <Form>
                   <FormItem
                     {...formItemLayout}
-                    label='Sider Menu Visible'
+                    label='侧边栏收缩是否可见'
                   >
                     <Switch
                       defaultChecked={siderVisible}
                       onChange={this.onChange}
-                      checkedChildren='Show'
-                      unCheckedChildren='Hide' />
+                      checkedChildren='可见'
+                      unCheckedChildren='隐藏' />
                   </FormItem>
                 </Form>
               </Col>
-              <Col xs={2} md={8} />
             </Row>
           </Card>
         </div>

@@ -1,0 +1,113 @@
+[
+  {
+    "type": "hd",
+    "label": "列表展示信息"
+  },
+  {
+    "key": "title",
+    "type": "input",
+    "label": "活动标题",
+    "placeholder": "请输入活动名称",
+    "message": "请输入活动名称",
+    "required": true
+  },
+  {
+    "key": "desc",
+    "type": "textarea",
+    "label": "活动描述",
+    "placeholder": "请输入活动描述",
+    "message": "请输入活动描述",
+    "required": false
+  },
+  {
+    "action": "/file/cpd-add?type=twlj",
+    "key": "main_img",
+    "type": "upload",
+    "label": "标题图",
+    "extra": "图文尺寸为160px*160px，大小不超过30KB",
+    "message": "请上传标题图",
+    "required": true
+  },
+  {
+    "key": "saler",
+    "type": "select",
+    "label": "活动来源",
+    "placeholder": "请选择活动来源",
+    "message": "请选择活动来源",
+    "required": true,
+    "value": "jd",
+    "dataSource": [
+      {
+        "label": "京东",
+        "value": "jd"
+      }
+    ]
+  },
+  {
+    "key": "hot_tags",
+    "type": "tag_edit",
+    "label": "活动热词"
+  },
+  {
+    "type": "hd",
+    "label": "详情展示信息"
+  },
+  {
+    "key": "content_title",
+    "type": "input",
+    "label": "详情标题",
+    "placeholder": "请输入活动名称",
+    "message": "请输入活动名称",
+    "required": true
+  },
+  {
+    "key": "landing_link",
+    "type": "textarea",
+    "valueType": "url",
+    "label": "活动落地页URL",
+    "placeholder": "请输入落地页链接",
+    "message": "请输入落地页链接",
+    "required": true
+  },
+  {
+    "type": "br"
+  },
+  {
+    "key": "content_body",
+    "type": "rich_text",
+    "label": "详情描述说明",
+    "placeholder": "请输入活动详情描述",
+    "message": "请输入活动详情描述",
+    "required": true
+  },
+  {
+    "type": "hd",
+    "label": "分享信息"
+  },
+  {
+    "key": "share_title",
+    "type": "input",
+    "label": "分享标题",
+    "placeholder": "请输入分享标题",
+    "message": "请输入分享标题",
+    "required": true
+  },
+  {
+    "key": "share_desc",
+    "type": "textarea",
+    "label": "分享描述",
+    "placeholder": "请输入分享描述",
+    "message": "请输入分享描述",
+    "required": false
+  },
+  {
+    "type": "br"
+  },
+  {
+    "action": "/file/cpd-add?type=share",
+    "key": "share_img",
+    "type": "upload",
+    "label": "分享缩略图",
+    "extra": "图片尺寸要求为 200*200，大小不超过32Kb"
+  }
+]

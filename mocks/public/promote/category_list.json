@@ -1,0 +1,79 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": [
+    {
+      "id": "range",
+      "data": [{
+          "value": "all",
+          "label": "全部",
+          "isLeaf": false
+        },
+        {
+          "value": "ziying",
+          "label": "自营",
+          "isLeaf": false
+        },
+        {
+          "value": "shangjia",
+          "label": "商家",
+          "isLeaf": false
+        }
+      ]
+    },
+    {
+      "id": "c1",
+      "data": [{
+          "value": "all",
+          "label": "全部",
+          "isLeaf": false
+        },
+        {
+          "value": "fAD5A23d-1FCE-474C-bcE4-AE8BB76DfBa7",
+          "label": "图书音像",
+          "isLeaf": true
+        },
+        {
+          "value": "bebA5FCA-8769-777c-9521-eE920FDDbAcc",
+          "label": "手机电脑",
+          "isLeaf": false
+        },
+        {
+          "value": "cFb0CFF2-bDA4-2afB-63cD-AC05fdf8b242",
+          "label": "汽车用品",
+          "isLeaf": false
+        },
+        {
+          "value": "c3eFDA1e-51Cd-Eb17-1FFe-ac54EA028bBB",
+          "label": "礼品箱包",
+          "isLeaf": false
+        },
+        {
+          "value": "263748fb-eeAb-F3F4-dAe2-7EBabD0a6AE4",
+          "label": "服饰",
+          "isLeaf": false
+        },
+        {
+          "value": "fCf8ecAB-DA4E-c2fc-b372-7Decb6B6c9e7",
+          "label": "儿童玩具",
+          "isLeaf": false
+        },
+        {
+          "value": "Bf76eecd-0c7F-EdD5-DE2c-Af99AA4df9C3",
+          "label": "手机话费",
+          "isLeaf": false
+        },
+        {
+          "value": "061ddC7B-3E7F-9F5F-FCBe-bFcAB5f5c6d8",
+          "label": "换购",
+          "isLeaf": false
+        },
+        {
+          "value": "1EE93362-CAD7-CB82-54d7-e6eeAbC9Bb38",
+          "label": "出租",
+          "isLeaf": false
+        }
+      ]
+    }
+  ]
+}

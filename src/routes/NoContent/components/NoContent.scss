@@ -1,13 +1,43 @@
 .error-wrap {
-  margin-top: 200px;
+  height: 100%;
   // color: red;
   text-align: center;
 
   .error-content {
-    font-size: 30px;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 
-  .tips {
-    font-size: 20px;
+    .err-img {
+      display: inline-block;
+      width: 500px;
+      height: 400px;
+      background-image: url(../assets/404.png);
+      background-position: center;
+      background-size: contain;
+      background-color: transparent;
+      background-repeat: no-repeat;
+    }
+
+    .err-tips {
+      display: inline-block;
+      min-height: 400px;
+      margin-left: 50px;
+      text-align: left;
+
+      h1 {
+        color: #673ab7;
+        font-size: 128px;
+        margin-bottom: 0;
+      }
+
+      p {
+        margin-top: 0;
+        margin-bottom: 25px;
+        font-size: 24px;
+        color: #797b85;
+      }
+    }
   }
 }

@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="zh-cmn-Hans">
 <head>
-  <title>VM React Admin</title>
+  <title>HuiFind Admin</title>
   <!-- 声明文档使用的字符编码 -->
   <meta charset="utf-8" />
   <!-- 优先使用 IE 最新版本和 Chrome -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link rel="shortcut icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" charset="utf-8">
     /*! pace 1.0.0 */
@@ -25,7 +26,7 @@
     }
 
     .pace .pace-progress {
-      background: #29d;
+      background: #8a5adc;
       position: fixed;
       z-index: 2000;
       top: 0;
@@ -40,7 +41,7 @@
       right: 0px;
       width: 1.33333333rem;
       height: 100%;
-      box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+      box-shadow: 0 0 10px #673ab7, 0 0 5px #673ab7;
       opacity: 1.0;
       -webkit-transform: rotate(3deg) translate(0px, -4px);
       -moz-transform: rotate(3deg) translate(0px, -4px);
@@ -58,8 +59,8 @@
       width: .18666667rem;
       height: .18666667rem;
       border:  .02666667rem solid transparent;
-      border-top-color: #29d;
-      border-left-color: #29d;
+      border-top-color: #673ab7;
+      border-left-color: #673ab7;
       border-radius: .13333333rem;
       -webkit-animation: pace-spinner 400ms linear infinite;
       -moz-animation: pace-spinner 400ms linear infinite;
@@ -102,7 +103,92 @@
 
     #root {
       position: relative;
+      min-height: 100%;
+    }
+  </style>
+  <style type="text/css">
+    /**
+    * Loader styles.
+    */
+    @-webkit-keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0; }
+
+      5% {
+        opacity: 1; }
+
+      100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        opacity: 0; } }
+
+    @keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0; }
+
+      5% {
+        opacity: 1; }
+
+      100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        opacity: 0; } }
+
+    .ball-scale-multiple {
+      position: relative;
+      -webkit-transform: translateY(-30px);
+          -ms-transform: translateY(-30px);
+              transform: translateY(-30px); }
+      .ball-scale-multiple > div:nth-child(2) {
+        -webkit-animation-delay: 0.2s;
+                animation-delay: 0.2s; }
+      .ball-scale-multiple > div:nth-child(3) {
+        -webkit-animation-delay: 0.4s;
+                animation-delay: 0.4s; }
+      .ball-scale-multiple > div {
+        background-color: #fff;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        opacity: 0;
+        margin: 0;
+        width: 60px;
+        height: 60px;
+        margin-left: -15px;
+        -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
+                animation: ball-scale-multiple 1s 0s linear infinite; }
+    .loaders {
+      width: 100%;
       height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 1 auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background-color: #673ab7;
+    }
+    .loaders .loader {
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 1 auto;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 25%;
+      max-width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
     }
   </style>
   <script charset="utf-8">
@@ -110,6 +196,17 @@
   </script>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root" style="height: 100%;">
+    <!-- loading -->
+    <div class="loaders">
+      <div class="loader">
+        <div class="loader-inner ball-scale-multiple">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div><!-- /loading -->
+  </div>
 </body>
 </html>

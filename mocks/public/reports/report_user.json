@@ -1,0 +1,131 @@
+{
+  "status": "success",
+  "data": {
+    "total": {
+      "order": [12, 3819.19],
+      "rebate": [232, 0],
+      "user": [23, 15],
+      "pv": 154
+    },
+    "list": [
+      {
+        "date": 20180205,
+        "order": [10, 3137.19],
+        "rebate": [232, 0],
+        "user": [10, 0],
+        "pv": 58,
+        "platform": [{ "label": "微信", "value": 58 }],
+        "region": [
+          { "label": "西安", "value": 47 },
+          { "label": "杭州", "value": 3 },
+          { "label": "大庆", "value": 3 },
+          { "label": "深圳", "value": 2 },
+          { "label": "渭南", "value": 2 }
+        ],
+        "hot_category": [
+          { "label": "食品饮料", "value": 2 },
+          { "label": "本地生活/旅游出行", "value": 1 },
+          { "label": "服饰内衣", "value": 1 },
+          { "label": "数码", "value": 1 },
+          { "label": "珠宝首饰", "value": 1 }
+        ],
+        "hot_tags": [
+          { "label": "运动", "value": 9 },
+          { "label": "K歌之王", "value": 9 },
+          { "label": "vip", "value": 1 }
+        ]
+      },
+      {
+        "date": 20180202,
+        "order": [2, 682],
+        "rebate": [0, 0],
+        "user": [10, "2"],
+        "pv": 96,
+        "platform": [{ "label": "微信", "value": 96 }],
+        "region": [
+          { "label": "西安", "value": 78 },
+          { "label": "成都", "value": 4 },
+          { "label": "上海", "value": 3 },
+          { "label": "广州", "value": 3 },
+          { "label": "渭南", "value": 2 }
+        ],
+        "hot_category": [
+          { "label": "家用电器", "value": 1 },
+          { "label": "珠宝首饰", "value": 1 },
+          { "label": "美妆个护", "value": 1 },
+          { "label": "电脑、办公", "value": 1 },
+          { "label": "运动户外", "value": 1 }
+        ],
+        "hot_tags": [{ "label": "运动", "value": 2 }, { "label": "K歌之王", "value": 2 }]
+      },
+      {
+        "date": 20180203,
+        "order": [0, 0],
+        "rebate": [1, 0],
+        "user": [10, 0],
+        "pv": 0,
+        "platform": [],
+        "region": [],
+        "hot_category": [],
+        "hot_tags": []
+      },
+      {
+        "date": 20180204,
+        "order": [0, 0],
+        "rebate": [1, 0],
+        "user": [10, 0],
+        "pv": 0,
+        "platform": [],
+        "region": [],
+        "hot_category": [],
+        "hot_tags": []
+      },
+      {
+        "date": 20180206,
+        "order": [0, 0],
+        "rebate": [1, 0],
+        "user": [14, "4"],
+        "pv": 0,
+        "platform": [],
+        "region": [],
+        "hot_category": [],
+        "hot_tags": []
+      },
+      {
+        "date": 20180207,
+        "order": [0, 0],
+        "rebate": [1, 0],
+        "user": [23, "9"],
+        "pv": 0,
+        "platform": [],
+        "region": [],
+        "hot_category": [],
+        "hot_tags": []
+      },
+      {
+        "date": 20180208,
+        "order": [0, 0],
+        "rebate": [1, 0],
+        "user": [23, 0],
+        "pv": 0,
+        "platform": [],
+        "region": [],
+        "hot_category": [],
+        "hot_tags": []
+      },
+      {
+        "date": 20180209,
+        "order": [0, 0],
+        "rebate": [1, 0],
+        "user": [23, 0],
+        "pv": 0,
+        "platform": [],
+        "region": [],
+        "hot_category": [],
+        "hot_tags": []
+      }
+    ],
+    "infos": { "total": 2, "current": 1, "pageSize": 10 }
+  },
+  "msg": ""
+}

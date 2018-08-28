@@ -1,4 +1,7 @@
 // import { injectReducer } from 'vstore/reducers'
+import {
+  permissionIsAuthenticated
+} from 'vcms/RouterAuth/RouterAuth'
 
 export default (store) => ({
   path: 'settings',
@@ -22,7 +25,7 @@ export default (store) => ({
       // })
 
       /*  Return getComponent   */
-      next(null, Settings)
+      next(null, permissionIsAuthenticated(Settings))
     })
   }
 })

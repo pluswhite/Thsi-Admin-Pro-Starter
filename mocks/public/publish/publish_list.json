@@ -1,0 +1,119 @@
+{
+  "status": "success",
+  "data": {
+    "infos": { "current": 1, "pageSize": 30, "total": 27 },
+    "list": [
+      {
+        "id": "41",
+        "publish_name": "10",
+        "goods_count": 1,
+        "date_range": "2018/02/22 17:15 ~ 2018/03/07 17:15",
+        "publisher": "Jessie",
+        "user_list_type": "1",
+        "status": "2",
+        "last_modified_at": "2018-02-22 17:19:22",
+        "user_count": 0
+      },
+      {
+        "id": "40",
+        "publish_name": "管理员1-发布管理1-1",
+        "goods_count": 3,
+        "date_range": "2018/02/23 10:30 ~ 2018/02/23 22:30",
+        "publisher": "管理员1",
+        "user_list_type": "1",
+        "status": "4",
+        "last_modified_at": "2018-02-22 15:58:27",
+        "user_count": 4
+      },
+      {
+        "id": "31",
+        "publish_name": "发布管理-无限制20180112-20180430",
+        "goods_count": 3,
+        "date_range": "2018/02/08 09:12 ~ 2018/04/30 23:59",
+        "publisher": "root",
+        "user_list_type": "2",
+        "status": "4",
+        "last_modified_at": "2018-02-22 15:56:07",
+        "user_count": 71
+      },
+      {
+        "id": "36",
+        "publish_name": "发布cpc商品-20180115",
+        "goods_count": 4,
+        "date_range": "2018/01/22 00:00 ~ 2018/01/25 20:30",
+        "publisher": "管理员1",
+        "user_list_type": "1",
+        "status": "3",
+        "last_modified_at": "2018-01-22 11:56:02",
+        "user_count": 4
+      },
+      {
+        "id": "39",
+        "publish_name": "运营2-发布管理20180115-20180116",
+        "goods_count": 2,
+        "date_range": "2018/01/15 14:00 ~ 2018/01/16 10:13",
+        "publisher": "管理员2",
+        "user_list_type": "1",
+        "status": "3",
+        "last_modified_at": "2018-01-15 20:42:32",
+        "user_count": 4
+      },
+      {
+        "id": "38",
+        "publish_name": "运营1-发布管理1-1",
+        "goods_count": 2,
+        "date_range": "2018/01/15 10:30 ~ 2018/01/15 18:30",
+        "publisher": "运营1",
+        "user_list_type": "1",
+        "status": "3",
+        "last_modified_at": "2018-01-15 15:49:36",
+        "user_count": 4
+      },
+      {
+        "id": "37",
+        "publish_name": "发布管理-112号生效",
+        "goods_count": 3,
+        "date_range": "2018/01/12 11:30 ~ 2018/01/12 19:49",
+        "publisher": "管理员2",
+        "user_list_type": "1",
+        "status": "3",
+        "last_modified_at": "2018-01-12 11:20:20",
+        "user_count": 1
+      },
+      {
+        "id": "35",
+        "publish_name": "发布管理-2018111",
+        "goods_count": 2,
+        "date_range": "2018/01/11 11:10 ~ 2018/01/11 23:10",
+        "publisher": "root",
+        "user_list_type": "2",
+        "status": "3",
+        "last_modified_at": "2018-01-11 11:59:58",
+        "user_count": 66
+      },
+      {
+        "id": "34",
+        "publish_name": "发布管理-测试无限制",
+        "goods_count": 5,
+        "date_range": "2018/01/11 09:00 ~ 2018/01/11 17:30",
+        "publisher": "root",
+        "user_list_type": "2",
+        "status": "3",
+        "last_modified_at": "2018-01-11 11:12:02",
+        "user_count": 71
+      },
+      {
+        "id": "32",
+        "publish_name": "发布管理-测试白名单",
+        "goods_count": 4,
+        "date_range": "2018/01/10 11:35 ~ 2018/01/10 21:20",
+        "publisher": "root",
+        "user_list_type": "1",
+        "status": "3",
+        "last_modified_at": "2018-01-10 20:55:51",
+        "user_count": 6
+      }
+    ]
+  },
+  "msg": ""
+}

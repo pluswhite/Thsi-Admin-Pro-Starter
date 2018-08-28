@@ -1,0 +1,50 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": [{
+      "id": "1",
+      "username": "admin",
+      "email": "phphome111@qq.com",
+      "status": "1",
+      "mobile": "13565231112",
+      "role": "administrator",
+      "created_at": "2016-03-14 10:22:40"
+    },
+    {
+      "id": "6",
+      "username": "guanli",
+      "email": "phphome222@qq.com",
+      "status": "1",
+      "mobile": "13565656565",
+      "role": "administrator",
+      "created_at": "2016-10-14 17:43:29"
+    },
+    {
+      "id": "2",
+      "username": "feifei",
+      "email": "php11111@qq.com",
+      "status": "1",
+      "mobile": "13631568985",
+      "role": "editor",
+      "created_at": "2016-03-15 15:53:21"
+    },
+    {
+      "id": "7",
+      "username": "huang",
+      "email": "phphome@qqqqq.com",
+      "status": "1",
+      "mobile": "13656589562",
+      "role": "editor",
+      "created_at": "2016-12-06 12:56:37"
+    },
+    {
+      "id": "8",
+      "username": "fanruijian",
+      "email": "88348489@qq.com",
+      "status": "1",
+      "mobile": "15956897845",
+      "role": null,
+      "created_at": "2017-07-17 20:01:59"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "adspaceBaseInfo": {
+      "sellerListOptions": [
+        {
+          "text": "vamaker-seller",
+          "value": "0"
+        },
+        {
+          "text": "vamaker-mgtv",
+          "value": "1"
+        },
+        {
+          "text": "vamaker-sohu",
+          "value": "2"
+        },
+        {
+          "text": "vamaker-letv",
+          "value": "3"
+        }
+      ],
+      "adspacePhylumFormSizeOptions": [
+        {
+          "value": "PC Banner广告",
+          "label": "PC Banner广告",
+          "children": [
+            {
+              "value": "小矩形",
+              "label": "小矩形"
+            },
+            {
+              "value": "矩形",
+              "label": "矩形"
+            },
+            {
+              "value": "通栏",
+              "label": "通栏"
+            },
+            {
+              "value": "摩天楼",
+              "label": "摩天楼"
+            }
+          ]
+        },
+        {
+          "value": "PC 弹窗广告",
+          "label": "PC 弹窗广告",
+          "children": [
+            {
+              "value": "视频弹窗",
+              "label": "视频弹窗"
+            }
+          ]
+        },
+        {
+          "value": "视频暂停",
+          "label": "视频暂停"
+        },
+        {
+          "value": "PC 客户端广告",
+          "label": "PC 客户端广告"
+        }
+      ],
+      "pageCategoryOptions": [
+        {
+          "value": "汽车",
+          "label": "汽车",
+          "children": [
+            {
+              "value": "全部",
+              "label": "全部"
+            },
+            {
+              "value": "车讯行情",
+              "label": "车讯行情"
+            },
+            {
+              "value": "车辆养护",
+              "label": "车辆养护"
+            },
+            {
+              "value": "其它",
+              "label": "其它"
+            }
+          ]
+        },
+        {
+          "value": "新闻",
+          "label": "新闻",
+          "children": [
+            {
+              "value": "全部",
+              "label": "全部"
+            },
+            {
+              "value": "军事",
+              "label": "军事"
+            },
+            {
+              "value": "时政要闻",
+              "label": "时政要闻"
+            },
+            {
+              "value": "财经",
+              "label": "财经"
+            },
+            {
+              "value": "科技",
+              "label": "科技"
+            },
+            {
+              "value": "其它",
+              "label": "其它"
+            }
+          ]
+        }
+      ]
+    },
+    "bannerInfo": {
+      "sellerName": "vamaker-rd",
+      "adspaceName": "Adspace Test Name",
+      "formatList": ["1", "2", "3", "4"],
+      "adspacePhylumFormSize": ["PC 弹窗广告", "视频弹窗"],
+      "closeType": true,
+      "popType": false,
+      "adspaceWidth": "140",
+      "adspaceHeight": "70",
+      "position": "2",
+      "container": "2",
+      "pageUrl": "http://page.url.com",
+      "pageCategory": ["新闻", "财经"],
+      "cpeSupport": "yes",
+      "cpeFormatList": ["6"],
+      "cpeMode": "1",
+      "cpeSizeId": "29",
+      "cpeDuration": "15",
+      "adspacePageUrl": "http://adspace.page.url.com",
+      "basePrice": "1.5",
+      "auditType": "1",
+      "antiSunroofCode": "Backup Code."
+    }
+  }
+}

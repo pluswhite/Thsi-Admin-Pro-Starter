@@ -1,0 +1,26 @@
+{
+  "/api/*": "/$1",
+  "/:resource/:id/show": "/:resource/:id",
+  "/posts/:category": "/posts?category=:category",
+  "/articles\\?id=:id": "/posts/:id",
+  "/common/uploadFiles": "/uploadFiles",
+
+  "/auth/register": "/register",
+  "/auth/login": "/login",
+  "/auth/modifyPsw": "/modifyPsw",
+  "/auth/resetPsw": "/resetPsw",
+  "/auth/validateToken": "/validateToken",
+
+  "/user/user_list": "/userList",
+
+  "/publish/publish_list": "/publishList",
+
+  "/order/order_list": "/orderList",
+
+  "/me/msgList": "/msgList",
+  "/me/profile": "/profile",
+
+  "/dash/dash": "/dash",
+
+  "/reports/list": "/reportList"
+}

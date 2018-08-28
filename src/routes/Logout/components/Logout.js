@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 
 import './Logout.scss'
 
 class Logout extends Component {
   static propTypes = {
-    intl: PropTypes.object,
+    // intl: PropTypes.object,
     handleLogout: PropTypes.func,
-    redirect: PropTypes.func
   }
   constructor (props) {
     super(props)
@@ -25,7 +24,7 @@ class Logout extends Component {
       let timeout = this.state.timeout - 1
       if (timeout <= 0) {
         this.clearTimer()
-        this.props.redirect()
+        browserHistory.push('/login')
         return
       }
       this.setState({
@@ -46,56 +45,16 @@ class Logout extends Component {
   }
 
   render () {
-    const { formatMessage } = this.props.intl
-
     return (
-      <div className='page-layout__viewport'>
+      <div className='page-layout__viewport page-logout__wrapper'>
         <div className='logout-wrapper'>
           <p>
-            <strong>
-              {formatMessage({
-                id: 'logout.tips',
-                defaultMessage: 'You have been logged out.'
-              })}
-            </strong>
+            <strong>成功退出！</strong>
           </p>
           <p>
-            {formatMessage({
-              id: 'logout.redirect',
-              defaultMessage: 'Redirecting to'
-            })}
-            <Link to='/'>
-              {formatMessage({
-                id: 'logout.redirect.home_page',
-                defaultMessage: 'Home Page'
-              })}
-            </Link>
-            {formatMessage({
-              id: 'logout.redirect.time',
-              defaultMessage: '...in'
-            })}
-            {this.state.timeout}s
-            {formatMessage({
-              id: 'logout.redirect.seconds',
-              defaultMessage: 's'
-            })}
+            页面将在{this.state.timeout}秒之后跳转到 <Link to='/login'>登录</Link>
           </p>
-          <p>
-            {formatMessage({
-              id: 'logout.redirect.or',
-              defaultMessage: 'or'
-            })}
-            <Link to='/login'>
-              {formatMessage({
-                id: 'logout.redirect.login',
-                defaultMessage: 'login'
-              })}
-            </Link>
-            {formatMessage({
-              id: 'logout.redirect.again',
-              defaultMessage: 'again.'
-            })}
-          </p>
+          {/* <p>或者点击重新 <Link to='/login'>登录</Link></p> */}
         </div>
       </div>
     )

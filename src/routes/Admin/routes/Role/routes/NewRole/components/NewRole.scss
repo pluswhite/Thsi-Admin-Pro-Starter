@@ -1,0 +1,7 @@
+.role-new-wrapper {
+  .ant-tree-child-tree {
+    & > li {
+      display: inline-block;
+    }
+  }
+}

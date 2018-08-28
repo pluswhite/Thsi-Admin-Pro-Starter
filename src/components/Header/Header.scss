@@ -1,42 +1,44 @@
 .header {
-  background: #fff;
-  border-bottom: 1px solid #dadada;
+  // border-bottom: 1px solid #c0c0c0;
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+  // left: 0;
+  // z-index: 9999;
+  padding-left: 0;
+  padding-right: 15px;
+  height: auto;
+  line-height: 45px;
+  overflow: hidden;
+  background-color: transparent;
+  // border-bottom: 1px solid #e8e8e8;
 
-  .header-logo {
-    display: inline-block;
-    height: 48px;
-    color: #131313;
-    font-size: 20px;
-    line-height: 48px;
-    text-decoration: none;
+  &.header-collapsed {
+    .header-logo {
+      width: 80px;
+      background-image: url(../../assets/logo_small.png);
+      background-size: 40px;
+    }
   }
 
   .menu-trigger {
+    box-sizing: border-box;
     display: inline-block;
-    height: 48px;
-    line-height: 48px;
+    height: 64px;
+    line-height: 64px;
     padding-left: 15px;
+    padding-right: 15px;
+    color: #fff;
     font-size: 18px;
+    font-weight: lighter;
     cursor: pointer;
-  }
-
-  &.ant-layout-header {
-    height: 48px;
-    line-height: 48px;
-  }
-
-  .ant-menu {
-    height: 48px;
-    line-height: 48px;
-    border-bottom-color: #dadada;
-  }
-
-  .ant-menu-sub {
-    height: auto;
+    &:hover {
+      color: darken(#fff, 10);
+    }
   }
 
   a.nav-logout {
-    color: #f46e65;
+    color: #ff4d4f;
   }
 
   .view-all-message {
@@ -44,5 +46,64 @@
     line-height: 36px;
     font-weight: bold;
     background-color: #efefef;
+  }
+
+  .ant-menu {
+    background-color: transparent;
+  }
+
+  @media screen and (max-width: 400px) {
+    & {
+      padding-right: 0;
+      height: auto;
+      .menu-content {
+        overflow-x: auto;
+        ul {
+          width: 655px;
+          // border-top: 1px solid #fff;
+          li > div {
+            line-height: 40px;
+          }
+        }
+      }
+      .menu-right {
+        position: fixed;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+.header-logo {
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-image: url(../../assets/logo.png);
+  // background-size: 75%;
+  // box-shadow: 0 0 1px rgba(0,21,41,.35);
+}
+
+.ant-menu-horizontal {
+  border-bottom-width: 0;
+
+  & > .ant-menu-item.ant-menu-item-selected > a {
+    color: #673ab7;
+  }
+}
+
+.ant-menu-sub.ant-menu-vertical {
+  & > .ant-menu-item.ant-menu-item-selected  {
+    background-color: #fff;
+
+    & > a {
+      color: #673ab7;
+    }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "range": "自营",
+    "c1": "a",
+    "c2": "b",
+    "c3": "c",
+    "pc_link": "https://pc.link",
+    "pc_link_l": "https://long.pc.link",
+    "mobile_link": "https://mobile.link",
+    "mobile_link_l": "https://long.mobile.link"
+  }
+}

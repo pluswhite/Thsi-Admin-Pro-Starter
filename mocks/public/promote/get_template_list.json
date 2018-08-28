@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "list": [
+      {
+        "id": "77D9D7FD-A8Cd-514F-Ba54-23",
+        "status": "off",
+        "title": "模板名称",
+        "desc": "模板说明。",
+        "logo": "http://dummyimage.com/300x300/79a0f2/FFF&text=CPD!",
+        "created_at": "1993/11/29 20:52:24"
+      }
+    ],
+    "infos": {
+      "current": 1,
+      "pageSize": 15,
+      "total": 100
+    }
+  }
+}

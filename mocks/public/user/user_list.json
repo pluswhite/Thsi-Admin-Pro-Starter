@@ -1,0 +1,129 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "infos": {
+      "current": 2,
+      "pageSize": 30,
+      "total": 45
+    },
+    "list": [
+      {
+          "id": "68",
+          "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+          "nickname": "Michael Williams",
+          "phone": "13758895856",
+          "sex": "0",
+          "location": "海外 海外",
+          "country": "海外",
+          "status": "2",
+          "type": "0",
+          "last_login_at": "1999-07-16 15:16:41",
+          "last_modified_at": "2017-12-05 14:40:34"
+      },
+      {
+          "id": "36",
+          "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+          "nickname": "Dorothy Jackson",
+          "phone": "18758834850",
+          "sex": "1",
+          "location": "河北省 廊坊市",
+          "country": "海外",
+          "status": "2",
+          "type": "1",
+          "last_login_at": "1990-03-18 22:04:54",
+          "last_modified_at": "2017-12-05 14:40:34"
+      },
+      {
+          "id": "44",
+          "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+          "nickname": "Amy Moore",
+          "phone": "13358835859",
+          "sex": "1",
+          "location": "重庆 重庆市",
+          "country": "月球",
+          "status": "1",
+          "type": "1",
+          "last_login_at": "2002-09-26 18:13:36",
+          "last_modified_at": "2017-12-05 14:40:34"
+      },
+      {
+          "id": "56",
+          "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+          "nickname": "Cynthia Lopez",
+          "phone": "13758895856",
+          "sex": "0",
+          "location": "台湾 新竹市",
+          "country": "月球",
+          "status": "2",
+          "type": "2",
+          "last_login_at": "1986-04-21 22:26:37",
+          "last_modified_at": "2017-12-05 14:40:34"
+      },
+      {
+          "id": "61",
+          "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+          "nickname": "Sharon Hernandez",
+          "phone": "",
+          "sex": "2",
+          "location": "海南省 三亚市",
+          "country": "海外",
+          "status": "1",
+          "type": "1",
+          "last_login_at": "1974-11-23 05:10:49",
+          "last_modified_at": "2017-12-05 14:40:34"
+      },
+      {
+          "id": "29",
+          "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+          "nickname": "Dorothy Gonzalez",
+          "phone": "13758895856",
+          "sex": "2",
+          "location": "湖北省 襄阳市",
+          "country": "中国",
+          "status": "2",
+          "type": "1",
+          "last_login_at": "1994-08-27 06:13:43",
+          "last_modified_at": "2017-12-05 14:40:34"
+      },
+      {
+          "id": "89",
+          "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+          "nickname": "Timothy Martinez",
+          "phone": "17173983939",
+          "sex": "0",
+          "location": "内蒙古自治区 通辽市",
+          "country": "海外",
+          "status": "2",
+          "type": "2",
+          "last_login_at": "1997-01-09 13:46:37",
+          "last_modified_at": "2017-12-05 14:40:34"
+      },
+      {
+          "id": "06",
+          "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+          "nickname": "Gary Lee",
+          "phone": "13736353739",
+          "sex": "0",
+          "location": "上海 上海市",
+          "country": "海外",
+          "status": "1",
+          "type": "1",
+          "last_login_at": "1977-08-29 15:55:32",
+          "last_modified_at": "2017-12-05 14:40:34"
+      },
+      {
+        "id": "59",
+        "avatar": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/64",
+        "nickname": "Dorothy Gonzalez",
+        "phone": "13758895856",
+        "sex": "2",
+        "location": "湖北省 襄阳市",
+        "country": "中国",
+        "status": "2",
+        "type": "1",
+        "last_login_at": "1994-08-27 06:13:43",
+        "last_modified_at": "2017-12-05 14:40:34"
+    }]
+  }
+}

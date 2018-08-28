@@ -1,0 +1,212 @@
+{
+  "status": "success",
+  "data": {
+    "userId": "1",
+    "userName": "root",
+    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjaHV5aWNtcyIsInN1YiI6Imp3dCIsImF1ZCI6InVzZXIiLCJleHAiOjE1NDY3NTkwNDksIm5iZiI6MTUxNTY1NTA0OSwiaWF0IjoxNTE1NjU1MDQ5LCJqdGkiOiIxIn0.Po8v_6JzhMFhgqWt_yb2gaxwvHGVitSfmcdGb5Wz6J0",
+    "permissions": {
+      "api_dashboard": {
+        "has": true
+      },
+      "api_admin": {
+        "has": true,
+        "sub": {
+          "api_role_list": {
+            "has": true,
+            "sub": {
+              "api_role_add": {
+                "has": true
+              },
+              "api_role_edit": {
+                "has": true
+              }
+            }
+          },
+          "api_admin_list": {
+            "has": true,
+            "sub": {
+              "api_admin_add": {
+                "has": true
+              },
+              "api_admin_edit": {
+                "has": true
+              },
+              "api_admin_set": {
+                "has": true
+              }
+            }
+          }
+        }
+      },
+      "api_wx_user": {
+        "has": true,
+        "sub": {
+          "api_wx_user_list": {
+            "has": true,
+            "sub": {
+              "api_wx_user_edit": {
+                "has": true
+              },
+              "api_wx_user_set_status": {
+                "has": true
+              },
+              "api_wx_user_set_type": {
+                "has": true
+              }
+            }
+          }
+        }
+      },
+      "api_products": {
+        "has": true,
+        "sub": {
+          "api_product_get": {
+            "has": true,
+            "sub": {
+              "api_product_get_share_links": {
+                "has": true
+              },
+              "api_product_update_share_links": {
+                "has": true
+              },
+              "api_product_update_status": {
+                "has": true
+              }
+            }
+          },
+          "api_activity_get": {
+            "has": true,
+            "sub": {
+              "api_activity_get_share_links": {
+                "has": true
+              },
+              "api_activity_update_share_links": {
+                "has": true
+              },
+              "api_activity_update_status": {
+                "has": true
+              }
+            }
+          },
+          "api_template_get": {
+            "has": true,
+            "sub": {
+              "api_template_get_share_links": {
+                "has": true
+              },
+              "api_template_update_share_links": {
+                "has": true
+              },
+              "api_template_update_status": {
+                "has": true
+              }
+            }
+          },
+          "api_cps_goods_get": {
+            "has": true,
+            "sub": {
+              "api_cps_goods_get_share_links": {
+                "has": true
+              },
+              "api_cps_goods_update_share_links": {
+                "has": true
+              },
+              "api_cps_goods_update_status": {
+                "has": true
+              }
+            }
+          },
+          "api_cpc_goods_get": {
+            "has": true,
+            "sub": {
+              "api_cpc_goods_add": {
+                "has": true
+              },
+              "api_cpc_goods_update": {
+                "has": true
+              },
+              "api_cpc_goods_update_status": {
+                "has": true
+              }
+            }
+          },
+          "api_cpd_goods_get": {
+            "has": true,
+            "sub": {
+              "api_cpd_goods_add": {
+                "has": true
+              },
+              "api_cpd_goods_update": {
+                "has": true
+              },
+              "api_cpd_goods_update_status": {
+                "has": true
+              }
+            }
+          }
+        }
+      },
+      "api_publish": {
+        "has": true,
+        "sub": {
+          "api_publish_get": {
+            "has": true,
+            "sub": {
+              "api_publish_add": {
+                "has": true
+              },
+              "api_publish_update": {
+                "has": true
+              },
+              "api_publish_change_status": {
+                "has": true
+              }
+            }
+          }
+        }
+      },
+      "api_order": {
+        "has": true,
+        "sub": {
+          "api_order_list": {
+            "has": true,
+            "sub": {
+              "api_order_info": {
+                "has": true
+              }
+            }
+          }
+        }
+      },
+      "api_tag": {
+        "has": true,
+        "sub": {
+          "api_tag_list": {
+            "has": true,
+            "sub": {
+              "api_tag_add": {
+                "has": true
+              },
+              "api_tag_edit": {
+                "has": true
+              },
+              "api_tag_status": {
+                "has": true
+              },
+              "api_tag_bind_list": {
+                "has": true
+              }
+            }
+          }
+        }
+      },
+      "api_report": {
+        "has": true
+      },
+      "api_set": {
+        "has": true
+      }
+    }
+  },
+  "msg": ""
+}

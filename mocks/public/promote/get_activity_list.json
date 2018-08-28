@@ -1,0 +1,76 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "list": [
+      {
+        "id": "77D9D7FD-A8Cd-514F-Ba54-23",
+        "status": "0",
+        "title": "周外响转美称议关第场片没数全意电感厂对",
+        "desc": "基题张我头身便难面自九全知关成派战线意明米织极连每生什样处。",
+        "image": "http://wx.huifind.com/api/v1/cpc-goods/get-code?id=36",
+        "type": "拼团",
+        "edited_at": "1993/11/29 20:52:24",
+        "created_by": "小明",
+        "start": "1993/11/29 20:52:24",
+        "stop": "1997/11/29 20:52:24",
+        "infos": {
+          "size": "320*150"
+        }
+      },
+      {
+        "id": "77D9D7FD-A8Cd-514F-Ba54-11",
+        "status": "1",
+        "title": "周外响转美称议关第场片没数全意电感厂对",
+        "desc": "基题张我头身便难面自九全知关成派战线意明米织极连每生什样处。",
+        "image": "http://wx.hf.vamaker.com/uploads/5abc4e89318d5_1500x800.jpg",
+        "type": "拼团",
+        "edited_at": "1993/11/29 20:52:24",
+        "created_by": "小明",
+        "start": "1993/11/29 20:52:24",
+        "stop": "1997/11/29 20:52:24"
+      },
+      {
+        "id": "77D9D7FD-A8Cd-514F-Ba54-44",
+        "status": "2",
+        "title": "周外响转美称议关第场片没数全意电感厂对",
+        "desc": "基题张我头身便难面自九全知关成派战线意明米织极连每生什样处。",
+        "image": "http://wx.hf.vamaker.com/uploads/5abc4f96e17e1_1500x800.png",
+        "type": "拼团",
+        "edited_at": "1993/11/29 20:52:24",
+        "created_by": "小明",
+        "start": "1993/11/29 20:52:24",
+        "stop": "1997/11/29 20:52:24"
+      },
+      {
+        "id": "77D9D7FD-A8Cd-514F-Ba54-23122",
+        "status": "3",
+        "title": "周外响转美称议关第场片没数全意电感厂对",
+        "desc": "基题张我头身便难面自九全知关成派战线意明米织极连每生什样处。",
+        "image": "http://dummyimage.com/300x300/79a0f2/FFF&text=CPD!",
+        "type": "拼团",
+        "edited_at": "1993/11/29 20:52:24",
+        "created_by": "小明",
+        "start": "1993/11/29 20:52:24",
+        "stop": "1997/11/29 20:52:24"
+      },
+      {
+        "id": "77D9D7FD-A8Cd-514F-Ba54-454822",
+        "status": "4",
+        "title": "周外响转美称议关第场片没数全意电感厂对",
+        "desc": "基题张我头身便难面自九全知关成派战线意明米织极连每生什样处。",
+        "image": "http://dummyimage.com/300x300/79a0f2/FFF&text=CPD!",
+        "type": "拼团",
+        "edited_at": "1993/11/29 20:52:24",
+        "created_by": "Plus White",
+        "start": "1993/11/29 20:52:24",
+        "stop": "1997/11/29 20:52:24"
+      }
+    ],
+    "infos": {
+      "current": 1,
+      "pageSize": 15,
+      "total": 100
+    }
+  }
+}

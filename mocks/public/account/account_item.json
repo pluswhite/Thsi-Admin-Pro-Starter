@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "roleList": [
+      {
+        "label": "ROOT",
+        "value": "0"
+      },
+      {
+        "label": "ADMINISTATOR",
+        "value": "1"
+      },
+      {
+        "label": "OPERATOR",
+        "value": "2"
+      }
+    ],
+    "accountItem": {
+      "accountEmail": "eric@huifind.com",
+      "accountName": "Eric",
+      "accountRole": "2"
+    }
+  }
+}

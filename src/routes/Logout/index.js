@@ -4,16 +4,9 @@ export default (store) => ({
   path: 'logout',
   getComponent (nextState, next) {
     require.ensure([
-      './containers/LogoutContainer',
-      // './modules/logout'
+      './containers/LogoutContainer'
     ], (require) => {
       const Logout = require('./containers/LogoutContainer').default
-      // const logoutReducer = require('./modules/logout').default
-
-      // injectReducer(store, {
-      //   key: 'logout',
-      //   reducer: logoutReducer
-      // })
 
       next(null, Logout)
     })

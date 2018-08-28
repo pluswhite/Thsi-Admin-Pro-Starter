@@ -1,0 +1,29 @@
+.search-user {
+  &.ant-select-open.ant-select-focused {
+    .ant-select-selection-selected-value {
+      opacity: .4 !important;
+    }
+  }
+  height: 32px;
+  .ant-select-selection-selected-value {
+    line-height: 32px;
+    display: flex !important;
+    align-items: center;
+    .ant-avatar {
+      height: 20px;
+      width: 20px;
+      margin-right: 7px;
+    }
+  }
+}
+.search-user-dropdown {
+  .ant-select-dropdown-menu {
+    li {
+      display: flex;
+      align-items: center;
+      span {
+        margin-right: 10px;
+      }
+    }
+  }
+}

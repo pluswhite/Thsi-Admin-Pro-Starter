@@ -1,0 +1,1088 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "infos": {
+      "current": 1,
+      "pageSize": 30,
+      "total": 10
+    },
+    "list": [
+      {
+        "id": "54dCcd94-0cfD-1Acb-B7d1-98154C2FCfdB",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 ",
+        "img": "http://dummyimage.com/300x300/f2d079",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 9923
+          },
+          {
+            "title": "满100-10",
+            "value": 3452
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 774311.8,
+            "commission": 623625.3,
+            "commission_rate": 93.1,
+            "order_in_30": 2560,
+            "order_out_30": 38277.1
+          },
+          {
+            "title": "PC",
+            "value": 500453.4,
+            "commission": 450595,
+            "commission_rate": 55,
+            "order_in_30": 7301,
+            "order_out_30": 86972.6
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "FA1D85Ec-49Db-9D62-73Cd-92fdf34e7AFe",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/ac79f2",
+        "coupons": [],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 370892.7,
+            "commission": 679383,
+            "commission_rate": 18.79,
+            "order_in_30": 1401,
+            "order_out_30": 75199.8
+          },
+          {
+            "title": "PC",
+            "value": 99264.85,
+            "commission": 464060.76,
+            "commission_rate": 52.35,
+            "order_in_30": 2641,
+            "order_out_30": 6162.6
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "1fe19D5d-B31F-BBbE-EfdF-BBC8D85D6855",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/79f289",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 6309
+          },
+          {
+            "title": "满100-10",
+            "value": 1721
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 839646.77,
+            "commission": 255454.19,
+            "commission_rate": 58,
+            "order_in_30": 8215,
+            "order_out_30": 29560.7
+          },
+          {
+            "title": "PC",
+            "value": 709270.8,
+            "commission": 218387.5,
+            "commission_rate": 66.04,
+            "order_in_30": 1006,
+            "order_out_30": 4500.7
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "36ed95Cb-DfdD-dA1d-7E27-5eaA8BBA9115",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/f2798c",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 3266
+          },
+          {
+            "title": "满100-10",
+            "value": 9547
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 971068,
+            "commission": 301027,
+            "commission_rate": 34.8,
+            "order_in_30": 1185,
+            "order_out_30": 31895.7
+          },
+          {
+            "title": "PC",
+            "value": 63772.92,
+            "commission": 850467.1,
+            "commission_rate": 39.4,
+            "order_in_30": 4632,
+            "order_out_30": 97163.9
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "Ed6C2c2C-9cEd-Aec3-A8cE-7F5E49ef1747",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/79aff2",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 3887
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 238623,
+            "commission": 255954,
+            "commission_rate": 22,
+            "order_in_30": 7166,
+            "order_out_30": 67279.42
+          },
+          {
+            "title": "PC",
+            "value": 507326,
+            "commission": 622710.56,
+            "commission_rate": 45.3,
+            "order_in_30": 4876,
+            "order_out_30": 93591.8
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "ecB0CF2B-fb7f-Bb6E-64Be-EcDb8dDF5cFF",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/d2f279",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 9061
+          },
+          {
+            "title": "满100-10",
+            "value": 3366
+          },
+          {
+            "title": "满100-10",
+            "value": 4245
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 61325,
+            "commission": 209620.2,
+            "commission_rate": 18.9,
+            "order_in_30": 1469,
+            "order_out_30": 25183.3
+          },
+          {
+            "title": "PC",
+            "value": 297940,
+            "commission": 153706,
+            "commission_rate": 29.29,
+            "order_in_30": 408,
+            "order_out_30": 42578.5
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "28ef9f9f-bEfb-0D9E-721A-36570DdcBD73",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/ee79f2",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 1041
+          },
+          {
+            "title": "满100-10",
+            "value": 6508
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 590229.15,
+            "commission": 431211.38,
+            "commission_rate": 15,
+            "order_in_30": 1563,
+            "order_out_30": 20867.5
+          },
+          {
+            "title": "PC",
+            "value": 361634,
+            "commission": 344758.5,
+            "commission_rate": 93.73,
+            "order_in_30": 7266,
+            "order_out_30": 10746.02
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "4aA4b7D3-f596-1137-fe10-3ccA1CBBdb2E",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/79f2ca",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 1654
+          },
+          {
+            "title": "满100-10",
+            "value": 8215
+          },
+          {
+            "title": "满100-10",
+            "value": 3596
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 658102.65,
+            "commission": 857966.8,
+            "commission_rate": 54.1,
+            "order_in_30": 5661,
+            "order_out_30": 15701.5
+          },
+          {
+            "title": "PC",
+            "value": 284810.7,
+            "commission": 103523.8,
+            "commission_rate": 77.7,
+            "order_in_30": 165,
+            "order_out_30": 62236.51
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "bE4F77B5-Bd21-C5C9-6eC3-BE4Ce2ed36dA",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/f2a779",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 5794
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 128550.9,
+            "commission": 746474.3,
+            "commission_rate": 9.1,
+            "order_in_30": 3817,
+            "order_out_30": 72894.5
+          },
+          {
+            "title": "PC",
+            "value": 231586.01,
+            "commission": 839706,
+            "commission_rate": 37,
+            "order_in_30": 4860,
+            "order_out_30": 53286.3
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "6dE5b8Ec-D1bF-8Ac9-7dfF-f45BFff55bd4",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/8479f2",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 7600
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 885435.38,
+            "commission": 674852.6,
+            "commission_rate": 68,
+            "order_in_30": 5958,
+            "order_out_30": 47910.28
+          },
+          {
+            "title": "PC",
+            "value": 633706.3,
+            "commission": 570210.2,
+            "commission_rate": 23.5,
+            "order_in_30": 6550,
+            "order_out_30": 64594.6
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "71EAf9cF-c3aE-f9f9-9c13-8B64cBF155B2",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/91f279",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 2591
+          },
+          {
+            "title": "满100-10",
+            "value": 750
+          },
+          {
+            "title": "满100-10",
+            "value": 1616
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 796791.3,
+            "commission": 119628.3,
+            "commission_rate": 65.3,
+            "order_in_30": 881,
+            "order_out_30": 68466.4
+          },
+          {
+            "title": "PC",
+            "value": 538348,
+            "commission": 820255.43,
+            "commission_rate": 20.63,
+            "order_in_30": 9549,
+            "order_out_30": 41768
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "56Af5Ab9-f62d-5f1c-1c86-Be0449183Aef",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/f279b4",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 6788
+          },
+          {
+            "title": "满100-10",
+            "value": 9070
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 852305.2,
+            "commission": 386368.1,
+            "commission_rate": 61.48,
+            "order_in_30": 7302,
+            "order_out_30": 36537.6
+          },
+          {
+            "title": "PC",
+            "value": 144509,
+            "commission": 168900,
+            "commission_rate": 46.03,
+            "order_in_30": 7109,
+            "order_out_30": 70681.65
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "fdddEE38-127a-BeE9-28C1-bd69261F59Af",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/79d8f2",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 3579
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 830391.3,
+            "commission": 639709.7,
+            "commission_rate": 60,
+            "order_in_30": 2615,
+            "order_out_30": 47389
+          },
+          {
+            "title": "PC",
+            "value": 709217,
+            "commission": 559032,
+            "commission_rate": 82.69,
+            "order_in_30": 6384,
+            "order_out_30": 27306.7
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "558218c4-A4de-6306-cE66-2C382da02AdA",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/f2e979",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 5896
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 551171.16,
+            "commission": 899635,
+            "commission_rate": 24.3,
+            "order_in_30": 9374,
+            "order_out_30": 12342.1
+          },
+          {
+            "title": "PC",
+            "value": 388514.2,
+            "commission": 950346.7,
+            "commission_rate": 44.1,
+            "order_in_30": 2766,
+            "order_out_30": 18440.46
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "e18cc8d5-53FB-8C31-E4Ce-4cCB59Ede76F",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/c579f2",
+        "coupons": [],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 68699.24,
+            "commission": 775390.63,
+            "commission_rate": 85.8,
+            "order_in_30": 8286,
+            "order_out_30": 17247
+          },
+          {
+            "title": "PC",
+            "value": 751030.3,
+            "commission": 634565.8,
+            "commission_rate": 20.32,
+            "order_in_30": 7660,
+            "order_out_30": 36625.83
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "4beb76D1-A5a6-e1bD-94c6-ec65edAC89De",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/79f2a2",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 4363
+          },
+          {
+            "title": "满100-10",
+            "value": 5154
+          },
+          {
+            "title": "满100-10",
+            "value": 4700
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 536547.77,
+            "commission": 776573.6,
+            "commission_rate": 42,
+            "order_in_30": 625,
+            "order_out_30": 28964
+          },
+          {
+            "title": "PC",
+            "value": 561374.2,
+            "commission": 613550.13,
+            "commission_rate": 67,
+            "order_in_30": 3025,
+            "order_out_30": 41541.3
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "fCF7e79B-AAfA-2fF7-7368-86552FFE7a4d",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/f27f79",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 5938
+          },
+          {
+            "title": "满100-10",
+            "value": 519
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 125054.6,
+            "commission": 911975.6,
+            "commission_rate": 95.53,
+            "order_in_30": 9796,
+            "order_out_30": 17152.2
+          },
+          {
+            "title": "PC",
+            "value": 594551.5,
+            "commission": 118442.26,
+            "commission_rate": 14.03,
+            "order_in_30": 1558,
+            "order_out_30": 91305.3
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "9DD2BA2e-8dE4-47Cc-fb38-7A520848142A",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/7996f2",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 1937
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 272218.65,
+            "commission": 765976.5,
+            "commission_rate": 53.37,
+            "order_in_30": 5493,
+            "order_out_30": 79937.5
+          },
+          {
+            "title": "PC",
+            "value": 982742,
+            "commission": 49023,
+            "commission_rate": 60.72,
+            "order_in_30": 7387,
+            "order_out_30": 27504
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "1e70bAc1-dFD8-A265-8A6A-5A7196bE7aFC",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/b9f279",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 9279
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 231548.4,
+            "commission": 752709,
+            "commission_rate": 20.7,
+            "order_in_30": 1921,
+            "order_out_30": 92893
+          },
+          {
+            "title": "PC",
+            "value": 269979.9,
+            "commission": 802627.35,
+            "commission_rate": 63.3,
+            "order_in_30": 104,
+            "order_out_30": 29848.1
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "B07F7B9f-ad1A-C2f0-6D60-1cc3d0471970",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/f279dd",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 628
+          },
+          {
+            "title": "满100-10",
+            "value": 3948
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 168525.2,
+            "commission": 563082,
+            "commission_rate": 46.9,
+            "order_in_30": 8847,
+            "order_out_30": 1295.8
+          },
+          {
+            "title": "PC",
+            "value": 651118.3,
+            "commission": 414878,
+            "commission_rate": 10,
+            "order_in_30": 1600,
+            "order_out_30": 88045.5
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "4a69dd8A-d7EE-be4d-F6CD-bB8EA3a51aB0",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/79f2e3",
+        "coupons": [],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 990914.34,
+            "commission": 104210.4,
+            "commission_rate": 25.3,
+            "order_in_30": 802,
+            "order_out_30": 53673.2
+          },
+          {
+            "title": "PC",
+            "value": 874914,
+            "commission": 602245,
+            "commission_rate": 95.9,
+            "order_in_30": 2794,
+            "order_out_30": 47825.7
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "1c4594AA-2Fd3-1528-59b1-bA51eFcd498B",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/f2c079",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 2902
+          },
+          {
+            "title": "满100-10",
+            "value": 4806
+          },
+          {
+            "title": "满100-10",
+            "value": 2325
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 245446,
+            "commission": 219960,
+            "commission_rate": 29.4,
+            "order_in_30": 1658,
+            "order_out_30": 91229.5
+          },
+          {
+            "title": "PC",
+            "value": 548505.1,
+            "commission": 394736,
+            "commission_rate": 17.5,
+            "order_in_30": 2697,
+            "order_out_30": 29138.8
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "0DAa7aEB-Fbe9-ff96-179e-20F87CAEDD7d",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/9d79f2",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 8901
+          },
+          {
+            "title": "满100-10",
+            "value": 7069
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 963529,
+            "commission": 943657.8,
+            "commission_rate": 0,
+            "order_in_30": 5205,
+            "order_out_30": 43160.5
+          },
+          {
+            "title": "PC",
+            "value": 671737,
+            "commission": 892871.2,
+            "commission_rate": 63.03,
+            "order_in_30": 1673,
+            "order_out_30": 44465.77
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "8cece184-6B73-C79f-E6aF-ec7d4AA65de2",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/79f279",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 104
+          },
+          {
+            "title": "满100-10",
+            "value": 725
+          },
+          {
+            "title": "满100-10",
+            "value": 2706
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 317630,
+            "commission": 82772.2,
+            "commission_rate": 85,
+            "order_in_30": 9762,
+            "order_out_30": 92764.7
+          },
+          {
+            "title": "PC",
+            "value": 639727.5,
+            "commission": 338356.52,
+            "commission_rate": 50.7,
+            "order_in_30": 5210,
+            "order_out_30": 89674.84
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "e5A3AD2e-bbb7-abfd-8165-DE4D890Dcf9B",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/f2799b",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 4510
+          },
+          {
+            "title": "满100-10",
+            "value": 8383
+          },
+          {
+            "title": "满100-10",
+            "value": 6352
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 164103.34,
+            "commission": 469282.6,
+            "commission_rate": 72.6,
+            "order_in_30": 5620,
+            "order_out_30": 86880
+          },
+          {
+            "title": "PC",
+            "value": 342144.3,
+            "commission": 770487.28,
+            "commission_rate": 83.63,
+            "order_in_30": 425,
+            "order_out_30": 55453.42
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "151517c7-0ABE-Fdbe-4f7B-FD16df484F69",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/79bff2",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 3393
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 774845.41,
+            "commission": 437009.34,
+            "commission_rate": 44.8,
+            "order_in_30": 7433,
+            "order_out_30": 86169
+          },
+          {
+            "title": "PC",
+            "value": 404460,
+            "commission": 360902,
+            "commission_rate": 25.7,
+            "order_in_30": 6912,
+            "order_out_30": 51405.12
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "c9D40C4c-68A2-3D7A-55fA-56eDEaF8661e",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/e2f279",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 7272
+          },
+          {
+            "title": "满100-10",
+            "value": 9392
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 913122.4,
+            "commission": 490804.85,
+            "commission_rate": 33,
+            "order_in_30": 5488,
+            "order_out_30": 70491
+          },
+          {
+            "title": "PC",
+            "value": 60828.2,
+            "commission": 134471.3,
+            "commission_rate": 16,
+            "order_in_30": 1980,
+            "order_out_30": 6262.9
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "D9b2899d-73C2-4d83-6Dae-acE2773C8FDf",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/de79f2",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 2618
+          },
+          {
+            "title": "满100-10",
+            "value": 961
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 274428,
+            "commission": 351089.68,
+            "commission_rate": 74,
+            "order_in_30": 1636,
+            "order_out_30": 94220.7
+          },
+          {
+            "title": "PC",
+            "value": 530678,
+            "commission": 269768,
+            "commission_rate": 60.4,
+            "order_in_30": 5004,
+            "order_out_30": 29551.7
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "7ED652c9-f236-2fae-bBc2-43bD3bAEf6b7",
+        "status": "on",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/79f2bb",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 9380
+          },
+          {
+            "title": "满100-10",
+            "value": 9207
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 607091.1,
+            "commission": 366707.7,
+            "commission_rate": 97.4,
+            "order_in_30": 2620,
+            "order_out_30": 23872.4
+          },
+          {
+            "title": "PC",
+            "value": 754387,
+            "commission": 925682.27,
+            "commission_rate": 65.24,
+            "order_in_30": 2771,
+            "order_out_30": 69433.92
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      },
+      {
+        "id": "D3cA3c27-83EF-76fD-ae0A-Dd4CC8C961DE",
+        "status": "off",
+        "title": "红茶 普洱茶 黑茶 花茶 燕麦豆浆油条 晚上吃什么 特价 仅此一天",
+        "img": "http://dummyimage.com/300x300/f29879",
+        "coupons": [
+          {
+            "title": "满100-10",
+            "value": 9203
+          }
+        ],
+        "range": "自营",
+        "category": ["图书音像", "进口图书"],
+        "prices": [
+          {
+            "title": "无线",
+            "value": 136981.22,
+            "commission": 451086.6,
+            "commission_rate": 5.2,
+            "order_in_30": 8845,
+            "order_out_30": 67084.5
+          },
+          {
+            "title": "PC",
+            "value": 662149,
+            "commission": 677009.47,
+            "commission_rate": 49.2,
+            "order_in_30": 3114,
+            "order_out_30": 86568
+          }
+        ],
+        "seller": "京东淘宝天猫自营商家"
+      }
+    ]
+  }
+}

@@ -2,9 +2,9 @@ export default (store) => ({
   path: '*',
   getComponent (nextState, next) {
     require.ensure([
-      './components/NoContent'
+      './containers/NoContentContainer'
     ], (require) => {
-      const NoContent = require('./components/NoContent').default
+      const NoContent = require('./containers/NoContentContainer').default
 
       // injectReducer(store, {
       //   key: 'NoContent',

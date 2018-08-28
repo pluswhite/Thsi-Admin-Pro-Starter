@@ -15,13 +15,54 @@ body {
   height: 100%;
 }
 
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Segoe UI',
+    'Microsoft Yahei', Tahoma, Arial, STHeiti, sans-serif !important;
+}
+
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
 
-a, blockquote, body, button, code, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, html, iframe, img, input, label, li, object, ol, p, q, small, span, strong, table, tbody, td, th, tr, ul {
+a,
+blockquote,
+body,
+button,
+code,
+dd,
+div,
+dl,
+dt,
+em,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+iframe,
+img,
+input,
+label,
+li,
+object,
+ol,
+p,
+q,
+small,
+span,
+strong,
+table,
+tbody,
+td,
+th,
+tr,
+ul {
   margin: 0;
   padding: 0;
   border: 0;
@@ -35,8 +76,30 @@ a {
 .clearfix:after {
   display: block;
   height: 0;
-  content: " ";
+  content: ' ';
   clear: both;
   font-size: 0;
   visibility: hidden;
+}
+.ant-card {
+  border-radius: 10px !important;
+
+  .ant-card-head {
+    padding: 0 15px !important;
+    border-radius: 10px 10px 0 0 !important;
+
+    .ant-card-extra {
+      .ant-btn + .ant-btn {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .ant-card-body {
+    padding: 10px 15px !important;
+  }
+
+  #date_range {
+    width: 100% !important;
+  }
 }

@@ -1,15 +1,34 @@
+'use strict'
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('../project.config')
+const HappyPack = require('happypack')
+// const happyThreadPool = HappyPack.ThreadPool({ size: 5 })
 
 const inProject = path.resolve.bind(path, project.basePath)
 const inProjectSrc = (file) => inProject(project.srcDir, file)
 
-const __DEV__ = project.env === 'development'
+const __DEV__ = project.env === 'development' || project.env === 'predev'
 const __TEST__ = project.env === 'test'
-const __PROD__ = project.env === 'production'
+const __PROD__ = project.env === 'production' || project.env === 'pretest'
+
+const pkg = require('../package.json')
+
+let theme = {}
+
+if (pkg.theme && typeof (pkg.theme) === 'string') {
+  let cfgPath = pkg.theme
+  // relative path
+  if (cfgPath.charAt(0) === '.') {
+    cfgPath = path.resolve(__dirname, '../', cfgPath)
+  }
+  const getThemeConfig = require(cfgPath)
+  theme = getThemeConfig()
+} else if (pkg.theme && typeof (pkg.theme) === 'object') {
+  theme = pkg.theme
+}
 
 const config = {
   entry: {
@@ -37,7 +56,9 @@ const config = {
       vassets: path.resolve(__dirname, '../src/assets/'),
       vstore: path.resolve(__dirname, '../src/store/'),
       vi18n: path.resolve(__dirname, '../src/i18n/'),
-      vcfg: path.resolve(__dirname, '../build/'),
+      vbuild: path.resolve(__dirname, '../build/'),
+      vcfg: path.resolve(__dirname, '../config/'),
+      vutils: path.resolve(__dirname, '../src/utils/'),
     },
     extensions: ['*', '.web.jsx', '.web.js', '.js', '.jsx', '.json'],
   },
@@ -60,53 +81,56 @@ const config = {
 config.module.rules.push({
   test: /\.(js|jsx)$/,
   exclude: /node_modules/,
-  use: [{
-    loader: 'babel-loader',
-    query: {
-      cacheDirectory: true,
-      plugins: [
-        'babel-plugin-transform-class-properties',
-        'babel-plugin-syntax-dynamic-import',
-        [
-          'babel-plugin-transform-runtime',
-          {
-            helpers: true,
-            polyfill: false, // we polyfill needed features in src/normalize.js
-            regenerator: true,
-          },
-        ],
-        [
-          'babel-plugin-transform-object-rest-spread',
-          {
-            useBuiltIns: true // we polyfill Object.assign in src/normalize.js
-          },
-        ],
-        [
-          'import', [
-            {
-              'libraryName': 'antd',
-              'style': true
-            },
-            {
-              'libraryName': 'antd-mobile',
-              'libraryDirectory': 'lib',
-              'style': true
-            }
-          ]
-        ]
-      ],
-      presets: [
-        'babel-preset-react',
-        ['babel-preset-env', {
-          modules: false,
-          targets: {
-            ie9: true,
-          },
-          uglify: true,
-        }],
-      ]
-    },
-  }],
+  use: [
+    'happypack/loader?id=babel'
+  ]
+  // use: [{
+  //   loader: 'babel-loader',
+  //   query: {
+  //     cacheDirectory: true,
+  //     plugins: [
+  //       'babel-plugin-transform-class-properties',
+  //       'babel-plugin-syntax-dynamic-import',
+  //       [
+  //         'babel-plugin-transform-runtime',
+  //         {
+  //           helpers: true,
+  //           polyfill: false, // we polyfill needed features in src/normalize.js
+  //           regenerator: true,
+  //         },
+  //       ],
+  //       [
+  //         'babel-plugin-transform-object-rest-spread',
+  //         {
+  //           useBuiltIns: true // we polyfill Object.assign in src/normalize.js
+  //         },
+  //       ],
+  //       [
+  //         'import', [
+  //           {
+  //             'libraryName': 'antd',
+  //             'style': true
+  //           },
+  //           {
+  //             'libraryName': 'antd-mobile',
+  //             'libraryDirectory': 'lib',
+  //             'style': true
+  //           }
+  //         ]
+  //       ]
+  //     ],
+  //     presets: [
+  //       'babel-preset-react',
+  //       ['babel-preset-env', {
+  //         modules: false,
+  //         targets: {
+  //           ie9: true,
+  //         },
+  //         uglify: true,
+  //       }],
+  //     ]
+  //   },
+  // }],
 })
 
 // Styles
@@ -200,10 +224,29 @@ config.module.rules.push({
           includePaths: [
             inProjectSrc('styles'),
           ],
+          modifyVars: theme
         },
       }
     ],
   })
+})
+config.module.rules.push({
+  test    : /\.css$/,
+  use: ExtractTextPlugin.extract({
+    use: ['happypack/loader?id=css'],
+  }),
+  // use: ExtractTextPlugin.extract({
+  //   fallback: 'style-loader',
+  //   use: [
+  //     {
+  //       loader: 'css-loader',
+  //       options: {
+  //         sourceMap: true,
+  //         minimize: true
+  //       }
+  //     },
+  //   ]
+  // })
 })
 config.plugins.push(extractStyles)
 
@@ -271,6 +314,85 @@ config.module.rules.push({
   use: 'raw-loader',
 })
 
+// Happypack
+config.plugins.push(
+  new HappyPack(
+    {
+      // 用唯一的标识符 id 来代表当前的HappyPack 是用来处理一类特定的文件
+      id: 'babel',
+      threads: 4,
+      // threadPool: happyThreadPool,
+      // 如何处理 .js 文件，用法和 Loader配置中一样
+      loaders: [
+        {
+          loader: 'babel-loader',
+          query: {
+            cacheDirectory: true,
+            plugins: [
+              'babel-plugin-transform-class-properties',
+              'babel-plugin-syntax-dynamic-import',
+              [
+                'babel-plugin-transform-runtime',
+                {
+                  helpers: true,
+                  polyfill: false, // we polyfill needed features in src/normalize.js
+                  regenerator: true,
+                },
+              ],
+              [
+                'babel-plugin-transform-object-rest-spread',
+                {
+                  useBuiltIns: true // we polyfill Object.assign in src/normalize.js
+                },
+              ],
+              [
+                'import', [
+                  {
+                    'libraryName': 'antd',
+                    'style': true
+                  },
+                ]
+              ]
+            ],
+            presets: [
+              'babel-preset-react',
+              ['babel-preset-env', {
+                modules: false,
+                targets: {
+                  ie9: true,
+                },
+                uglify: true,
+              }],
+            ]
+          },
+        }
+      ]
+    }
+  )
+)
+
+config.plugins.push(
+  new HappyPack(
+    {
+      id: 'css',
+      threads: 4,
+      // threadPool: happyThreadPool,
+      loaders: [
+        {
+          loader: 'style-loader'
+        },
+        {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true,
+            minimize: true
+          }
+        },
+      ]
+    }
+  )
+)
+
 // HTML Template
 // ------------------------------------
 config.plugins.push(new HtmlWebpackPlugin({
@@ -278,6 +400,8 @@ config.plugins.push(new HtmlWebpackPlugin({
   inject: true,
   minify: {
     collapseWhitespace: true,
+    minifyCSS: true,
+    minifyJS: true
   },
 }))
 
@@ -315,6 +439,7 @@ if (__PROD__) {
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: !!config.devtool,
+      cache: true,
       comments: false,
       compress: {
         warnings: false,

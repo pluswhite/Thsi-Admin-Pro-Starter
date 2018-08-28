@@ -1,0 +1,68 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "id": "feC8Ede-07B1-3EEc-A319-0Cb6E6edddb8",
+    "status": "3",
+    "orderInfo": {
+      "orderId": "1200844429",
+      "orderTime": "2000-03-21 12:17:42",
+      "orderType": "2",
+      "orderUser": "12",
+      "amounts": "123.21",
+      "refuse": "不符合要求",
+      "publisher": "未知2",
+      "publish_id": "xxxxxxxxxxad"
+    },
+    "imgs": [
+      "http://dummyimage.com/1920x1080/79a6f2",
+      "http://dummyimage.com/900x1800/caf279"
+    ],
+    "imgs2": [
+      {
+        "imgs": [
+          "http://dummyimage.com/1920x1080/79a6f2",
+          "http://dummyimage.com/900x1800/caf279"
+        ]
+      }
+    ],
+    "imgs3": [
+      "http://dummyimage.com/1920x1080/79a6f2",
+      "http://dummyimage.com/900x1800/caf279"
+    ],
+    "goodsInfo": [
+      {
+        "id": "221231313",
+        "isRebated": false,
+        "name": "123",
+        "category": "家纺",
+        "categoryValue": "aaaaaaaaaaaaaaaaaaaaaaaa",
+        "amount": 123.05,
+        "rebateRatio": 9.5,
+        "rebateAmount": 10.5,
+        "rebateTime": 5,
+        "cpd_cal": 12
+      },
+      {
+        "id": "adadadadad",
+        "isRebated": true,
+        "name": "jiad",
+        "category": "数码",
+        "categoryValue": "bbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "amount": 122.05,
+        "rebateRatio": 19.5,
+        "rebateAmount": 120.5,
+        "rebateTime": 2,
+        "cpd_cal": 212
+      }
+    ],
+    "couponInfo": {
+      "couponRest": 11.2,
+      "good_min": "32",
+      "couponConsume": 123,
+      "coupon": 124,
+      "orderRebate": 18,
+      "cpd_cal_total": 21
+    }
+  }
+}

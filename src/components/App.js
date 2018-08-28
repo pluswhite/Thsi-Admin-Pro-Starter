@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 // import i18n configs.
 // Antd locales
 import andtEnUS from 'antd/lib/locale-provider/en_US'
+import antZhCN from 'antd/lib/locale-provider/zh_CN'
 // React Intl locales
 import englishLocaleData from 'react-intl/locale-data/en'
 import chineseLocaleData from 'react-intl/locale-data/zh'
@@ -39,7 +40,7 @@ const chooseLocale = (locale) => {
     case 'zh-cn':
       configs = {
         'locale': 'zh',
-        'antd': {},
+        'antd': antZhCN,
         'vra': vraZhCN
       }
       break

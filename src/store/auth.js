@@ -3,6 +3,8 @@ import { browserHistory } from 'react-router'
 import store from 'store'
 import apiConfig from 'vcfg/apiConfig'
 // console.log(apiConfig)
+const env = process.env.NODE_ENV || 'development'
+// console.log(env)
 
 export const ApiList = apiConfig.apiList
 
@@ -12,6 +14,15 @@ export const requestAuthInstance = axios.create({
     'Authorization': store.get('access_token') || null,
     'User-Id': store.get('user_id') || null,
     'User-Language': store.get('locale') || 'en-US'
+  },
+  validateStatus: (status) => {
+    // console.log('Response status code: ', status)
+    if (status >= 200 & status < 300) {
+      return true
+    }
+    if (env === 'production') {
+      handleErrors(status)
+    }
   }
 })
 
@@ -21,6 +32,9 @@ export const requestInstance = axios.create({
     'User-Language': store.get('locale') || 'en-US'
   }
 })
+
+export const requestUploadUrl = apiConfig.apiBaseUrl +
+                                ApiList.common.upload_files
 
 /**
  * Constants
@@ -54,6 +68,9 @@ export const MODIFY_PASSWORD_FAILURE = 'MODIFY_PASSWORD_FAILURE'
 export const RESET_PASSWORD_POSTS = 'RESET_PASSWORD_POSTS'
 export const RESET_PASSWORD_SUCCESS = 'RESET_PASSWORD_SUCCESS'
 export const RESET_PASSWORD_FAILURE = 'RESET_PASSWORD_FAILURE'
+
+// Handle Errors.
+export const HANDLE_REQUEST_ERRORS = 'HANDLE_REQUEST_ERRORS'
 
 /**
  * Actions
@@ -190,6 +207,13 @@ export const resetPasswordFailure = () => {
   }
 }
 
+// Handle Errors
+export const handleRequestErrors = () => {
+  return {
+    type: HANDLE_REQUEST_ERRORS
+  }
+}
+
 /**
  * Method.
  */
@@ -275,7 +299,7 @@ export const handleRegister = (registerData, successCallback, errorCallback) => 
   }
 }
 
-export const handleValidateToken = () => {
+export const handleValidateToken = (successCallback, errorCallback) => {
   return (dispatch) => {
     dispatch(validateTokenPosts())
 
@@ -296,11 +320,13 @@ export const handleValidateToken = () => {
           store.set('user_id', userId)
           store.set('user_name', userName)
           dispatch(validateTokenSuccess(res.data.data))
+          successCallback && successCallback()
         } else {
           store.remove('access_token')
           store.remove('user_id')
           store.remove('user_name')
           dispatch(validateTokenFailure())
+          errorCallback && errorCallback()
           browserHistory.push('/')
         }
       })
@@ -309,6 +335,7 @@ export const handleValidateToken = () => {
         store.remove('user_id')
         store.remove('user_name')
         dispatch(validateTokenFailure())
+        errorCallback && errorCallback()
         browserHistory.push('/')
         console.log(err)
       })
@@ -320,6 +347,10 @@ export const handleModifyPassword = (passwordData, successCallback, errorCallbac
     dispatch(modifyPasswordPosts())
 
     return requestAuthInstance.get(apiConfig.apiList.auth.modifyPsw, {
+      headers: {
+        'Authorization': store.get('access_token') || null,
+        'User-Id': store.get('user_id') || null
+      },
       params: {
         ...passwordData,
         'rnd': (new Date()).getTime()
@@ -333,7 +364,7 @@ export const handleModifyPassword = (passwordData, successCallback, errorCallbac
           store.set('access_token', accessToken)
           store.set('user_id', userId)
           store.set('user_name', userName)
-          successCallback && successCallback()
+          successCallback && successCallback(res.data.msg)
         } else {
           dispatch(modifyPasswordFailure())
           errorCallback && errorCallback(res.data.msg)
@@ -352,6 +383,10 @@ export const handleResetPassword = (emailData, successCallback, errorCallback) =
     dispatch(resetPasswordPosts())
 
     return requestInstance.get(apiConfig.apiList.auth.resetPsw, {
+      headers: {
+        'Authorization': store.get('access_token') || null,
+        'User-Id': store.get('user_id') || null
+      },
       params: {
         ...emailData,
         'rnd': (new Date()).getTime()
@@ -374,6 +409,17 @@ export const handleResetPassword = (emailData, successCallback, errorCallback) =
   }
 }
 
+export const handleErrors = (statusCode) => {
+  if (statusCode === 403) {
+    browserHistory.push('/error/403')
+  } else if (statusCode === 500) {
+    browserHistory.push('/error/500')
+  } else {
+    browserHistory.push('/404')
+  }
+  return false
+}
+
 /**
  * Action Handlers
  */
@@ -391,7 +437,8 @@ const AUTH_ACTION_HANDLERS = {
       isAuthenticated: true,
       userId: action.payload.data.userId,
       userName: action.payload.data.userName,
-      accessToken: action.payload.data.accessToken
+      accessToken: action.payload.data.accessToken,
+      permissions: action.payload.data.permissions
     })
   },
   [AUTH_LOGIN_FAILURE]: (state) => {
@@ -413,7 +460,8 @@ const AUTH_ACTION_HANDLERS = {
       isAuthenticated: false,
       userId: null,
       userName: '',
-      accessToken: null
+      accessToken: null,
+      permissions: {}
     })
   },
   [AUTH_LOGOUT_FAILURE]: (state) => {
@@ -435,7 +483,8 @@ const AUTH_ACTION_HANDLERS = {
       isAuthenticated: true,
       userId: action.payload.data.userId,
       userName: action.payload.data.userName,
-      accessToken: action.payload.data.accessToken
+      accessToken: action.payload.data.accessToken,
+      permissions: action.payload.data.permissions
     })
   },
   [AUTH_REGISTER_FAILURE]: (state) => {
@@ -457,7 +506,8 @@ const AUTH_ACTION_HANDLERS = {
       isAuthenticated: true,
       userId: action.payload.data.userId,
       userName: action.payload.data.userName,
-      accessToken: action.payload.data.accessToken
+      accessToken: action.payload.data.accessToken,
+      permissions: action.payload.data.permissions
     })
   },
   [VALIDATE_TOKEN_FAILURE]: (state) => {
@@ -467,7 +517,8 @@ const AUTH_ACTION_HANDLERS = {
       isAuthenticated: false,
       userId: null,
       userName: '',
-      accessToken: null
+      accessToken: null,
+      permissions: {}
     })
   },
   [MODIFY_PASSWORD_POSTS]: (state) => {
@@ -510,6 +561,17 @@ const AUTH_ACTION_HANDLERS = {
       isLoading: false
     })
   },
+  [HANDLE_REQUEST_ERRORS]: (state) => {
+    return ({
+      ...state,
+      isLoading: false,
+      isAuthenticated: false,
+      userId: null,
+      userName: '',
+      accessToken: null,
+      permissions: {}
+    })
+  },
 }
 
 /**
@@ -520,7 +582,8 @@ const initialState = {
   isAuthenticated: !!(store.get('access_token') && store.get('user_id')) || false,
   accessToken: store.get('access_token') || null,
   userId: store.get('user_id') || null,
-  userName: store.get('user_name') || ''
+  userName: store.get('user_name') || '',
+  permissions: {}
 }
 
 export default function authReducer (state = initialState, action) {

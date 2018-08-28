@@ -1,0 +1,74 @@
+[
+  {
+    "type": "hd",
+    "label": "基本信息"
+  },
+  {
+    "key": "title",
+    "type": "input",
+    "label": "活动名称",
+    "placeholder": "请输入活动名称",
+    "message": "请输入活动名称",
+    "required": true
+  },
+  {
+    "key": "desc",
+    "type": "textarea",
+    "label": "活动描述",
+    "placeholder": "请输入活动描述",
+    "message": "请输入活动描述",
+    "required": false
+  },
+  {
+    "type": "br"
+  },
+  {
+    "key": "size",
+    "type": "autoComplete",
+    "label": "创意尺寸",
+    "placeholder": "请选择或输入尺寸,格式为宽*高，如320*80",
+    "message": "格式为宽*高，如320*80",
+    "required": true,
+    "pattern": "^[:bslash:]d+[:bslash:]*[:bslash:]d+$"
+  },
+  {
+    "key": "cpc_code",
+    "type": "textarea",
+    "height": 7,
+    "label": "CPC代码",
+    "placeholder": "请输入活动展示代码",
+    "message": "请输入活动展示代码",
+    "required": true
+  },
+  {
+    "type": "br"
+  },
+  {
+    "key": "saler",
+    "type": "select",
+    "label": "活动来源",
+    "placeholder": "请选择活动来源",
+    "message": "请选择活动来源",
+    "required": true,
+    "value": "jd",
+    "dataSource": [
+      {
+        "label": "京东",
+        "value": "jd"
+      }
+    ]
+  },
+  {
+    "type": "hd",
+    "label": "数据信息"
+  },
+  {
+    "key": "limit",
+    "type": "inputNumber",
+    "format": "rmb",
+    "label": "活动额度",
+    "placeholder": "请输入活动额度",
+    "message": "请输入活动额度",
+    "required": true
+  }
+]

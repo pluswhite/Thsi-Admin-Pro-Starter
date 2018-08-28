@@ -91,7 +91,7 @@ const initialState = {
   isLoading: false,
   siderCollapsed: store.get('sider_collapsed') || false,
   siderVisible: store.get('sider_collapsed_visible') || false,
-  locale: store.get('locale') || 'en-US',
+  locale: store.get('locale') || 'en_US',
 }
 export default function settingsReducer (state = initialState, action) {
   const handler = SETTINGS_ACTION_HANDLERS[action.type]

@@ -1,0 +1,42 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": [
+    {
+      "id": "1",
+      "op_status": "1",
+      "operator": "Angela Miller",
+      "last_modified_at": "2018-02-15 10:04:29"
+    },
+    {
+      "id": "2",
+      "op_status": "2",
+      "operator": "Angela Miller",
+      "last_modified_at": "2018-02-15 10:04:29"
+    },
+    {
+      "id": "3",
+      "op_status": "3",
+      "operator": "Angela Miller",
+      "last_modified_at": "2018-02-15 10:04:29"
+    },
+    {
+      "id": "4",
+      "op_status": "5",
+      "operator": "Angela Miller",
+      "last_modified_at": "2018-02-15 10:04:29"
+    },
+    {
+      "id": "5",
+      "op_status": "6",
+      "operator": "Angela Miller",
+      "last_modified_at": "2018-02-15 10:04:29"
+    },
+    {
+      "id": "6",
+      "op_status": "7",
+      "operator": "Angela Miller",
+      "last_modified_at": "2018-02-15 10:04:29"
+    }
+  ]
+}

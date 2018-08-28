@@ -1,0 +1,6 @@
+{
+  "port": "3466",
+  "watch": true,
+  "routes": "./mocks/json-routes.json",
+  "static": "./mocks/public"
+}

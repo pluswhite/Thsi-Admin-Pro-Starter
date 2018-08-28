@@ -125,11 +125,16 @@ class Register extends Component {
                     <Form onSubmit={this.handleSubmit} className='register-form'>
                       <FormItem>
                         {getFieldDecorator('email', {
-                          rules: [{
-                            type: 'email', message: formatMessage({ id: 'register.email.format', defaultMessage: 'The input is not valid E-mail!' }),
-                          }, {
-                            required: true, message: formatMessage({ id: 'register.email.required', defaultMessage: 'Please input your E-mail!' }),
-                          }],
+                          rules: [
+                            {
+                              type: 'email',
+                              message: formatMessage({ id: 'register.email.format', defaultMessage: 'The input is not valid E-mail!' }),
+                            },
+                            {
+                              required: true,
+                              message: formatMessage({ id: 'register.email.required', defaultMessage: 'Please input your E-mail!' }),
+                            }
+                          ],
                         })(
                           <Input prefix={<Icon type='mail' />}
                             placeholder={formatMessage({ id: 'register.email', defaultMessage: 'Email' })} />
@@ -137,11 +142,19 @@ class Register extends Component {
                       </FormItem>
                       <FormItem>
                         {getFieldDecorator('password', {
-                          rules: [{
-                            required: true, message: formatMessage({ id: 'register.password.required', defaultMessage: 'Please input your password!' }),
-                          }, {
-                            validator: this.checkConfirm,
-                          }],
+                          rules: [
+                            {
+                              required: true,
+                              message: formatMessage({ id: 'register.password.required', defaultMessage: 'Please input your password!' }),
+                            },
+                            {
+                              min: 6,
+                              message: '密码至少为6位'
+                            },
+                            {
+                              validator: this.checkConfirm,
+                            }
+                          ],
                         })(
                           <Input prefix={<Icon type='lock' />}
                             type='password'
@@ -150,11 +163,19 @@ class Register extends Component {
                       </FormItem>
                       <FormItem>
                         {getFieldDecorator('confirm', {
-                          rules: [{
-                            required: true, message: formatMessage({ id: 'register.password.confirm', defaultMessage: 'Please confirm your password!' }),
-                          }, {
-                            validator: this.checkPassword,
-                          }],
+                          rules: [
+                            {
+                              required: true,
+                              message: formatMessage({ id: 'register.password.confirm', defaultMessage: 'Please confirm your password!' }),
+                            },
+                            {
+                              min: 6,
+                              message: '密码至少为6位'
+                            },
+                            {
+                              validator: this.checkPassword,
+                            }
+                          ],
                         })(
                           <Input prefix={<Icon type='lock' />}
                             type='password'

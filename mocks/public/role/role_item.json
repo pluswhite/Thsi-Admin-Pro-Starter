@@ -1,0 +1,87 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "permissionList": [{
+      "id": "191",
+      "pid": "190",
+      "title": "账号管理",
+      "key": "api-account",
+      "children": [{
+        "id": "193",
+        "pid": "191",
+        "title": "账号列表",
+        "key": "api-admin-manage",
+        "children": [{
+          "id": "201",
+          "pid": "193",
+          "title": "新增",
+          "key": "api-admin\/add"
+        }, {
+          "id": "202",
+          "pid": "193",
+          "title": "编辑",
+          "key": "api-admin\/edit"
+        }, {
+          "id": "203",
+          "pid": "193",
+          "title": "状态",
+          "key": "api-admin\/set"
+        }]
+      }, {
+        "id": "200",
+        "pid": "191",
+        "title": "角色列表",
+        "key": "api-admin\/manage"
+      }]
+    }, {
+      "id": "192",
+      "pid": "190",
+      "title": "用户管理",
+      "key": "api-wx-user"
+    }, {
+      "id": "195",
+      "pid": "190",
+      "title": "商品管理",
+      "key": "api-goods"
+    }, {
+      "id": "194",
+      "pid": "190",
+      "title": "dashbord",
+      "key": "api-dashbord"
+    }, {
+      "id": "196",
+      "pid": "190",
+      "title": "发布管理",
+      "key": "api-campaign"
+    }, {
+      "id": "197",
+      "pid": "190",
+      "title": "订单管理",
+      "key": "api-order"
+    }, {
+      "id": "198",
+      "pid": "190",
+      "title": "报表",
+      "key": "api-report"
+    }, {
+      "id": "199",
+      "pid": "190",
+      "title": "设置",
+      "key": "api-set"
+    }],
+    "roleItem": {
+      "name": "CUSTOM_ROLE",
+      "permission": [
+        "api-admin/add",
+        "api-admin/edit",
+        "api-admin/set",
+        "api_admin",
+        "api_admin/list",
+        "api_dashboard",
+        "api_goods",
+        "api_role/list"
+      ]
+    }
+  }
+}

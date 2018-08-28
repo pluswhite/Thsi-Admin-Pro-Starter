@@ -10,3 +10,10 @@ For example:
 @import './variables/components';
 @import './themes/default';
 */
+@import './form';
+@import './table';
+@import './status-color';
+
+.mb0 {
+  margin-bottom: 0;
+}

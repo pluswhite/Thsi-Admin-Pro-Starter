@@ -28,10 +28,15 @@ export default (store) => ({
       cb(null, [
         // Remove imports!
         require('./routes/Dashboard').default(store),
-        require('./routes/Users').default(store),
+        require('./routes/Resources').default(store),
+        require('./routes/Account').default(store),
+        require('./routes/Role').default(store),
+        // require('./routes/User').default(store),
+        require('./routes/AdZones').default(store),
         require('./routes/Reports').default(store),
-        require('./routes/Lotto').default(store),
         require('./routes/Settings').default(store),
+        require('./routes/Me').default(store),
+        require('./routes/Message').default(store),
       ])
     })
   }

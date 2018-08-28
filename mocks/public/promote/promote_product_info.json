@@ -1,0 +1,61 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "id": "Af1C5D9B-1acc-ceA2-BFA4-bC1BCcBf44d9",
+    "title": "角产类片容种心又先体型究很果各写",
+    "desc": "压军口此家组明改置热行科克要温却五来军米命适装又划采样。",
+    "image": "http://dummyimage.com/300x300/bc79f2/FFF&text=CPD!",
+    "link": "https://ffplok.is/cwiij",
+    "detailImage": "http://dummyimage.com/750x800/8bf279/FFF",
+    "shareTitle": "fenxiang",
+    "shareDesc": "fenxiang2313ada",
+    "shareImage": "http://dummyimage.com/750x800/8bf279/FFF",
+    "display": {
+      "template": "123",
+      "source": "231",
+      "price": 12314.213,
+      "rebate": {
+        "type": "rebate_amount",
+        "value": "12313"
+      },
+      "detail": [
+        {
+          "type": "select",
+          "label": "酒店等级",
+          "value": "2da",
+          "data": [
+            {
+              "label": "奢华",
+              "value": "23"
+            },
+            {
+              "label": "精选",
+              "value": "2312"
+            },
+            {
+              "label": "豪华",
+              "value": "2da"
+            },
+            {
+              "label": "标准",
+              "value": "adad"
+            }
+          ]
+        },
+        {
+          "type": "input",
+          "label": "input类型",
+          "value": ""
+        },
+        {
+          "type": "switch",
+          "label": "switch类型",
+          "value": true
+        }
+      ],
+      "isRecommend": true,
+      "mode": 2131
+    }
+  }
+}

@@ -1,56 +1,52 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import {
-  Layout,
-  Spin,
+  // Layout,
+  // Spin,
   Form,
   Icon,
   Input,
   Button,
-  Checkbox,
+  // Checkbox,
   Row,
   Col,
-  message
+  message,
+  Alert
 } from 'antd'
 import { Helmet } from 'react-helmet'
-import Header from 'vctns/HeaderContainer'
 import Footer from 'vcms/Footer'
 
-import './login.scss'
+import {
+  chooseRoute
+} from 'vutils/Tools'
 
-const { Content } = Layout
+import './Login.scss'
+
+// const { Content } = Layout
 const FormItem = Form.Item
 
 class Login extends Component {
   static propTypes = {
     isLoading: PropTypes.bool,
     handleLogin: PropTypes.func.isRequired,
+    handleLogout: PropTypes.func,
     form: PropTypes.object,
     redirectPath: PropTypes.string,
-    isAuthenticated: PropTypes.bool,
-    intl: PropTypes.object
+    // isAuthenticated: PropTypes.bool,
+    permissions: PropTypes.object,
   }
 
   constructor (props) {
     super(props)
     this.state = {
-      focused: false,
-      focused1: false,
       redirectPath: props.redirectPath
     }
     // console.log(props.intl)
   }
 
   componentWillMount = () => {
-    const { redirectPath } = this.state
-    if (this.props.isAuthenticated) {
-      if (redirectPath) {
-        browserHistory.push(redirectPath)
-      } else {
-        browserHistory.push('/')
-      }
-    }
+    this.props.handleLogout()
   }
 
   handleLoginSubmit = (evt) => {
@@ -60,11 +56,19 @@ class Login extends Component {
       if (!err) {
         // console.log('Received values of form: ', values)
         this.props.handleLogin(values, () => {
-          if (redirectPath) {
-            browserHistory.push(redirectPath)
-          } else {
-            browserHistory.push('/admin/dashboard')
-          }
+          // console.log(this.props.permissions)
+          message.success('登录成功', 1, () => {
+            if (redirectPath) {
+              browserHistory.push(redirectPath)
+            } else {
+              let redirectPath = chooseRoute(this.props.permissions)
+              if (redirectPath !== '') {
+                browserHistory.push(redirectPath)
+              } else {
+                message.error('您的账户暂时不能登录，请联系管理员')
+              }
+            }
+          })
         }, (msg) => {
           message.error(msg)
         })
@@ -76,133 +80,115 @@ class Login extends Component {
     const {
       isLoading,
       form,
-      intl
     } = this.props
 
     const {
-      getFieldDecorator
+      getFieldDecorator,
+      getFieldError
     } = form
 
-    const {
-      formatMessage
-    } = intl
+    let emailErrors = getFieldError('email')
+    let pswErrors = getFieldError('password')
 
     // console.log(this.props)
 
     return (
-      <Layout className='layout'>
+      <div className='page-login__container'>
         <Helmet>
-          <title>
-            {formatMessage({
-              id: 'login.title',
-              defaultMessage: 'Login'
-            })}
-          </title>
+          <title>登录</title>
         </Helmet>
-        <Header />
-        <Content>
-          <div className='page-layout__viewport'>
-            <Row>
-              <Col xs={0} md={8} />
-              <Col md={8}>
+        <div className='page-login_wrapper'>
+          <Row>
+            <Col xs={0} md={8} />
+            <Col md={8}>
+              <h1 className='login-logo'>LOGO</h1>
+              <div className='login-form-wrapper'>
                 <h2 className='page-title'>
-                  {formatMessage({
-                    id: 'login.title',
-                    defaultMessage: 'Login'
-                  })}
+                  <span className='title'>账号登录</span>
                 </h2>
-                <div className='login-form-wrapper'>
-                  <Spin spinning={isLoading}>
-                    <Form onSubmit={this.handleLoginSubmit} className='login-form'>
-                      <FormItem>
-                        {getFieldDecorator('email', {
-                          rules: [
-                            {
-                              type: 'email',
-                              message: formatMessage({
-                                id: 'login.email.format',
-                                defaultMessage: 'The input is not valid E-mail!'
-                              })
-                            },
-                            {
-                              required: true,
-                              message: formatMessage({
-                                id: 'login.email.required',
-                                defaultMessage: 'Please input your E-mail!'
-                              }),
-                            }
-                          ],
-                        })(
-                          <Input prefix={<Icon type='mail' style={{ fontSize: 13 }} />}
-                            placeholder={formatMessage({
-                              id: 'login.email',
-                              defaultMessage: 'Email'
-                            })} />
-                        )}
-                      </FormItem>
-                      <FormItem>
-                        {getFieldDecorator('password', {
-                          rules: [{
-                            required: true,
-                            message: formatMessage({
-                              id: 'login.password.required',
-                              defaultMessage: 'Please input your Password!'
-                            })
-                          }],
-                        })(
-                          <Input prefix={<Icon type='lock' style={{ fontSize: 13 }} />}
-                            type='password'
-                            placeholder={formatMessage({
-                              id: 'login.password',
-                              defaultMessage: 'Password'
-                            })} />
-                        )}
-                      </FormItem>
-                      <FormItem>
-                        {getFieldDecorator('remember', {
-                          valuePropName: 'checked',
-                          initialValue: true,
-                        })(
-                          <Checkbox>
-                            {formatMessage({
-                              id: 'login.remember_me',
-                              defaultMessage: 'Remember me'
-                            })}
-                          </Checkbox>
-                        )}
-                        <Link className='login-form-forgot' to='/reset-psw'>
-                          {formatMessage({
-                            id: 'login.forgot_password',
-                            defaultMessage: 'Forgot password'
-                          })}
-                        </Link>
-                        <Button type='primary' htmlType='submit' className='login-form-button'>
-                          {formatMessage({
-                            id: 'login.title',
-                            defaultMessage: 'Login'
-                          })}
-                        </Button>
+                <Form onSubmit={this.handleLoginSubmit} className='login-form'>
+                  {emailErrors && <Alert message={emailErrors.join(',')} type='error' closable />}
+
+                  {pswErrors && <Alert message={pswErrors.join(',')} type='error' closable />}
+                  <FormItem help=''>
+                    {getFieldDecorator('email', {
+                      validateTrigger: ['onBlur'],
+                      rules: [
+                        {
+                          required: true,
+                          message: '请输入邮箱地址',
+                        },
+                        {
+                          type: 'email',
+                          message: '请输入合法的邮箱地址'
+                        }
+                      ],
+                    })(
+                      <Input size='large'
+                        disabled={isLoading}
+                        prefix={<Icon type='user' />}
+                        placeholder='邮箱' />
+                    )}
+                  </FormItem>
+                  <FormItem help=''>
+                    {getFieldDecorator('password', {
+                      validateTrigger: ['onBlur'],
+                      rules: [
+                        {
+                          required: true,
+                          message: '请输入密码'
+                        },
+                        {
+                          min: 6,
+                          message: '密码至少为6位'
+                        }
+                      ],
+                    })(
+                      <Input size='large'
+                        disabled={isLoading}
+                        prefix={<Icon type='lock' />}
+                        type='password'
+                        placeholder='密码' />
+                    )}
+                  </FormItem>
+                  <FormItem>
+                    {/* {getFieldDecorator('remember', {
+                      valuePropName: 'checked',
+                      initialValue: true,
+                    })(
+                      <Checkbox>
                         {formatMessage({
-                          id: 'login.register.tips',
-                          defaultMessage: 'Or '
+                          id: 'login.remember_me',
+                          defaultMessage: 'Remember me'
                         })}
-                        <Link to='/register'>
-                          {formatMessage({
-                            id: 'login.register',
-                            defaultMessage: 'Register now!'
-                          })}
-                        </Link>
-                      </FormItem>
-                    </Form>
-                  </Spin>
-                </div>
-              </Col>
-              <Col xs={0} md={8} />
-            </Row>
-          </div>
-        </Content>
+                      </Checkbox>
+                    )}
+                    <Link className='login-form-forgot' to='/reset-psw'>
+                      {formatMessage({
+                        id: 'login.forgot_password',
+                        defaultMessage: 'Forgot password'
+                      })}
+                    </Link> */}
+                    <Button loading={isLoading} size='large' type='primary' htmlType='submit' className='login-form-button'>登录</Button>
+                    {/* {formatMessage({
+                      id: 'login.register.tips',
+                      defaultMessage: 'Or '
+                    })}
+                    <Link to='/register'>
+                      {formatMessage({
+                        id: 'login.register',
+                        defaultMessage: 'Register now!'
+                      })}
+                    </Link> */}
+                  </FormItem>
+                </Form>
+              </div>
+            </Col>
+            <Col xs={0} md={8} />
+          </Row>
+        </div>
         <Footer />
-      </Layout>
+      </div>
     )
   }
 }

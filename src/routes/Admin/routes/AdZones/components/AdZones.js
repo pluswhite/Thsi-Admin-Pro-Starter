@@ -19,7 +19,7 @@ class AdZones extends Component {
 
     return (
       <div className='page-layout__wrapper'>
-        <h2 className='page-title'>推广管理</h2>
+        <h2 className='page-title'>Adzones</h2>
         {children}
       </div>
     )

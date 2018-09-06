@@ -19,7 +19,7 @@ class Role extends Component {
 
     return (
       <div className='page-layout__wrapper'>
-        <h2 className='page-title'>角色</h2>
+        <h2 className='page-title'>Role</h2>
         {children}
       </div>
     )

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 import {
   handleLogin,
   handleLogout
@@ -17,4 +18,4 @@ const mapStateToProps = (state) => ({
   redirectPath: state.location.query.redirect
 })
 
-export default connect(mapStateToProps, mapActionCreators)(WrappedLoginForm)
+export default connect(mapStateToProps, mapActionCreators)(injectIntl(WrappedLoginForm))

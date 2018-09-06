@@ -8,6 +8,7 @@ const zhCN = {
   'login.email.format': '请输入正确格式的邮箱地址',
   'login.password': '输入密码',
   'login.password.required': '请输入您的密码',
+  'login.password.min': '密码至少为6位',
   'login.remember_me': '记住我',
   'login.forgot_password': '忘记密码？',
   'login.register': '立即注册',

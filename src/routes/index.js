@@ -17,7 +17,6 @@ export const createRoutes = (store) => ({
       cb(null, [
         // Remove imports!
         require('./Admin').default(store),
-        // require('./Publisher').default(store),
         require('./Register').default(store),
         require('./Login').default(store),
         // require('./Logout').default(store),

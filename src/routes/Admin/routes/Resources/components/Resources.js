@@ -38,7 +38,7 @@ class Resources extends Component {
 
     return (
       <div className='page-layout__wrapper product-list-wrapper'>
-        <h2 className='page-title'>媒体资源</h2>
+        <h2 className='page-title'>Resources</h2>
         <Menu
           defaultSelectedKeys={pageKeys}
           selectedKeys={pageKeys}
@@ -46,13 +46,13 @@ class Resources extends Component {
           className='page-navs'
         >
           <Menu.Item key='zone'>
-            <Link className='nav-item' to='/admin/resources/zone' title='PC推广位'>
-              PC推广位
+            <Link className='nav-item' to='/admin/resources/zone' title='Page1'>
+              Page1
             </Link>
           </Menu.Item>
           <Menu.Item key='mzone'>
-            <Link className='nav-item' to='/admin/resources/mzone' title='WAP推广位'>
-              WAP推广位
+            <Link className='nav-item' to='/admin/resources/mzone' title='Page2'>
+              Page2
             </Link>
           </Menu.Item>
         </Menu>

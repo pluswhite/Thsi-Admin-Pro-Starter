@@ -92,7 +92,7 @@ class AccountList extends Component {
         )
       },
       {
-        title: '名称',
+        title: 'Username',
         dataIndex: 'username',
         key: 'username',
         fixed: IS_PC && 'left',
@@ -100,13 +100,13 @@ class AccountList extends Component {
         render: text => <p title={text}>{text}</p>
       },
       {
-        title: '邮箱',
+        title: 'Email',
         dataIndex: 'email',
         key: 'email',
         render: text => <p title={text}>{text}</p>
       },
       {
-        title: '权限角色',
+        title: 'Role',
         dataIndex: 'role',
         key: 'role',
         render: (text, record) => {
@@ -117,14 +117,14 @@ class AccountList extends Component {
         }
       },
       {
-        title: '最后修改时间',
+        title: 'Last Modified',
         dataIndex: 'created_at',
         key: 'created_at',
         sorter: (a, b) => new Date(a.created_at) - new Date(b.created_at),
         render: text => <p title={text}>{text}</p>
       },
       {
-        title: '最后登录时间',
+        title: 'Last Login Time',
         dataIndex: 'last_login_time',
         key: 'last_login_time',
         defaultSortOrder: 'descend',
@@ -132,7 +132,7 @@ class AccountList extends Component {
         render: text => <p title={text}>{text || '0000-00-00 00:00:00'}</p>
       },
       {
-        title: '操作',
+        title: 'Actions',
         dataIndex: 'action',
         key: 'action',
         fixed: 'right',
@@ -196,14 +196,14 @@ class AccountList extends Component {
           <Card
             title={
               <span>
-                <Icon type='bars' /> 列表
+                <Icon type='bars' /> List
               </span>
             }
             extra={
               <div>
-                <Button type='default' shape='circle' icon='reload' title='重新加载列表' onClick={this.onReloadList} />
-                <Button type='default' icon='plus' title='新增账号' onClick={this.onNewClick}>
-                  新增账号
+                <Button type='default' shape='circle' icon='reload' title='Reload' onClick={this.onReloadList} />
+                <Button type='default' icon='plus' title='New' onClick={this.onNewClick}>
+                  New
                 </Button>
               </div>
             }

@@ -388,7 +388,7 @@ class AdZonesList extends Component {
     return (
       <div className='page-adZones-list__wrapper'>
         <Helmet>
-          <title>发布列表</title>
+          <title>Adzones</title>
         </Helmet>
         {/* <h2 className='page-title'>
           发布

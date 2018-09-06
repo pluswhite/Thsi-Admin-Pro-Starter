@@ -22,8 +22,8 @@
   "author": "Eric Zhang <beefjava@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "ant-design-pro": "^1.4.4",
-    "antd": "^3.8.4",
+    "ant-design-pro": "^2.0.0",
+    "antd": "^3.9.1",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "compression": "^1.6.2",

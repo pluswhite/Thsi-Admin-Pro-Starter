@@ -289,8 +289,7 @@ class Admin extends Component {
                               <Icon type='user' />
                               <span className='title'>{userName}</span>
                             </span>
-                          }
-                        >
+                          }>
                           <MenuItem key='profile'>
                             <Link className='btn' to='/admin/me/profile'>
                               <Icon type='solution' />
@@ -305,7 +304,7 @@ class Admin extends Component {
                           </MenuItem>
                           <MenuItem key='logout'>
                             <Link className='btn nav-logout' to='/login'>
-                            <Icon type='poweroff' />
+                              <Icon type='poweroff' />
                               <span className='title'>{formatMessage({ id: 'logout', defaultMessage: 'Logout' })}</span>
                             </Link>
                           </MenuItem>

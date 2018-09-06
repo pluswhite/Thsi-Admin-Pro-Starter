@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { browserHistory } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import {
   // Layout,
   // Spin,
@@ -35,6 +35,7 @@ class Login extends Component {
     redirectPath: PropTypes.string,
     // isAuthenticated: PropTypes.bool,
     permissions: PropTypes.object,
+    intl: PropTypes.object,
   }
 
   constructor (props) {
@@ -80,7 +81,10 @@ class Login extends Component {
     const {
       isLoading,
       form,
+      intl,
     } = this.props
+
+    const { formatMessage } = intl
 
     const {
       getFieldDecorator,
@@ -95,7 +99,12 @@ class Login extends Component {
     return (
       <div className='page-login__container'>
         <Helmet>
-          <title>登录</title>
+          <title>
+            {formatMessage({
+              id: 'login',
+              defaultMessage: 'Login'
+            })}
+          </title>
         </Helmet>
         <div className='page-login_wrapper'>
           <Row>
@@ -104,7 +113,12 @@ class Login extends Component {
               <h1 className='login-logo'>LOGO</h1>
               <div className='login-form-wrapper'>
                 <h2 className='page-title'>
-                  <span className='title'>账号登录</span>
+                  <span className='title'>
+                    {formatMessage({
+                      id: 'login',
+                      defaultMessage: 'Login'
+                    })}
+                  </span>
                 </h2>
                 <Form onSubmit={this.handleLoginSubmit} className='login-form'>
                   {emailErrors && <Alert message={emailErrors.join(',')} type='error' closable />}
@@ -116,18 +130,24 @@ class Login extends Component {
                       rules: [
                         {
                           required: true,
-                          message: '请输入邮箱地址',
+                          message: formatMessage({
+                            id: 'login.email.required',
+                            defaultMessage: 'Invalid email'
+                          })
                         },
                         {
                           type: 'email',
-                          message: '请输入合法的邮箱地址'
+                          message: formatMessage({
+                            id: 'login.email.format',
+                            defaultMessage: 'Invalid email'
+                          })
                         }
                       ],
                     })(
                       <Input size='large'
                         disabled={isLoading}
                         prefix={<Icon type='user' />}
-                        placeholder='邮箱' />
+                        placeholder={formatMessage({ id: 'email', defaultMessage: 'Email' })} />
                     )}
                   </FormItem>
                   <FormItem help=''>
@@ -136,11 +156,17 @@ class Login extends Component {
                       rules: [
                         {
                           required: true,
-                          message: '请输入密码'
+                          message: formatMessage({
+                            id: 'login.password.required',
+                            defaultMessage: 'Invalid password'
+                          })
                         },
                         {
                           min: 6,
-                          message: '密码至少为6位'
+                          message: formatMessage({
+                            id: 'login.password.min',
+                            defaultMessage: 'Invalid password'
+                          })
                         }
                       ],
                     })(
@@ -148,7 +174,7 @@ class Login extends Component {
                         disabled={isLoading}
                         prefix={<Icon type='lock' />}
                         type='password'
-                        placeholder='密码' />
+                        placeholder={formatMessage({ id: 'password', defaultMessage: 'Password' })} />
                     )}
                   </FormItem>
                   <FormItem>
@@ -162,15 +188,20 @@ class Login extends Component {
                           defaultMessage: 'Remember me'
                         })}
                       </Checkbox>
-                    )}
+                    )} */}
                     <Link className='login-form-forgot' to='/reset-psw'>
                       {formatMessage({
                         id: 'login.forgot_password',
                         defaultMessage: 'Forgot password'
                       })}
-                    </Link> */}
-                    <Button loading={isLoading} size='large' type='primary' htmlType='submit' className='login-form-button'>登录</Button>
-                    {/* {formatMessage({
+                    </Link>
+                    <Button loading={isLoading} size='large' type='primary' htmlType='submit' className='login-form-button'>
+                      {formatMessage({
+                        id: 'login',
+                        defaultMessage: 'Login'
+                      })}
+                    </Button>
+                    {formatMessage({
                       id: 'login.register.tips',
                       defaultMessage: 'Or '
                     })}
@@ -179,7 +210,7 @@ class Login extends Component {
                         id: 'login.register',
                         defaultMessage: 'Register now!'
                       })}
-                    </Link> */}
+                    </Link>
                   </FormItem>
                 </Form>
               </div>

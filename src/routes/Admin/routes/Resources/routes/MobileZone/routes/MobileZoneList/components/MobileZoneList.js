@@ -71,9 +71,9 @@ class ActList extends Component {
     return (
       <div className='act-list-wrapper'>
         <Helmet>
-          <title>活动列表</title>
+          <title>Page2</title>
         </Helmet>
-        <div className='zone-list'>WAP推广位列表</div>
+        <div className='zone-list'>Page2</div>
       </div>
     )
   }

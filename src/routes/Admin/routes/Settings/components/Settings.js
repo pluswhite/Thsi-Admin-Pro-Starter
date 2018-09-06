@@ -52,31 +52,15 @@ class Settings extends Component {
     return (
       <div className='page-layout__wrapper'>
         <Helmet>
-          <title>系统设置</title>
+          <title>Settings</title>
         </Helmet>
         <h2 className='page-title'>
-          设置
+          Settings
         </h2>
         <div className='settings-wrapper'>
           <Card
-            title={<span><Icon type='setting' /> 设置列表</span>}
+            title={<span><Icon type='setting' /> List</span>}
             bordered={false}>
-            <Row gutter={24}>
-              <Col xxl={6} xl={8} lg={8} md={8} sm={12} xs={24}>
-                <Form>
-                  <FormItem
-                    {...formItemLayout}
-                    label='侧边栏收缩是否可见'
-                  >
-                    <Switch
-                      defaultChecked={siderVisible}
-                      onChange={this.onChange}
-                      checkedChildren='可见'
-                      unCheckedChildren='隐藏' />
-                  </FormItem>
-                </Form>
-              </Col>
-            </Row>
           </Card>
         </div>
       </div>

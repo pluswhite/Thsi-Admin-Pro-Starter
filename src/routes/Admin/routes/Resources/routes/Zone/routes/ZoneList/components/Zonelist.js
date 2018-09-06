@@ -19,15 +19,15 @@ const dataSource = [{
 }]
 
 const columns = [{
-  title: '姓名',
+  title: 'Name',
   dataIndex: 'name',
   key: 'name',
 }, {
-  title: '年龄',
+  title: 'Age',
   dataIndex: 'age',
   key: 'age',
 }, {
-  title: '住址',
+  title: 'Address',
   dataIndex: 'address',
   key: 'address',
 }]
@@ -96,20 +96,20 @@ class ActList extends Component {
     return (
       <div className='act-list-wrapper'>
         <Helmet>
-          <title>PC推广位列表</title>
+          <title>Page1</title>
         </Helmet>
         <div className='zone-list'>
           <Card
             title={
               <span>
-                <Icon type='bars' /> 列表
+                <Icon type='bars' /> List
               </span>
             }
             extra={
               <div>
-                <Button type='default' shape='circle' icon='reload' title='重新加载列表' onClick={this.onReloadList} />
-                <Button type='default' icon='plus' title='新增PC推广位' onClick={this.onNewClick}>
-                  新增PC推广位
+                <Button type='default' shape='circle' icon='reload' title='Reload' onClick={this.onReloadList} />
+                <Button type='default' icon='plus' title='New' onClick={this.onNewClick}>
+                  New
                 </Button>
               </div>
             }

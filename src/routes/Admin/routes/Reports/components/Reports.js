@@ -17,7 +17,7 @@ class Reports extends Component {
 
     return (
       <div className='page-layout__wrapper'>
-        <h2 className='page-title'>数据报告</h2>
+        <h2 className='page-title'>Reports</h2>
         {children}
       </div>
     )

@@ -33,8 +33,6 @@ export default store => ({
       cb(null, [
         // Remove imports!
         require('./routes/OrderReport').default(store),
-        require('./routes/CampaignReport').default(store),
-        require('./routes/CreativeReport').default(store),
       ])
     })
   }

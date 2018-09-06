@@ -49,9 +49,9 @@ class Dashboard extends Component {
     return (
       <div className='page-layout__wrapper dash-wrapper'>
         <Helmet>
-          <title>概览</title>
+          <title>Dashboard</title>
         </Helmet>
-        <h2 className='page-title'>数据监控</h2>
+        <h2 className='page-title'>Dashboard</h2>
       </div>
     )
   }

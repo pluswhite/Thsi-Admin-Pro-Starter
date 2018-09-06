@@ -159,8 +159,11 @@ class Admin extends Component {
       pathname,
       isAuthenticated,
       userName,
-      isLoading
+      isLoading,
+      intl
     } = this.props
+
+    const { formatMessage } = intl
 
     // console.log(permissions)
     // console.log(siderKeys)
@@ -262,15 +265,17 @@ class Admin extends Component {
                         title={
                           <span>
                             <Icon type='mail' />
-                            <span className='title'>消息</span>
+                            <span className='title'>{formatMessage({ id: 'message.title', defaultMessage: 'message' })}</span>
                           </span>
                         }
                       >
                         {msgShowList}
-                        <MenuItem>没有新消息~</MenuItem>
+                        {msgShowList.length === 0 &&
+                          <MenuItem>{formatMessage({ id: 'message.empty', defaultMessage: 'Empty' })}</MenuItem>
+                        }
                         <MenuItem key='message-list' className='view-all-message'>
                           <Link className='btn' to='/admin/message' style={{ textAlign: 'center' }}>
-                            <span className='title'>查看所有消息</span>
+                            <span className='title'>{formatMessage({ id: 'message.all', defaultMessage: 'View all messages' })}</span>
                           </Link>
                         </MenuItem>
                       </SubMenu>
@@ -289,40 +294,23 @@ class Admin extends Component {
                           <MenuItem key='profile'>
                             <Link className='btn' to='/admin/me/profile'>
                               <Icon type='solution' />
-                              <span className='title'>个人信息</span>
+                              <span className='title'>{formatMessage({ id: 'profile', defaultMessage: 'Profile' })}</span>
                             </Link>
                           </MenuItem>
                           <MenuItem key='password'>
                             <Link className='btn' to='/admin/me/password'>
                               <Icon type='key' />
-                              <span className='title'>密码</span>
+                              <span className='title'>{formatMessage({ id: 'password', defaultMessage: 'Password' })}</span>
                             </Link>
                           </MenuItem>
                           <MenuItem key='logout'>
                             <Link className='btn nav-logout' to='/login'>
                             <Icon type='poweroff' />
-                              <span className='title'>退出</span>
+                              <span className='title'>{formatMessage({ id: 'logout', defaultMessage: 'Logout' })}</span>
                             </Link>
                           </MenuItem>
                         </SubMenu>
                       )}
-                    {!isAuthenticated &&
-                      !/login/.test(pathname) && (
-                        <MenuItem key='login'>
-                          <Link className='btn' to='/login' activeClassName='active'>
-                            <i className='fa fa-sign-in' />
-                            <span className='title'>登录</span>
-                          </Link>
-                        </MenuItem>
-                      )}
-                    {/* {!isAuthenticated &&
-                      <MenuItem key='register'>
-                        <Link className='btn' to='/register' activeClassName='active'>
-                          <i className='fa fa-key' />
-                          <span className='title'>注册</span>
-                        </Link>
-                      </MenuItem>
-                    } */}
                   </Menu>
                 </Col>
               </Row>

@@ -1,15 +1,7 @@
 const zhCN = {
   // '': '',
-  // Header.
-  'header.home': '首页',
-  'header.admin': '管理',
-  'header.messages': '消息',
-  'header.view_all_messages': '查看所有消息',
-  'header.profiles': '用户信息',
-  'header.password': '密码',
-  'header.logout': '退出',
-
   // Login.
+  'login': '登录',
   'login.title': '登录',
   'login.email': '邮箱地址',
   'login.email.required': '请输入您的邮箱地址',
@@ -22,6 +14,7 @@ const zhCN = {
   'login.register.tips': '还没有账号？',
 
   // Logout.
+  'logout': '退出',
   'logout.tips': '成功退出！',
   'logout.redirect': '页面将跳转到',
   'logout.redirect.home_page': '首页',
@@ -82,9 +75,12 @@ const zhCN = {
   'message.list.status.read': '已读',
   'message.list.status.unread': '未读',
   'message.list.action': '操作',
+  'message.empty': '没有新消息~',
+  'message.all': '查看全部消息',
 
   // Admin.
   // Breadcrumb.
+  'home': '首页',
   'admin': '管理',
   'publisher': '管理',
   'dashboard': '概览',

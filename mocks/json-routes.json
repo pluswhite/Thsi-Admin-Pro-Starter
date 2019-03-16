@@ -13,10 +13,6 @@
 
   "/user/user_list": "/userList",
 
-  "/publish/publish_list": "/publishList",
-
-  "/order/order_list": "/orderList",
-
   "/me/msgList": "/msgList",
   "/me/profile": "/profile",
 

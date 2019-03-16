@@ -27,6 +27,7 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "compression": "^1.6.2",
+    "cz-conventional-changelog": "^2.1.0",
     "echarts": "^4.1.0",
     "echarts-for-react": "^2.0.14",
     "express": "^4.14.0",
@@ -118,6 +119,11 @@
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2",
     "yargs": "^8.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "theme": "./src/theme.js"
 }

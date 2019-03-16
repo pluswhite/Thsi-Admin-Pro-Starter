@@ -22,12 +22,12 @@ module.exports = function () {
 
     userList: require('./public/user/user_list.js'),
 
-    publishList: require('./public/publish/publish_list.js'),
+    // publishList: require('./public/publish/publish_list.js'),
 
     // Order
-    orderList: require('./public/order/order_list.js'),
+    // orderList: require('./public/order/order_list.js'),
     // Report
-    reportList: require('./public/reports/report_list.js'),
+    // reportList: require('./public/reports/report_list.js'),
   }
 
   return data
